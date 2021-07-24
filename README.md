@@ -1,0 +1,11 @@
+# Django Web Practical App
+- GAE (Google App Engine )
+  - Google Cloud Storage
+- App
+  - login 機能
+  - Javascript(非同期処理)
+  - お問い合わせ page
+    - google re CAPTCHA
+  - user page
+  - 決済 page(demo page)
+    - 必要な場合(決済行者に申請)、API(api key)取得・実装
