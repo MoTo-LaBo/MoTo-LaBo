@@ -1,0 +1,40 @@
+@charset "UTF-8";
+/* CSS Document */
+
+/* もし要素やボックスモデルによっては、content-boxを使いたいと思った時に、
+box-sizing: border-box この書き方だと親要素含め子要素すべてに対してまた
+content-boxを指定し直さなければいけません。
+しかし、下記のように親要素を継承するように書いておけば、親要素のみcontent-boxを
+指定するだけで、その子要素にもcontent-boxが適用される、といった形になるため、
+汎用性があります。　↓ */
+
+*, *:before, *:after {
+    box-sizing: inherit;
+  }
+
+html {
+  font-size: 62.5%;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+html body {
+  color: #333;
+  font-family: vdl-v7gothic, sans-serif;
+  font-weight: 300;
+  font-size: 1.6em;
+  line-height: 2.4rem;
+  font-style: normal;
+  text-align: center;
+}
+
+html body a:hover {
+    opacity: 0.5;
+    text-decoration: none;
+
+}
+
+/* class = "noen" を与えることによって画面から非表示になる */
+.noen {
+  display: none;
+}

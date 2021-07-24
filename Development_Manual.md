@@ -98,3 +98,38 @@
     {% endblock %}
 - browser では、base.html の継承と index.html の記述したものが表示される
 
+### 5. livereload
+> https://pypi.org/project/django-livereload-server/
+- 自動でリロードしてくれる
+- settings.py に記述
+  - INSTALLED_APPS [　] の
+    - 'django.contrib.staticfiles'の前に記述
+    - ドキュメントに記述してある
+  - MIDDLEWARE [ ] に
+    - 'livereload.middleware.LiveReloadScript',
+#### 5-1. livereloadサーバーを起動
+    python manage.py livereload
+- livereload server は起動したままにする
+- error がでた場合は port 番号を変えないといけない
+  - ドキュメントに記載してある
+#### 5-2. terminal を１つ追加して
+    python manage.py runserver
+- localserver も起動させておく
+#### 5-3. 常時２つが起動している状態
+- これで file 編集後 -> save -> 自動 reload してくれる
+- **save した段階で自動で Reload してくれる**
+### 5-4. MDB(Material Design Bootstrap)
+- CDN の CSS と JS を base.html に読み込み
+> https://mdbootstrap.com/docs/standard/getting-started/installation/
+### 5-5. static direcotry 作成
+    STATICFILES_DIRS = [
+        os.psth.join(BASE_DIR, 'static'),
+    ]
+- root 直下に static dir 作成
+  - その中に scss, css, img, js etc...
+- settings.py に上記を記述 path を通す
+#### base.html に下記を記述
+    <!DOCTYPE html>
+    {% load static %}
+    <html lang="ja">
+- load static tag を html file に記述する
