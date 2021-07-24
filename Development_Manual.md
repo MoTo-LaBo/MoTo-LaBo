@@ -128,8 +128,13 @@
 - root 直下に static dir 作成
   - その中に scss, css, img, js etc...
 - settings.py に上記を記述 path を通す
-#### base.html に下記を記述
+### 5-6. base.html に下記を記述
     <!DOCTYPE html>
     {% load static %}
     <html lang="ja">
-- load static tag を html file に記述する
+- load static tag を 全ての html file 上記に記述する
+### 5-7. include template tag
+    {% include 'mysite/snippets/header.html' %}
+1. snippets dir 作成 -> base.html から header.html, footer.html を作成
+2. snippets dir に入れる
+3. base.html に include template tag 1行を記述する事でかなりスッキリする

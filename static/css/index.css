@@ -98,7 +98,7 @@
 .main__images-logo {
   position: fixed;
   right: 60px;
-  bottom: 70px;
+  bottom: 85px;
   z-index: 11;
 }
 
@@ -127,7 +127,9 @@
 .footer__copyright {
   position: absolute;
   right: 60px;
-  bottom: 7px;
+  bottom: 10px;
   font-size: 1.5rem;
   color: #333;
-}/*# sourceMappingURL=index.css.map */
+}
+
+/*========= responsive @media ===============*//*# sourceMappingURL=index.css.map */

@@ -73,44 +73,12 @@
 </head>
 
 <body>
-    <!-- title log, side menubar  -->
-    <header class="header">
-        <h1 class="header__logo">
-            <a href="index.html">
-                <img src="{% static 'images/top/MOTOYA-ITO-DESIGN-title-w.png' %}" alt="MOTOYA ITO DESGIN" />
-            </a>
-        </h1>
-        <nav class="header__menu">
-            <ul>
-                <li><a href="about.html">ABOUT</a></li>
-                <li><a href="identity.html">IDENTITY</a></li>
-                <li><a href="contact.html">CONTACT</a></li>
-            </ul>
-        </nav>
-    </header>
+    {% include 'mysite/snippets/header.html' %}
+
     {% block content %}
     {% endblock %}
-    <footer class="footer">
-        <div class="footer__sns-links">
-            <ul>
-                <li>
-                    <!-- Twitter -->
-                    <a class="sns_link btn btn-link btn-floating btn-lg" href="https://twitter.com/MoTo_labo" role="button" data-mdb-ripple-color="dark"><i class="icon fab fa-twitter fa-2x"></i></a>
-                </li>
-                <li>
-                    <!-- note -->
-                    <a class="sns_link btn btn-link btn-floating btn-lg" href="https://note.com/moto_labo" role="button" data-mdb-ripple-color="dark"><i class="icon far fa-sticky-note fa-2x"></i></a>
-                </li>
-                <li>
-                    <!-- Github -->
-                    <a class="sns_link btn btn-link btn-floating btn-lg" href="https://github.com/MoTo-LaBo" role="button" data-mdb-ripple-color="dark"><i class="icon fab fa-github fa-2x"></i></a>
-                </li>
-            </ul>
-        </div>
-        <small class="footer__copyright">© 2021 MoTo LaBo</small>
-    </footer>
-    <!-- MDB -->
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/3.6.0/mdb.min.js"></script>
+
+    {% include 'mysite/snippets/footer.html' %}
 </body>
 
 </html>
