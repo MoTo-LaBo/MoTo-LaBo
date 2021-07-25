@@ -44,10 +44,11 @@ html body a:hover {
   margin: 0 0 0 60px;
 }
 .header__logo {
-  margin-bottom: 250px;
+  margin-bottom: 260px;
 }
 .header__menu {
   font-size: 2rem;
+  margin-left: 5px;
   /*現在地とhoverの設定*/
 }
 .header__menu ul li {
@@ -129,7 +130,7 @@ html body a:hover {
   /*要素の配置*/
   position: absolute;
   /*要素を天地中央寄せ*/
-  top: 47%;
+  top: 48%;
   left: 45%;
   text-align: center;
   transform: translateY(-50%) translateX(-50%);
