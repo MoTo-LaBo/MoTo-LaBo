@@ -1,0 +1,98 @@
+.main {
+    &__images {
+        height: 100vmin;
+        margin: 0 0 0 290px;
+        background-size: 80vw;
+        overflow: hidden;
+        position: relative;
+
+        & .top_title {
+            /*要素の配置*/
+            position: absolute;
+            /*要素を天地中央寄せ*/
+            top: 47%;
+            left: 45%;
+            text-align: center;
+            transform: translateY(-50%) translateX(-50%);
+            /*見た目の調整*/
+            color: $cblack;
+            // text-shadow: 0 0 15px #666;
+
+            & .meta {
+                font-size: 5.5rem;
+                letter-spacing: 8px;
+            }
+
+            & .sub {
+                font-size: 2.5rem;
+                letter-spacing: 3px;
+            }
+
+            & .sub-j {
+                font-size: 2rem;
+                letter-spacing: 2px;
+            }
+        }
+
+        &-pohoto {
+            z-index: 10;
+            opacity: 0;
+            height: 100%;
+            width: 105%;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            position: absolute;
+            animation: anime 24s 0s infinite;
+
+            &::before {
+                display: block;
+                content: "";
+                padding-top: 50%;
+            }
+
+            &:nth-of-type(2) {
+                animation-delay: 6s;
+            }
+
+            &:nth-of-type(3) {
+                animation-delay: 12s;
+            }
+
+            &:nth-of-type(4) {
+                animation-delay: 18s;
+            }
+
+            @keyframes anime {
+                0% {
+                    opacity: 0;
+                }
+
+                8% {
+                    opacity: 1;
+                }
+
+                17% {
+                    opacity: 1;
+                }
+
+                25% {
+                    opacity: 0;
+                    transform: translateX(-37px);
+                    z-index: 9;
+                }
+
+                100% {
+                    opacity: 0;
+                }
+            }
+        }
+
+        &-logo {
+            position: fixed;
+            right: 55px;
+            bottom: 45px;
+            z-index: 11;
+        }
+    }
+}

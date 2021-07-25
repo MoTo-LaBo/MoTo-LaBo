@@ -1,0 +1,98 @@
+$cblack: #333;
+
+.header {
+    text-align: left;
+    display: inline-block;
+    position: absolute;
+    top: 100px;
+    left: 0;
+    margin: 0 0 0 60px;
+
+    &__logo {
+        margin-bottom: 250px;
+    }
+
+    &__menu {
+        font-size: 2rem;
+
+        & ul li {
+            margin-bottom: 25px;
+
+            & a {
+                text-decoration: none;
+                letter-spacing: 2px;
+                color: $cblack;
+                padding: 5px;
+            }
+        }
+
+        & ul.gnavi li a {
+            /*線の基点とするためrelativeを指定*/
+            position: relative;
+
+            &::after {
+                content: '';
+                /*絶対配置で線の位置を決める*/
+                position: absolute;
+                bottom: 0;
+                left: 7%;
+                /*線の形状*/
+                width: 80%;
+                height: 1px;
+                background: $cblack;
+                /*アニメーションの指定*/
+                transition: all 1s;
+                transform: scale(0, 1);
+                /*X方向0、Y方向1*/
+                transform-origin: left top;
+                /*左上基点*/
+            }
+        }
+
+        & ul.gnavi li a:hover {
+            color: $cblack;
+        }
+
+        /*現在地とhoverの設定*/
+        & ul.gnavi li a:hover::after {
+            transform: scale(1, 1);
+            /*X方向にスケール拡大*/
+        }
+    }
+}
+
+.footer {
+    text-align: left;
+    margin-left: 65px;
+
+    &__sns-links {
+        position: absolute;
+        bottom: 50px;
+
+        & ul li {
+            display: inline-block;
+            margin-right: 31px;
+
+            & a.sns_link {
+                text-decoration: none;
+
+                &:hover {
+                    color: rgb(255, 255, 255);
+                    background-color: rgba(0, 0, 0, 0.3);
+                }
+
+                & i.icon {
+                    color: $cblack;
+                }
+            }
+        }
+    }
+
+    &__copyright {
+        position: absolute;
+        right: 60px;
+        bottom: 10px;
+        font-size: 1.5rem;
+        color: $cblack;
+    }
+}
