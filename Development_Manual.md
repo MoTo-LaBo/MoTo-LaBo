@@ -221,4 +221,31 @@
 - admin に Article 反映
   - 管理画面（admin）記事作成
 ## 8. 記事の表示・反映
-
+- template tag を使用して for文で記述
+### 8-1. blog app views.py
+    def article(request, pk):
+        objs = Article.objects.all()
+        obj = Article.objects.get(pk=pk)
+        context = {
+            'articles': objs,
+            'article': obj,
+        }
+1. all() で models.py で定義した tabel column を全て取得
+2. objs に入れて、articales という name で使用
+### 8-2. article.html に template tag で記述
+    {% for obj in articles %}
+    {{ obj.title }}
+    {{ obj.text }}
+    {{ obj.author }}
+    {{ obj.create_at }}
+    {{ obj.id }}
+    {% endfor %}
+1. for 文で回して、admin で作成した記事の情報を入れていく
+2. aricles は obj という変数に入れて使用
+### 8-3. 記事の puraimari key を取得
+        path('<slug:pk>/', views.article),
+1. get(pk=pk) で pk 取得
+2. obj に格納 article という name で使用
+3. urls.py に path 追記
+4. article.html に link tag < a href="/blog/{{ obj.id }}/" > tag を作成して、各記事の詳細に飛ばす
+5. article_detail.html 記事詳細作成

@@ -1,0 +1,31 @@
+{% extends 'mysite/base.html' %}
+{% load static %}
+{% block content %}
+<div class="content p-0">
+    <div class="card shadow-5-strong">
+        <div class="bg-image hover-overlay ripple" data-mdb-ripple-color="light">
+            <img src=" https://mdbootstrap.com/img/new/standard/nature/111.jpg" class="img-fluid" alt="{{ article.title }}" style="width: 100%;" />
+            <a href="#!">
+                <div class="mask" style="background-color: rgba(251, 251, 251, 0.15);"></div>
+            </a>
+        </div>
+        <div class="card-body">
+            <h4 class="card-title">{{ article.title }}</h4>
+            <hr>
+            <p class="card-text">{{ article.text | safe | linebreaksbr | urlize }}</p>
+            <hr>
+            <a href="javascript:void(0);" onclick="window.history.back();" class="btn btn-light" data-mdb-ripple-color="dark">戻る</a>
+            <a href="#" class="btn btn-light" data-mdb-ripple-color="dark">お気に入り</a>
+            <small>1&nbsp;<i class="far fa-heart"></i></small>
+            {% if object.author == request.user %}
+            <a href="#" class="btn btn-primary" style="background-color: #4f4f4f;" data-mdb-ripple-color="white">更新</a>
+            <a href="#" class="btn btn-primary" style="background-color: #33333374;" data-mdb-ripple-color="white">削除</a>
+            {%  endif %}
+            <hr>
+            <div class="text-center mt-1">
+                <small class="text-muted ms-3">by&nbsp;{{ article.author }}&nbsp;at {{ article.create_at }}</small>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
