@@ -26,7 +26,6 @@ html body {
   font-family: vdl-v7gothic, sans-serif;
   font-weight: 300;
   font-size: 1.6em;
-  line-height: 2.4rem;
   font-style: normal;
   text-align: center;
 }
@@ -38,10 +37,11 @@ html body a:hover {
 .header {
   text-align: left;
   display: inline-block;
-  position: absolute;
+  position: fixed;
   top: 100px;
   left: 0;
-  margin: 0 0 0 60px;
+  margin: 0 0 0 75px;
+  line-height: 2.4rem;
 }
 .header__logo {
   margin-bottom: 260px;
@@ -89,12 +89,25 @@ html body a:hover {
   /*X方向にスケール拡大*/
 }
 
+.side_copy {
+  display: inline-block;
+  position: fixed;
+  top: 50%;
+  right: -2%;
+  margin: 0 0 0 0;
+  transform: rotate(90deg);
+  letter-spacing: 2px;
+  line-height: 2.4rem;
+}
+
 .footer {
-  text-align: left;
-  margin-left: 65px;
+  text-align: center;
+  margin-left: 90px;
+  z-index: 0;
+  line-height: 2.4rem;
 }
 .footer__sns-links {
-  position: absolute;
+  position: fixed;
   bottom: 50px;
 }
 .footer__sns-links ul li {
@@ -111,22 +124,18 @@ html body a:hover {
 .footer__sns-links ul li a.sns_link i.icon {
   color: #333;
 }
-.footer__copyright {
-  position: absolute;
-  right: 60px;
-  bottom: 10px;
-  font-size: 1.5rem;
-  color: #333;
-}
 
-.main__images {
+main {
+  line-height: 2.4rem;
+}
+main .main__images {
   height: 100vmin;
-  margin: 0 0 0 290px;
-  background-size: 80vw;
+  margin: 0 0 0 350px;
+  background-size: 81vw;
   overflow: hidden;
   position: relative;
 }
-.main__images .top_title {
+main .main__images .top_title {
   /*要素の配置*/
   position: absolute;
   /*要素を天地中央寄せ*/
@@ -137,19 +146,19 @@ html body a:hover {
   /*見た目の調整*/
   color: #333;
 }
-.main__images .top_title .meta {
+main .main__images .top_title .meta {
   font-size: 5.5rem;
   letter-spacing: 8px;
 }
-.main__images .top_title .sub {
+main .main__images .top_title .sub {
   font-size: 2.5rem;
   letter-spacing: 3px;
 }
-.main__images .top_title .sub-j {
+main .main__images .top_title .sub-j {
   font-size: 2rem;
   letter-spacing: 2px;
 }
-.main__images-pohoto {
+main .main__images-pohoto {
   z-index: 10;
   opacity: 0;
   height: 100%;
@@ -161,20 +170,20 @@ html body a:hover {
   -webkit-animation: anime 24s 0s infinite;
           animation: anime 24s 0s infinite;
 }
-.main__images-pohoto::before {
+main .main__images-pohoto::before {
   display: block;
   content: "";
   padding-top: 50%;
 }
-.main__images-pohoto:nth-of-type(2) {
+main .main__images-pohoto:nth-of-type(2) {
   -webkit-animation-delay: 6s;
           animation-delay: 6s;
 }
-.main__images-pohoto:nth-of-type(3) {
+main .main__images-pohoto:nth-of-type(3) {
   -webkit-animation-delay: 12s;
           animation-delay: 12s;
 }
-.main__images-pohoto:nth-of-type(4) {
+main .main__images-pohoto:nth-of-type(4) {
   -webkit-animation-delay: 18s;
           animation-delay: 18s;
 }
@@ -216,9 +225,14 @@ html body a:hover {
     opacity: 0;
   }
 }
-.main__images-logo {
+main .main__images-logo {
   position: fixed;
   right: 55px;
   bottom: 45px;
   z-index: 11;
+}
+
+.content {
+  margin: 210px 25% 5% 25%;
+  line-height: 2.4rem;
 }/*# sourceMappingURL=style.css.map */

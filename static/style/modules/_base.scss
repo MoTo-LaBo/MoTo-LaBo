@@ -1,12 +1,11 @@
-$cblack: #333;
-
 .header {
     text-align: left;
     display: inline-block;
-    position: absolute;
+    position: fixed;
     top: 100px;
     left: 0;
-    margin: 0 0 0 60px;
+    margin: 0 0 0 75px;
+    @include line-h;
 
     &__logo {
         margin-bottom: 260px;
@@ -62,12 +61,25 @@ $cblack: #333;
     }
 }
 
+.side_copy {
+    display: inline-block;
+    position: fixed;
+    top: 50%;
+    right: -2%;
+    margin: 0 0 0 0;
+    transform: rotate(90deg);
+    letter-spacing: 2px;
+    @include line-h;
+}
+
 .footer {
-    text-align: left;
-    margin-left: 65px;
+    text-align: center;
+    margin-left: 90px;
+    z-index: 0;
+    @include line-h;
 
     &__sns-links {
-        position: absolute;
+        position: fixed;
         bottom: 50px;
 
         & ul li {
@@ -87,13 +99,5 @@ $cblack: #333;
                 }
             }
         }
-    }
-
-    &__copyright {
-        position: absolute;
-        right: 60px;
-        bottom: 10px;
-        font-size: 1.5rem;
-        color: $cblack;
     }
 }

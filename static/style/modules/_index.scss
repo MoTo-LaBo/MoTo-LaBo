@@ -1,8 +1,11 @@
-.main {
-    &__images {
+main {
+
+    @include line-h;
+
+    & .main__images {
         height: 100vmin;
-        margin: 0 0 0 290px;
-        background-size: 80vw;
+        margin: 0 0 0 350px;
+        background-size: 81vw;
         overflow: hidden;
         position: relative;
 

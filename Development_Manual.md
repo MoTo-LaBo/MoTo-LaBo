@@ -220,3 +220,5 @@
 ### 7-7. blog dir admin.py
 - admin に Article 反映
   - 管理画面（admin）記事作成
+## 8. 記事の表示・反映
+
