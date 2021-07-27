@@ -223,13 +223,12 @@
 ## 8. 記事の表示・反映
 - template tag を使用して for文で記述
 ### 8-1. blog app views.py
-    def article(request, pk):
+    def articles(request):
         objs = Article.objects.all()
-        obj = Article.objects.get(pk=pk)
         context = {
             'articles': objs,
-            'article': obj,
         }
+        return render(request, 'blog/article.html', context)
 1. all() で models.py で定義した tabel column を全て取得
 2. objs に入れて、articales という name で使用
 ### 8-2. article.html に template tag で記述
@@ -243,7 +242,16 @@
 1. for 文で回して、admin で作成した記事の情報を入れていく
 2. aricles は obj という変数に入れて使用
 ### 8-3. 記事の puraimari key を取得
-        path('<slug:pk>/', views.article),
+    # urls
+    path('<slug:pk>/', views.article),
+
+    # views
+    def article(request, pk):
+        obj = Article.objects.get(pk=pk)
+        context = {
+            'article': obj,
+        }
+        return render(request, 'blog/article_detail.html', context)
 1. get(pk=pk) で pk 取得
 2. obj に格納 article という name で使用
 3. urls.py に path 追記

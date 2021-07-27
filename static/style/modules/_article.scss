@@ -1,4 +1,11 @@
 .content {
-    margin: 210px 25% 5% 25%;
+    margin: 230px 25% 5% 25%;
     @include line-h;
+
+    &_detail {
+        margin: 0 25% 0 25%;
+        top: 10%;
+        position: absolute;
+        @include line-h;
+    }
 }

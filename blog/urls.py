@@ -4,6 +4,6 @@ from . import views  # . (dot)は blog dir の意
 
 urlpatterns = [
     # path('test/', views.test),
-    path('article/', views.article),
+    path('articles/', views.articles),
     path('<slug:pk>/', views.article),
 ]

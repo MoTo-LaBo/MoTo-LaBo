@@ -233,6 +233,12 @@ main .main__images-logo {
 }
 
 .content {
-  margin: 210px 25% 5% 25%;
+  margin: 230px 25% 5% 25%;
+  line-height: 2.4rem;
+}
+.content_detail {
+  margin: 0 25% 0 25%;
+  top: 10%;
+  position: absolute;
   line-height: 2.4rem;
 }/*# sourceMappingURL=style.css.map */

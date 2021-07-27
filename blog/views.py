@@ -4,12 +4,12 @@ from django.http import HttpResponse
 from blog.models import Article
 
 
-def article(request):
+def articles(request):
     objs = Article.objects.all()
     context = {
         'articles': objs,
     }
-    return render(request, 'blog/article.html', context)
+    return render(request, 'blog/article_list.html', context)
 
 
 def article(request, pk):
