@@ -1,0 +1,28 @@
+{% extends 'mysite/base_auth.html' %}
+{% load static %}
+
+{% block header %}
+<div class="bg_images">
+    <div class="image_area">
+        <img class="images" src="https://mdbootstrap.com/img/new/slides/017.jpg" alt="">
+    </div>
+    {% endblock %}
+    {% block content %}
+    <div class="login_height row">
+        <div class="login_box col-md-3">
+            <h1 class="display-5 mb-3 text-center">Sign up</h1>
+            <form class="login_form form-white mask-custom shadow-0" action="" method="POST">
+                {% csrf_token %}
+                {{ form.non_field_errors }}
+                {% for field in form %}
+                {{field.label }}
+                {{ field }}
+                {{ field.errors }}
+                <br class="p-1">
+                {% endfor %}
+                <button type="submit" class="btn btn-lg btn-black-50 hover-overlay ripple" id="more_btn">ログイン</button>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}

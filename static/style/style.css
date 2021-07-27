@@ -41,7 +41,9 @@ html body a:hover {
   top: 100px;
   left: 0;
   margin: 0 0 0 75px;
-  line-height: 2.4rem;
+  line-height: 2.4rem !important;
+  font-size: 2rem !important;
+  letter-spacing: 1px !important;
 }
 .header__logo {
   margin-bottom: 260px;
@@ -97,14 +99,18 @@ html body a:hover {
   margin: 0 0 0 0;
   transform: rotate(90deg);
   letter-spacing: 2px;
-  line-height: 2.4rem;
+  line-height: 2rem !important;
+  font-size: 1.6rem !important;
+  letter-spacing: 3px !important;
 }
 
 .footer {
   text-align: center;
   margin-left: 90px;
   z-index: 0;
-  line-height: 2.4rem;
+  line-height: 2.4rem !important;
+  font-size: 2rem !important;
+  letter-spacing: 1px !important;
 }
 .footer__sns-links {
   position: fixed;
@@ -126,7 +132,9 @@ html body a:hover {
 }
 
 main {
-  line-height: 2.4rem;
+  line-height: 2.4rem !important;
+  font-size: 2rem !important;
+  letter-spacing: 1px !important;
 }
 main .main__images {
   height: 100vmin;
@@ -139,8 +147,8 @@ main .main__images .top_title {
   /*要素の配置*/
   position: absolute;
   /*要素を天地中央寄せ*/
-  top: 48%;
-  left: 45%;
+  top: 49%;
+  left: 42%;
   text-align: center;
   transform: translateY(-50%) translateX(-50%);
   /*見た目の調整*/
@@ -232,13 +240,111 @@ main .main__images-logo {
   z-index: 11;
 }
 
+/* login image設定 */
+.bg_images {
+  position: relative;
+  /*h1の中央寄せ配置の起点とするためのrelative*/
+  height: 100vh;
+  /*高さを全画面にあわせる*/
+}
+.bg_images .image_area {
+  position: fixed;
+  z-index: -1;
+  /*最背面に設定*/
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  overflow: hidden;
+}
+.bg_images .image_area .images {
+  /*天地中央配置*/
+  position: absolute;
+  z-index: -1;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  /*縦横幅指定*/
+  width: 177.77777778vh;
+  /* 16:9 の幅→16 ÷ 9＝ 177.77% */
+  height: 56.25vw;
+  /* 16:9の幅 → 9 ÷ 16 = 56.25% */
+  min-height: 100%;
+  min-width: 100%;
+}
+.bg_images .login_height {
+  height: 87vh;
+}
+.bg_images .login_height .login_box {
+  position: absolute;
+  top: 48%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.bg_images .login_height .login_box .login_form {
+  color: white;
+  font-weight: 100 !important;
+  text-align: center;
+}
+
+.form-control {
+  color: rgba(255, 255, 255, 0.2);
+  background-color: rgba(0, 0, 0, 0.2);
+  border: 2px solid rgba(0, 0, 0, 0.25);
+}
+.form-control:focus {
+  color: #ffffff;
+  background-color: rgba(0, 0, 0, 0.35);
+  outline: 0;
+  font-weight: 300 !important;
+  border-color: rgba(0, 0, 0, 0.2);
+  box-shadow: inset 0 0 0 1px #ffffff62;
+}
+
+.form-outline {
+  color: rgba(255, 255, 255, 0.2);
+}
+
 .content {
-  margin: 230px 25% 5% 25%;
-  line-height: 2.4rem;
+  margin: 165px 25% 0% 25%;
+  line-height: 2.4rem !important;
+  font-size: 2rem !important;
+  letter-spacing: 1px !important;
+}
+.content .btn {
+  padding: 0.8rem 1.5rem !important;
+  font-size: 1.4rem !important;
+  letter-spacing: 1px;
+}
+.content .card-text,
+.content .author,
+.content .created_at {
+  line-height: 2.4rem !important;
+  font-size: 1.6rem !important;
+  letter-spacing: 1px !important;
 }
 .content_detail {
-  margin: 0 25% 0 25%;
-  top: 10%;
+  top: 9%;
   position: absolute;
-  line-height: 2.4rem;
+  margin: 0% 25% 0% 25%;
+  line-height: 2.4rem !important;
+  font-size: 2rem !important;
+  letter-spacing: 1px !important;
+}
+.content_detail .btn {
+  padding: 0.8rem 1.5rem !important;
+  font-size: 1.4rem !important;
+  letter-spacing: 1px;
+}
+.content_detail .card-text,
+.content_detail .author,
+.content_detail .created_at {
+  line-height: 2.4rem !important;
+  font-size: 1.6rem !important;
+  letter-spacing: 1px !important;
+}
+.content .pagination .current {
+  line-height: 1rem !important;
+  font-size: 1.5rem !important;
+  letter-spacing: 0px !important;
 }/*# sourceMappingURL=style.css.map */

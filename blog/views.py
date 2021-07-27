@@ -1,13 +1,16 @@
-from django.http.response import HttpResponse
+from django.core import paginator
 from django.shortcuts import render
-from django.http import HttpResponse
 from blog.models import Article
+from django.core.paginator import Paginator
 
 
-def articles(request):
+def articles_list(request):
     objs = Article.objects.all()
+    paginator = Paginator(objs, 6)
+    page_number = request.GET.get('page')
     context = {
-        'articles': objs,
+        'page_obj': paginator.get_page(page_number),
+        'page_number': page_number,
     }
     return render(request, 'blog/article_list.html', context)
 

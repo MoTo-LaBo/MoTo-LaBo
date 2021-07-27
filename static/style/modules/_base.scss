@@ -5,7 +5,7 @@
     top: 100px;
     left: 0;
     margin: 0 0 0 75px;
-    @include line-h;
+    @include f_style;
 
     &__logo {
         margin-bottom: 260px;
@@ -69,14 +69,14 @@
     margin: 0 0 0 0;
     transform: rotate(90deg);
     letter-spacing: 2px;
-    @include line-h;
+    @include f_style($l_height:2rem, $f_size:1.6rem, $le_sp:3px);
 }
 
 .footer {
     text-align: center;
     margin-left: 90px;
     z-index: 0;
-    @include line-h;
+    @include f_style;
 
     &__sns-links {
         position: fixed;

@@ -257,3 +257,40 @@
 3. urls.py に path 追記
 4. article.html に link tag < a href="/blog/{{ obj.id }}/" > tag を作成して、各記事の詳細に飛ばす
 5. article_detail.html 記事詳細作成
+### 8-4. pagenation 実装
+    from django.core.paginator import Paginator
+
+    def articles_list(request):
+    objs = Article.objects.all()
+    paginator = Paginator(objs, 6)
+    page_number = request.GET.get('page')
+    context = {
+        'page_obj': paginator.get_page(page_number),
+        'page_number': page_number,
+    }
+1. django の paginator class 使用
+2. paginator = object の塊を渡している:(objs, 6)
+   - 1 page に表示する数を指定:(6記事表示)
+3. **GETの意味**
+   - paginator によって自動で page ulr をつけてくれて、表示する記事の数を制限している
+     - http GET
+     - http://example.com/kiji/?page=1&id=123
+     - page=1 -> key = value の関係
+     - & をつけると繋げる事ができる
+4. context の 'articles': objs, は削除して page_obj　だけにしている
+   - **article_list.html の for文書き換え**
+   - {% for obj in articles %} -> {% for obj in page_obj %} に変更
+## 9. 認証機能実装
+    # urls.py
+    path('login', views.login),
+
+    # views.py
+    def login(request):
+    context = {}
+    return render(request, 'mysite/login.html', context)
+
+1. config dir urls.py に上記を記載
+2. mysite app(dir) views.py に login に必要な関数を記述
+3. template/mysite/login.html と base_auth.html 作成
+4. base_auth.html は認証系の base html として作成
+

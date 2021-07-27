@@ -1,5 +1,23 @@
-@mixin line-h($height:2.4rem) {
-    line-height: $height;
+// font color
+$cblack: #333;
+
+// font style
+@mixin f_style($l_height:2.4rem, $f_size:2rem, $le_sp:1px) {
+    line-height: $l_height !important;
+    font-size: $f_size !important;
+    letter-spacing: $le_sp !important;
 }
 
-$cblack: #333;
+
+// btn style
+@mixin btn($pd:0.8rem 1.5rem, $f_size:1.4rem, $le_sp:1px) {
+    padding: $pd !important;
+    font-size: $f_size !important;
+    letter-spacing: $le_sp;
+}
+
+
+// content style
+@mixin content_w($mg: 165px 25% 0% 25%) {
+    margin: $mg;
+}

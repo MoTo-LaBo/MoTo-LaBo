@@ -1,0 +1,67 @@
+{% load static %}
+<meta charset="UTF-8" />
+<meta name="viewport" content="width = device-width, initial-scale=1, user-scalable=yes, shrink-to-fit=no" />
+<meta http-equiv="x-ua-compatible" content="ie=edge" />
+<!-- 自分自身のHPのURL. -->
+<meta property="og:url" content="" />
+<meta property="og:description" content="MoTo LaBo「 think to build , build to think 」- つくるために考え・考えるためにつくる -　 プロトタイピングを大切に。頭だけではなく、まずカタチに落とし込んでみる。 体験・体感・違和感を大切に。" />
+<meta property="og:title" content="MoTo LaBo" />
+<meta property="og:site_name" content="MoTo LaBo" />
+<meta property="og:type" content="website" />
+<meta property="og:locale" content="ja-JP" />
+<!-- 1200px*630以上 -->
+<meta property="og:image" content="" />
+<!-- twitter -->
+<meta name="twitter:card" content="summary" />
+<meta name="description" content="MoTo LaBo「 think to build , build to think 」- つくるために考え・考えるためにつくる -　 プロトタイピングを大切に。頭だけではなく、まずカタチに落とし込んでみる。 体験・体感・違和感を大切に。" />
+<!-- favicon_image_icon_background-color -->
+<meta name="msapplication-TileColor" content="#7b7b7b">
+<meta name="theme-color" content="#7b7b7b">
+<!-- favicon_image_icon -->
+<link rel="apple-touch-icon" sizes="180x180" href="{% static 'images/SEO/favicon_package_v0.16/apple-touch-icon.png' %}" />
+<link rel="icon" type="image/png" sizes="32x32" href="{% static 'images/SEO/favicon_package_v0.16/favicon-32x32.png' %}" />
+<link rel="icon" type="image/png" sizes="16x16" href="{% static 'images/SEO/favicon_package_v0.16/favicon-16x16.png' %}" />
+<link rel="android-chrome-192x192" href="{% static 'images/SEO/favicon_package_v0.16/android-chrome-192x192.png' %}">
+<link rel="android-chrome-512x512" href="{% static 'images/SEO/favicon_package_v0.16/android-chrome-512x512.png' %}">
+<link rel="manifest" href="{% static 'images/SEO/favicon_package_v0.16/site.webmanifest' %}">
+<link rel="mask-icon" href="{% static 'images/SEO/favicon_package_v0.16/safari-pinned-tab.svg' %}" color="#515151">
+<link rel="shortcut icon" href="{% static 'images/SEO/favicon_package_v0.16/favicon.ico' %}">
+<title>MoTo LaBo</title>
+<!-- Font Awesome -->
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" rel="stylesheet" />
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" rel="stylesheet" />
+<!-- MDB -->
+<link href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/3.6.0/mdb.min.css" rel="stylesheet" />
+<link rel="stylesheet" href="{% static 'style/vendors/reset.css' %}" />
+<link rel="stylesheet" href="{% static 'style/style.css' %}" />
+<script>
+    (function (d) {
+        var config = {
+                kitId: 'dhe5bhx',
+                scriptTimeout: 3000,
+                async: true
+            },
+            h = d.documentElement,
+            t = setTimeout(function () {
+                h.className = h.className.replace(/\bwf-loading\b/g, "") + " wf-inactive";
+            }, config.scriptTimeout),
+            tk = d.createElement("script"),
+            f = false,
+            s = d.getElementsByTagName("script")[0],
+            a;
+        h.className += " wf-loading";
+        tk.src = 'https://use.typekit.net/' + config.kitId + '.js';
+        tk.async = true;
+        tk.onload = tk.onreadystatechange = function () {
+            a = this.readyState;
+            if (f || a && a != "complete" && a != "loaded") return;
+            f = true;
+            clearTimeout(t);
+            try {
+                Typekit.load(config)
+            } catch (e) {}
+        };
+        s.parentNode.insertBefore(tk, s)
+    })(document);
+</script>

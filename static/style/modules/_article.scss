@@ -1,11 +1,38 @@
 .content {
-    margin: 230px 25% 5% 25%;
-    @include line-h;
+    @include content_w;
+    @include f_style;
+
+    & .btn {
+        @include btn;
+    }
+
+    & .card-text,
+    .author,
+    .created_at {
+        @include f_style($f_size:1.6rem);
+    }
 
     &_detail {
-        margin: 0 25% 0 25%;
-        top: 10%;
+        top: 9%;
         position: absolute;
-        @include line-h;
+        @include content_w($mg:0% 25% 0% 25%);
+        @include f_style;
+
+        & .btn {
+            @include btn;
+        }
+
+        & .card-text,
+        .author,
+        .created_at {
+            @include f_style($f_size:1.6rem);
+        }
+    }
+
+    .pagination {
+
+        & .current {
+            @include f_style($l_height:1rem, $f_size:1.5rem, $le_sp:0px);
+        }
     }
 }

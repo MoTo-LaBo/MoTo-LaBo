@@ -1,6 +1,6 @@
 main {
 
-    @include line-h;
+    @include f_style;
 
     & .main__images {
         height: 100vmin;
@@ -13,8 +13,8 @@ main {
             /*要素の配置*/
             position: absolute;
             /*要素を天地中央寄せ*/
-            top: 48%;
-            left: 45%;
+            top: 49%;
+            left: 42%;
             text-align: center;
             transform: translateY(-50%) translateX(-50%);
             /*見た目の調整*/

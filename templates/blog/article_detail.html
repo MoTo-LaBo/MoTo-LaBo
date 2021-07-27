@@ -6,28 +6,28 @@
         <div class="bg-image hover-overlay ripple rounded-0" data-mdb-ripple-color="light">
             <img class="img-fluid" src="https://mdbootstrap.com/img/Photos/Horizontal/Food/full page/2.jpg" alt="Card image cap" />
         </div>
-        <div class="card-body pb-0">
-            <h4 class="card-title mt-3 mb-0 ">{{ article.title }}</h4>
+        <div class="card-body p-4">
+            <h4 class="card-title mb-0 ">{{ article.title }}</h4>
             <hr class="mb-0">
             <p class="card-text collapse mt-3 mb-3" id="multiCollapseExample{{ article.id }}">
                 {{ article.text | safe | linebreaksbr | urlize }}
             </p>
-            <div class="d-flex justify-content-between mt-4">
+            <div class="d-flex justify-content-between m-3">
                 <div>
-                    <a href="javascript:void(0);" onclick="window.history.back();" class="btn btn-light" data-mdb-ripple-color="dark">戻る</a>
-                    <a href="#" class="btn btn-light" data-mdb-ripple-color="dark">お気に入り</a>
-                    <i class="far fa-heart">&nbsp;1</i>
+                    <a href="javascript:void(0);" onclick="window.history.back();" class="btn btn-light me-2" data-mdb-ripple-color="dark">戻る</a>
+                    <a href="#" class="btn btn-light me-2" data-mdb-ripple-color="dark">お気に入り</a>
+                    <i class="far fa-heart mb-2">&nbsp;1</i>
                     {% if object.author == request.user %}
-                    <a href="#" class="btn btn-primary" style="background-color: #4f4f4f;" data-mdb-ripple-color="white">更新</a>
-                    <a href="#" class="btn btn-primary" style="background-color: #33333374;" data-mdb-ripple-color="white">削除</a>
+                    <a href="#" class="btn btn-primary me-2" style="background-color: #4f4f4f;" data-mdb-ripple-color="white">更新</a>
+                    <a href="#" class="btn btn-primary me-2" style="background-color: #33333374;" data-mdb-ripple-color="white">削除</a>
                     {%  endif %}
                 </div>
-                <a class="btn btn-black-50 hover-overlay ripple px-5" data-mdb-toggle="collapse" href="#multiCollapseExample{{ article.id }}" role="button" aria-expanded="false" aria-controls="multiCollapseExample{{ article.id }}">読む</a>
+                <a class="btn btn-black-50 hover-overlay ripple" data-mdb-toggle="collapse" href="#multiCollapseExample{{ article.id }}" role="button" aria-expanded="false" aria-controls="multiCollapseExample{{ article.id }}">読む</a>
             </div>
-            <hr class="mb-0">
-            <p class="text-center p-3">{{ article.author }}</p>
-            <div class="card-footer p-3">
-                <small class="text-muted">{{ article.create_at }}</small>
+            <hr class="m-0">
+            <p class="author text-center  p-3">{{ article.author }}</p>
+            <div class="card-footer p-3 pb-0">
+                <small class="created_at text-muted">{{ article.create_at }}</small>
             </div>
         </div>
     </div>

@@ -7,11 +7,13 @@
 </head>
 
 <body>
-    {% include 'mysite/snippets/header.html' %}
+
+    {% block header %}
+    {% endblock %}
+
     {% block content %}
     {% endblock %}
 
-    {% include 'mysite/snippets/footer.html' %}
 </body>
 
 </html>
