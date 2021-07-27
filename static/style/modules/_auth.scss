@@ -32,16 +32,16 @@
         }
     }
 
-    .login_height {
+    & .login_height {
         height: 87vh;
 
-        .login_box {
+        & .login_box {
             position: absolute;
             top: 48%;
             left: 50%;
             transform: translate(-50%, -50%);
 
-            .login_form {
+            & .login_form {
                 color: rgb(255, 255, 255);
                 font-weight: 100 !important;
                 text-align: center;
