@@ -3,6 +3,7 @@
 
 {% block content %}
 <div class="content_auth">
+    {% include 'mysite/snippets/messages.html' %}
     <div class="row">
         <div class="col-lg-5 p-0 title_box">
             <h1 class="text-center "><a href="/" class="login_title">MoTo LaBo</a></h1>
@@ -17,7 +18,7 @@
                     {% endif %}
                 </h1>
                 <div class="form-label-group mb-5">
-                    <input type="email" id="id_email" class="form-control" placeholder="Email address" name="{% if 'login' in request.path %}username{% elif 'signup' in request.path %}email{% endif %}" required autofocus>
+                    <input type="email" id="id_email" name="{% if 'login' in request.path %}username{% elif 'signup' in request.path %}email{% endif %}" class="form-control" placeholder="Email address" required autofocus>
                 </div>
                 <div class="form-label-group mb-5">
                     <input type="password" id="id_password" class="form-control" placeholder="Password" name="password" required>

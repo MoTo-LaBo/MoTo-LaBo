@@ -432,3 +432,60 @@
 ### 実際に新規登録してみる
 - 新規登録画面でとろくしてみる
 - admin 画面で確認
+- 新規 user で login してみる
+## error 発生
+    # auth.htm
+    <p>
+        request.userは {{ request.user }}
+        <br>
+        request.user.is_authenticatedは　{{ request.user.is_authenticated }}
+    </p>
+- 上記を追記して確認をしてみる
+### 結果
+    request.userは AnonymousUser
+    request.user.is_authenticatedは　False
+
+    request.userは匿名ユーザー
+    request.user.is_authenticatedはFalseです
+- 実際にログイン自体ができていないためにログインページに飛ばされている
+### 解決
+    # error code
+    <input type="email" id="id_email" class="form-control" placeholder="Email address" name="{% if 'login' in request.path %}username{% elif 'signup' in request.path %}email{% endif %}" required autofocus>
+
+    # After correction
+    <input type="email" id="id_email" name="{% if 'login' in request.path %}username{% elif 'signup' in request.path %}email{% endif %}" class="form-control" placeholder="Email address" required autofocus>
+- 原因は…　**name 属性の位置で error が出ていた**
+  - タイポや空白だけではなく、属性の位置(前後)が違うだけでも error が出る！！
+  - 初めてだったので、今後はその事も頭に入れて error 解決を探る
+### 10-3. 新規登録機能の Final touches
+    # mysite views.py
+    from django.contrib import messages
+
+    # 関数 signup に追記
+    messages.success(request, 'Registration complete')
+    return redirect('/')
+1. Registration complete = 登録完了
+2. 登録完了後は top (index.html) へ飛ばす
+3. settings.py に下記を作成 (settings.py 参照)
+   - massage tab with bootstrap alert class
+4. mysite/snippets/ messages.html 作成
+5. base.html に include
+   - {% include 'mysite/snippets/messages.html' %}
+6. User 新規作成 top に飛ばされて Alert が表示されれば実装完了！
+#### django 版コメントアウト
+    {% comment %} ここに記述されたものはコメントアウトされる {% endcomment %}
+- html, css, scss, 色々なコメントアウトがあるが上記の django 版の場合は検証 Tool にも表示されない
+- Browser の検証でも見られたく無いものは django 版のコメントアウトを使用
+> python はバックエンドで事前に template(html) を render(生成) するので、その時にコメントアウトのところは削除される
+### login も同じように実装
+    # class Login に追記
+
+    def form_valid(self, form):
+        messages.success(self.request, 'Logging in')
+        return super().form_valid(form)
+
+    def form_invalid(self, form):
+        messages.error(self.request, 'Error')
+        return super().form_invalid(form)
+1. login 出来た場合の message 関数
+2. login 出来なかった場合の message 関数
