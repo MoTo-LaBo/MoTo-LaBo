@@ -293,4 +293,142 @@
 2. mysite app(dir) views.py に login に必要な関数を記述
 3. template/mysite/login.html と base_auth.html 作成
 4. base_auth.html は認証系の base html として作成
+5. {% include 'mysite/login.html' %} template tage で base_auth.html 記述
+### 9-1. POST 送信 : mysite app(dir)
+    # login.html
+    <form class="login_form" method="POST" action="">
+    {% csrf_token %}
+    {{ req }}
 
+    # views.py
+    def login(request):
+        context = {
+        }
+        if request.method == 'POST':
+            context['req'] = request.POST
+        return render(request, 'mysite/login.html', context)
+
+1. POST -> 送信　action -> 送信先を指定する事もできる
+2. **{% csrf_token %}** は, form には必須！！
+3. views.py に login 関数を記述で　login の値が帰ってきているかを test する
+4. {{ req }} に入力した password, email が表示される
+### input tag
+- input tag の name = username に変える
+  - name = email だと django の標準をそのまま上書きしてしまい挙動がおかしくなる
+### 9-2. LoginView template tag (if)
+    # config/ urls.py
+    path('login', views.Login.as_view()),
+
+    # views.py
+    from django.contrib.auth.views import LoginView
+
+    class Login(LoginView):
+    template_name = 'mysite/login.html'
+
+1. 直接 'login' -> views.Login.as_view('template/〇〇.html')
+    - 上記のように urls.py に記載すれば、views.py に記述する手間が省ける
+    - login に入ったら、そのまま ('template/〇〇.html') に飛ばしてくれる
+    - 今回は他の追加項目もあるので views.py で class Login を作成
+### 9-3. login.html で login 確認
+        {% if request.user.is_authenticated %}
+        ログイン中
+        {% else %}
+        ログインしていません
+        {% endif %}
+- user -> django が標準で搭載している user 認証機能
+- True or False で login の有無を確認
+- bjango には便利な tenplate tag が気軽に使える
+### 9-4. config / settings.py
+    LOGIN_URL = '/login/'
+
+    LOGIN_REDIRECT_URL = '/login/'
+1. login する url を指示
+2. login 後に飛ばす url を指示
+### 9-5. logout 機能実装
+    # config dir
+
+    # urls.py
+    from django.contrib.auth.views import LogoutView
+
+    path('logout/', LogoutView.as_view()),
+
+    # setting.py
+    LOGOUT_URL = '/logout/'
+
+    LOGOUT_REDIRECT_URL = '/login/'
+
+1. urls.py に上記を記載
+2. settings.py 上記を記載
+3. login.logout できるか確認
+4. ログイン中と表示されれば成功
+## 10. 新規登録の機能実装
+    # config dir
+
+    # urls.py
+    path('signup/', views.signup),
+1. urls.py に上記を記載
+2. mysit app に forms.py file 作成
+   - バリデーション(検証する機能)、passwordをハッシュ化(打った文字を判断出来ないよう形で保存)
+   - forms.py 参照
+### 10-1. mysite app views.py
+    from mysite.forms import UserCreationForm
+
+    def signup(request):
+        context = {}
+        if request.method == 'POST':
+            form = UserCreationForm(request.POST)
+            if form.is_valid():
+                user = form.save(commit=False)
+                # user.is_active = False
+                user.save()
+        return render(request, 'mysite/auth.html', context)
+1. views.py に上記を記載
+2. POST で入力された data を creation forms.py に回す
+   - 今回はバリデーション、 passwordハッシュ化
+3. error がなければ userの情報を元に新規作成する
+#### 4. commit = False
+    user = form.save(commit=False)
+- save は仮に user object を作成している感じ
+  - まだ data base には保存していない
+- なのでここで次のような追加の項目を入れる事もできる
+#### 5. is_active = False
+    user.is_active = False
+- mysite app models.py で定義してあるモノがあれば使用できる
+#### models.py 参照
+    # アカウントが有効かどうかの判断。user 登録が完了したら有効なので、True
+    is_active = models.BooleanField(default=True)
+
+    # 管理画面に入れるかどうか。管理者かどうか。一般 user が入れてはいけないので、 False
+    is_admin = models.BooleanField(default=False)
+#### default が True なので…
+    user.is_active = False
+- あえて False にして、送信はされたが…
+- まずは検証をする。折り返しの mail を返し、Link がクリックされると初めて検証が OK!
+- OK になったら active = True にする
+- という事もできる
+### 10-2. auth.html
+    {% if 'login' in request.path %}
+    Login
+    {% elif 'signup' in request.path %}
+    新規登録
+    {% endif %}
+- auth.html に上記を記載
+  - 今回は login も 新規登録も HTML の中身がほとんど変わらないので HTML file を１つにする為に **URL** で切り替えて表示する
+  - 同じような file を２つ作る必要性は無い為。TPOによって変える
+#### path によって変わるか確認
+    {{ request.path }}
+- 上記を一緒に記載して確認してみる
+- path が変わると一緒に path と文字が変わる
+  - http://127.0.0.1:8000/signup/
+    - /signup/ 新規登録
+  - http://127.0.0.1:8000/login/
+    - /login/ Login
+#### input tag name 属性の中にも追加
+    name="{% if 'login' in request.path %}username{% elif 'signup' in request.path %}email{% endif %}
+- 上記と同じ事をしている
+  - もし path に login が含まれていたら name 属性を username にする
+  - もし path に signup が含まれていたら name 属性を email にする
+- browser の検証 Tool で確認
+### 実際に新規登録してみる
+- 新規登録画面でとろくしてみる
+- admin 画面で確認

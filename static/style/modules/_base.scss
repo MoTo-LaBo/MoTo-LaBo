@@ -21,7 +21,7 @@
             & a {
                 text-decoration: none;
                 letter-spacing: 2px;
-                color: $cblack;
+                color: $mblack;
                 padding: 5px;
             }
         }
@@ -39,7 +39,7 @@
                 /*線の形状*/
                 width: 80%;
                 height: 1px;
-                background: $cblack;
+                background: $mblack;
                 /*アニメーションの指定*/
                 transition: all 1s;
                 transform: scale(0, 1);
@@ -50,7 +50,7 @@
         }
 
         & ul.gnavi li a:hover {
-            color: $cblack;
+            color: $mblack;
         }
 
         /*現在地とhoverの設定*/
@@ -95,7 +95,7 @@
                 }
 
                 & i.icon {
-                    color: $cblack;
+                    color: $mblack;
                 }
             }
         }

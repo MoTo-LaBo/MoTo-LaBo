@@ -1,72 +1,27 @@
-/* login image設定 */
-.bg_images {
-    position: relative;
-    /*h1の中央寄せ配置の起点とするためのrelative*/
-    height: 100vh;
-    /*高さを全画面にあわせる*/
+.content_auth {
+    @include content_w($mg:20% 0 0 0);
+    @include f_style();
 
-    & .image_area {
-        position: fixed;
-        z-index: -1;
-        /*最背面に設定*/
-        top: 0;
-        right: 0;
-        left: 0;
-        bottom: 0;
-        overflow: hidden;
+    & .btn {
+        @include btn();
 
-        & .images {
-            /*天地中央配置*/
-            position: absolute;
-            z-index: -1;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            /*縦横幅指定*/
-            width: 177.77777778vh;
-            /* 16:9 の幅→16 ÷ 9＝ 177.77% */
-            height: 56.25vw;
-            /* 16:9の幅 → 9 ÷ 16 = 56.25% */
-            min-height: 100%;
-            min-width: 100%;
+        &:hover {
+            @include btn_hov();
         }
+
     }
 
-    & .login_height {
-        height: 87vh;
+    & .title_box {
+        @include content_w(auto 7% auto auto);
 
-        & .login_box {
-            position: absolute;
-            top: 48%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-
-            & .login_form {
-                color: rgb(255, 255, 255);
-                font-weight: 100 !important;
-                text-align: center;
-            }
+        & .login_title {
+            @include m_title();
+            color: $tblack;
         }
+
     }
-}
 
-
-// login box style
-.form-control {
-    color: rgba(255, 255, 255, 0.2);
-    background-color: rgba(0, 0, 0, 0.2);
-    border: 2px solid rgba(0, 0, 0, 0.25);
-
-    &:focus {
-        color: #ffffff;
-        background-color: rgba(0, 0, 0, 0.35);
-        outline: 0;
-        font-weight: 300 !important;
-        border-color: rgba(0, 0, 0, 0.20);
-        box-shadow: inset 0 0 0 1px #ffffff62;
+    & .login_box {
+        @include content_w(0 18% 0 0);
     }
-}
-
-.form-outline {
-    color: rgba(255, 255, 255, 0.2);
 }

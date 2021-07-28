@@ -2,15 +2,15 @@
 <div class="pagination d-flex justify-content-center">
     <span class="step-links mt-4">
         {% if page_obj.has_previous %}
-        <a href="?page=1" class="btn btn-light mx-2" data-mdb-ripple-color="dark">&laquo; first</a>
-        <a href="?page={{ page_obj.previous_page_number }}" class="btn btn-light mx-2" data-mdb-ripple-color="dark">previous</a>
+        <a href="?page=1" class="btn btn-black-50 hover-overlay ripple mx-2">&laquo; first</a>
+        <a href="?page={{ page_obj.previous_page_number }}" class="btn btn-black-50 hover-overlay ripple mx-2">previous</a>
         {% endif %}
         <span class="current mx-3">
             No.{{ page_obj.number }}.{{ page_obj.paginator.num_pages }}
         </span>
         {% if page_obj.has_next %}
-        <a href="?page={{ page_obj.next_page_number }}" class="btn btn-light mx-2" data-mdb-ripple-color="dark">next</a>
-        <a href="?page={{ page_obj.paginator.num_pages }}" class="btn btn-light mx-2" data-mdb-ripple-color="dark">last &raquo;</a>
+        <a href="?page={{ page_obj.next_page_number }}" class="btn btn-black-50 hover-overlay ripple mx-2">next</a>
+        <a href="?page={{ page_obj.paginator.num_pages }}" class="btn btn-black-50 hover-overlay ripple mx-2">last &raquo;</a>
         {% endif %}
     </span>
 </div>

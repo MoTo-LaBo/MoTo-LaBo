@@ -18,12 +18,11 @@ main {
             text-align: center;
             transform: translateY(-50%) translateX(-50%);
             /*見た目の調整*/
-            color: $cblack;
+            color: $tblack;
             // text-shadow: 0 0 15px #666;
 
             & .meta {
-                font-size: 5.5rem;
-                letter-spacing: 8px;
+                @include m_title();
             }
 
             & .sub {

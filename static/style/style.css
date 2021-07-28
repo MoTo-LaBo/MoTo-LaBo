@@ -33,6 +33,24 @@ html body a:hover {
   opacity: 0.5;
   text-decoration: none;
 }
+html body .form-control {
+  color: #757575;
+  background-color: rgba(0, 0, 0, 0.1);
+  border: 2px solid rgba(0, 0, 0, 0.25);
+  font-size: 1.6rem;
+  letter-spacing: 1px;
+}
+html body .form-control:focus {
+  color: #757575;
+  background-color: rgba(255, 255, 255, 0.5);
+  outline: 0;
+  font-weight: 300 !important;
+  border-color: rgba(0, 0, 0, 0.3);
+  box-shadow: inset 0 0 0 1px #fff3;
+}
+html body .form-outline {
+  color: rgba(255, 255, 255, 0.2);
+}
 
 .header {
   text-align: left;
@@ -152,7 +170,7 @@ main .main__images .top_title {
   text-align: center;
   transform: translateY(-50%) translateX(-50%);
   /*見た目の調整*/
-  color: #333;
+  color: #757575;
 }
 main .main__images .top_title .meta {
   font-size: 5.5rem;
@@ -240,69 +258,32 @@ main .main__images-logo {
   z-index: 11;
 }
 
-/* login image設定 */
-.bg_images {
-  position: relative;
-  /*h1の中央寄せ配置の起点とするためのrelative*/
-  height: 100vh;
-  /*高さを全画面にあわせる*/
+.content_auth {
+  margin: 20% 0 0 0;
+  line-height: 2.4rem !important;
+  font-size: 2rem !important;
+  letter-spacing: 1px !important;
 }
-.bg_images .image_area {
-  position: fixed;
-  z-index: -1;
-  /*最背面に設定*/
-  top: 0;
-  right: 0;
-  left: 0;
-  bottom: 0;
-  overflow: hidden;
+.content_auth .btn {
+  padding: 0.8rem 1.5rem !important;
+  font-size: 1.4rem !important;
+  letter-spacing: 1px;
 }
-.bg_images .image_area .images {
-  /*天地中央配置*/
-  position: absolute;
-  z-index: -1;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  /*縦横幅指定*/
-  width: 177.77777778vh;
-  /* 16:9 の幅→16 ÷ 9＝ 177.77% */
-  height: 56.25vw;
-  /* 16:9の幅 → 9 ÷ 16 = 56.25% */
-  min-height: 100%;
-  min-width: 100%;
+.content_auth .btn:hover {
+  opacity: 0.5;
+  color: #4f4f4f;
+  background-color: #ffffff;
 }
-.bg_images .login_height {
-  height: 87vh;
+.content_auth .title_box {
+  margin: auto 7% auto auto;
 }
-.bg_images .login_height .login_box {
-  position: absolute;
-  top: 48%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+.content_auth .title_box .login_title {
+  font-size: 5.5rem;
+  letter-spacing: 8px;
+  color: #757575;
 }
-.bg_images .login_height .login_box .login_form {
-  color: white;
-  font-weight: 100 !important;
-  text-align: center;
-}
-
-.form-control {
-  color: rgba(255, 255, 255, 0.2);
-  background-color: rgba(0, 0, 0, 0.2);
-  border: 2px solid rgba(0, 0, 0, 0.25);
-}
-.form-control:focus {
-  color: #ffffff;
-  background-color: rgba(0, 0, 0, 0.35);
-  outline: 0;
-  font-weight: 300 !important;
-  border-color: rgba(0, 0, 0, 0.2);
-  box-shadow: inset 0 0 0 1px #ffffff62;
-}
-
-.form-outline {
-  color: rgba(255, 255, 255, 0.2);
+.content_auth .login_box {
+  margin: 0 18% 0 0;
 }
 
 .content {
