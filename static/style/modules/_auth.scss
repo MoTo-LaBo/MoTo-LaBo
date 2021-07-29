@@ -3,6 +3,11 @@
     @include content_w($mg:19% 0 0 0);
     @include f_style();
 
+    & a {
+        color: $tblack;
+        letter-spacing: 2px;
+    }
+
     & .btn {
         @include btn();
 

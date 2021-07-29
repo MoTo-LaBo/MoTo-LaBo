@@ -13,19 +13,36 @@
     }
 
     &_detail {
-        top: 9%;
+        top: 10%;
         position: absolute;
-        @include content_w($mg:0% 25% 0% 25%);
+        @include content_w($mg:0% 30% 0% 30%);
         @include f_style;
 
         & .btn {
             @include btn;
         }
 
-        & .card-text,
-        .author,
-        .created_at {
+        & .card-title {
+            @include f_style($f_size:2.4rem);
+        }
+
+        & .card-text {
+            @include f_style($f_size:1.8rem);
+        }
+
+        & .created_at {
             @include f_style($f_size:1.6rem);
+        }
+
+        // comment
+        & .comment {
+            @include f_style($l_height:2rem, $f_size:1.5rem);
+
+            & .link_login {
+                color: $tblack;
+                letter-spacing: 2px;
+            }
+
         }
     }
 

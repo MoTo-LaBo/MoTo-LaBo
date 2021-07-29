@@ -24,11 +24,10 @@
                 </div>
                 <a class="btn btn-black-50 hover-overlay ripple" data-mdb-toggle="collapse" href="#multiCollapseExample{{ article.id }}" role="button" aria-expanded="false" aria-controls="multiCollapseExample{{ article.id }}">読む</a>
             </div>
-            <hr class="m-0">
-            <p class="author text-center  p-3">{{ article.author }}</p>
-            <div class="card-footer p-3 pb-0">
-                <small class="created_at text-muted">{{ article.create_at }}</small>
+            <div class="card-footer p-3">
+                <small class="created_at text-muted">{{ article.author }}&nbsp;{{ article.create_at }}</small>
             </div>
+            {% include 'mysite/snippets/comment.html' %}
         </div>
     </div>
 </div>

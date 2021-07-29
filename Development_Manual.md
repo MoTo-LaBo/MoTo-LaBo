@@ -499,3 +499,78 @@
 - template tag を使用。messages を msg で for文で回して表示させる
 -  {{ msg }} -> 上記の view で定義した文字が表示される
 -  {{ msg.tags }} -> settings.py で作成した class が記載される
+### 10-6. paht による切り替え
+    {% if 'login' in request.path %}
+    <div class="test-center">
+        <a href="/signup/" class="link-secondary">新規登録へ</a>
+    </div>
+    {% elif 'signup' in request.path %}
+    <div class="text-center">
+        <a href="/login/" class="link-secondary">Loginへ</a>
+    </div>
+    {% endif %}
+1. login, signup の path によって飛ばす場所を変える
+2. 新規登録とログインへ飛ばす link を記述
+### 10-7. user が login しているか、いないかで切り替え
+    {% if user.is_authenticated %}
+    <li class="login_out"><a href="/logout/" class="bg_black">Logout</a></li>
+    {% else %}
+    <li class="login_out"><a href="/login/" class="bg_black">Login</a></li>
+    <li class="author"><a href="/signup/">Create User</a></li>
+    {% endif %}
+1. ここでは path の認証が使用できないので、user が認証されているなら(login しているかどうか)で切り替え
+   - authenticated True or False で切り替え
+2. login していれば logout button を表示
+3. logout していれば login button と 新規作成 button を表示
+## 11. コメント欄作成
+    comment.html 参照
+1. mysite/snippets/ comment.html 作成
+2. article_detail.html に comment.html を　include する
+   - {% include 'mysite/snippets/comment.html' %}
+3. if 文で login している時としていない時の切り替えをする
+4. {% if user.is_authenticated %}を使用
+### 11-1. model 作成
+    # blog/ models.py
+    from django.contrib.auth import get_user_model
+
+    class Comment(models.Model):
+    comment = models.TextField(default="", max_length=500)
+    created_at = models.DateField(auto_now_add=True)
+    user = models.ForeignKey(get_user_model(), on_delete=models.CASCADE)
+1. 長文の場合は TextField
+2. DataFild(auto_now_add=True) 作成日時の登録
+## 11-2. **ForeignKey()**
+> comment に対してどの user が書いたのか？ usename, id, email を保持
+- ここに user の名前は入れない！！！
+  - もし comment した user が name を変更した場合、すでに変更前で記載している情報をわざわざ過去に戻って全て更新しないといけなくなる
+  - どの user が記述したのか分からなくなる
+  - わかっても、過去の use name を全て 新しい user name に更新する事になる
+#### **「そこで登場するのが ForeignKey 」**
+- **ForeignKey** に対するのが **PrimaryKey(pk)**
+  - **PrimaryKey**
+    - それぞれの table には id があって、絶対に同じにならないようになっている。それで初めてどのレコードかを参照できる
+  - **ForeignKey**
+    - comment からみて user を参照する
+    - comment -> user pk(primarykey) をみる
+    - 外部から参照している = ForeignKey
+- user name を直接書いていい場合もある。履歴を変更しないなど…
+- 変更しても大丈夫で、過去の user name の記録を取っておきたい場合も記述しても大丈夫
+- **記述のメリット・デメリットを考えて使用する事**
+#### 「多くの場合は変更が必要なので ForeignKey を使用する」
+- <u>**ForeignKey = 1 対 多**</u>
+  - 一人の user は複数の comment を投稿する可能性が有り得る
+  - comment を記述したのはその人自身(1人)でしか有りえない
+  - １つの comment に対して複数 user が書いているという事は有りえない
+  - 上記の理由から **ForeignKey** を使用する
+### on_delete=models.CASCADE
+  - ForeignKey には必須な記述項目
+  - user や記事が削除された時に comment はどうしますか？その場合の対処の仕方
+  - 今回は **CASCADE** -> <u>その user が削除された場合は comment も一緒に削除する</u>
+  - article のも同じく、記事が削除されたら一緒に comment も削除する
+## ForeignKey, One To One, Many To Many
+- django class 参照の仕方
+- comment と user の相互の参照関係をみた時によって使用するモノを変える
+  - <u>**ForeignKey = 1 対 多**</u>
+  - <u>**One To One = 1 対 1**</u>
+  - <u>**Many To Many = 多 対 多**</u>
+### 11-3.
