@@ -1,5 +1,6 @@
+//------- Login, Logout, Signup -------
 .content_auth {
-    @include content_w($mg:20% 0 0 0);
+    @include content_w($mg:19% 0 0 0);
     @include f_style();
 
     & .btn {
@@ -12,7 +13,7 @@
     }
 
     & .title_box {
-        @include content_w(auto 7% auto auto);
+        @include content_w(auto 7% 6% auto);
 
         & .login_title {
             @include m_title();
@@ -22,6 +23,35 @@
     }
 
     & .login_box {
-        @include content_w(0 18% 0 0);
+        @include content_w(0 19% 0 0);
     }
+}
+
+
+//------- Alert message -------
+.alert {
+    @include alert();
+    color: $mblack;
+    background-color: #ffffff51;
+    @include f_style($l_height:2rem, $f_size:2rem, $le_sp:2px);
+
+    // & .alert-danger {
+
+    // }
+
+    // & .alert-warning {
+
+    // }
+
+    // & .alert-success {
+
+    // }
+
+    // & .alert-info {
+
+    // }
+
+    // & .alert-secondary {
+
+    // }
 }

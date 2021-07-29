@@ -477,7 +477,7 @@
 - html, css, scss, 色々なコメントアウトがあるが上記の django 版の場合は検証 Tool にも表示されない
 - Browser の検証でも見られたく無いものは django 版のコメントアウトを使用
 > python はバックエンドで事前に template(html) を render(生成) するので、その時にコメントアウトのところは削除される
-### login も同じように実装
+### 10-4. login も同じように実装
     # class Login に追記
 
     def form_valid(self, form):
@@ -489,3 +489,13 @@
         return super().form_invalid(form)
 1. login 出来た場合の message 関数
 2. login 出来なかった場合の message 関数
+### 10-5. message.html
+    {% for msg in messages %}
+    <div class="alert alert-light fade show {{ msg.tags }}" role="alert" data-mdb-color="secondary">
+        <i class="fas fa-sign-in-alt"></i>
+        {{ msg }}
+    </div>
+    {% endfor %}
+- template tag を使用。messages を msg で for文で回して表示させる
+-  {{ msg }} -> 上記の view で定義した文字が表示される
+-  {{ msg.tags }} -> settings.py で作成した class が記載される

@@ -1,34 +1,3 @@
-// font color
+//------- font color -------
 $mblack: #333;
 $tblack: #757575;
-
-// font style
-@mixin f_style($l_height:2.4rem, $f_size:2rem, $le_sp:1px) {
-    line-height: $l_height !important;
-    font-size: $f_size !important;
-    letter-spacing: $le_sp !important;
-}
-
-@mixin m_title($f_size:5.5rem, $le_sp:8px) {
-    font-size: $f_size;
-    letter-spacing: $le_sp;
-}
-
-
-// btn style
-@mixin btn($pd:0.8rem 1.5rem, $f_size:1.4rem, $le_sp:1px) {
-    padding: $pd !important;
-    font-size: $f_size !important;
-    letter-spacing: $le_sp;
-}
-
-@mixin btn_hov($op:0.5, $cl:#4f4f4f, $bgcl:#ffffff) {
-    opacity: $op;
-    color: $cl;
-    background-color: $bgcl;
-}
-
-// content style
-@mixin content_w($mg: 165px 25% 0% 25%) {
-    margin: $mg;
-}

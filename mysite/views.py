@@ -34,5 +34,5 @@ def signup(request):
             # user.is_active = False
             user.save()
             messages.success(request, 'Registration complete')
-            return redirect('mysite/auth.html')
+            return redirect('/')
     return render(request, 'mysite/auth.html', context)

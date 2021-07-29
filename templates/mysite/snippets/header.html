@@ -9,8 +9,15 @@
         <ul class="gnavi">
             <li><a href="/">HOME</a></li>
             <li><a href="/blog/articles/">LABO</a></li>
-            <li><a href="about.html">ABOUT</a></li>
             <li><a href="identity.html">IDENTITY</a></li>
             <li><a href="contact.html">CONTACT</a></li>
+
+
+            {% if user.is_authenticated %}
+            <li class="login_out"><a href="/logout/" class="bg_black">Logout</a></li>
+            {% else %}
+            <li class="login_out"><a href="/login/" class="bg_black">Login</a></li>
+            <li class="author"><a href="/signup/">Create User</a></li>
+            {% endif %}
         </ul>
 </header>

@@ -1,8 +1,9 @@
 {% comment %} Alerts(メッセージ表示) {% endcomment %}
+
 {% for msg in messages %}
-<nav class="py-2 {{ msg.tags }}">
-    <div class="container">
-        {{ msg }}
-    </div>
-</nav>
+<div class="alert alert-light mb-0 fade show {{ msg.tags }}" id="alertExample" role="alert" data-mdb-color="secondary">
+    <i class="fas fa-sign-in-alt lg me-2 text-white"></i>
+    {{ msg }}
+    <a href="blog/articles/" class="alert-link">Go To Article Create</a>
+</div>
 {% endfor %}

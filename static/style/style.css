@@ -70,9 +70,21 @@ html body .form-outline {
   font-size: 2rem;
   margin-left: 5px;
   /*現在地とhoverの設定*/
+  /*現在地とhoverの設定*/
 }
 .header__menu ul li {
   margin-bottom: 25px;
+}
+.header__menu ul li.login_out {
+  line-height: 2.4rem !important;
+  font-size: 2.5rem !important;
+  letter-spacing: 2px !important;
+  margin: 40% 0 -40% 15%;
+}
+.header__menu ul li.author {
+  margin-top: 80%;
+  font-size: 1.8rem;
+  letter-spacing: 2px;
 }
 .header__menu ul li a {
   text-decoration: none;
@@ -83,6 +95,12 @@ html body .form-outline {
 .header__menu ul.gnavi li a {
   /*線の基点とするためrelativeを指定*/
   position: relative;
+}
+.header__menu ul.gnavi li a.bg_black {
+  /*背景色の基点とするためrelativeを指定*/
+  position: relative;
+  /*アニメーションの指定*/
+  transition: all 0.9s;
 }
 .header__menu ul.gnavi li a::after {
   content: "";
@@ -101,12 +119,70 @@ html body .form-outline {
   transform-origin: left top;
   /*左上基点*/
 }
+.header__menu ul.gnavi li a.bg_black::after {
+  content: "";
+  /*絶対配置で線の位置を決める*/
+  position: absolute;
+  z-index: -1;
+  bottom: 0;
+  left: 0;
+  /*背景の形状*/
+  width: 0;
+  height: 1px;
+  background: #0000005d;
+  opacity: 0;
+  /*はじめは透過を0に*/
+}
 .header__menu ul.gnavi li a:hover {
   color: #333;
 }
 .header__menu ul.gnavi li a:hover::after {
   transform: scale(1, 1);
   /*X方向にスケール拡大*/
+}
+.header__menu ul.gnavi li a.bg_black:hover::after {
+  /*背景の形状*/
+  width: 100%;
+  opacity: 1;
+  /*アニメーションの指定*/
+  -webkit-animation: bgappear 0.5s forwards;
+          animation: bgappear 0.5s forwards;
+  /*アニメーションで線を伸ばして背景をつける*/
+}
+@-webkit-keyframes bgappear {
+  0% {
+    width: 0%;
+    height: 1px;
+  }
+  50% {
+    width: 100%;
+    height: 1px;
+  }
+  100% {
+    width: 100%;
+    height: 100%;
+    background: #0000005d;
+  }
+}
+@keyframes bgappear {
+  0% {
+    width: 0%;
+    height: 1px;
+  }
+  50% {
+    width: 100%;
+    height: 1px;
+  }
+  100% {
+    width: 100%;
+    height: 100%;
+    background: #0000005d;
+  }
+}
+.header__menu ul.gnavi li a.bg_black:hover {
+  color: white;
+  /*テキストを最前面へ*/
+  z-index: 10;
 }
 
 .side_copy {
@@ -259,7 +335,7 @@ main .main__images-logo {
 }
 
 .content_auth {
-  margin: 20% 0 0 0;
+  margin: 19% 0 0 0;
   line-height: 2.4rem !important;
   font-size: 2rem !important;
   letter-spacing: 1px !important;
@@ -275,7 +351,7 @@ main .main__images-logo {
   background-color: #ffffff;
 }
 .content_auth .title_box {
-  margin: auto 7% auto auto;
+  margin: auto 7% 6% auto;
 }
 .content_auth .title_box .login_title {
   font-size: 5.5rem;
@@ -283,7 +359,19 @@ main .main__images-logo {
   color: #757575;
 }
 .content_auth .login_box {
-  margin: 0 18% 0 0;
+  margin: 0 19% 0 0;
+}
+
+.alert {
+  position: fixed;
+  top: 210px;
+  z-index: 20;
+  width: 100%;
+  color: #333;
+  background-color: #ffffff51;
+  line-height: 2rem !important;
+  font-size: 2rem !important;
+  letter-spacing: 2px !important;
 }
 
 .content {

@@ -1,3 +1,4 @@
+// header nav
 .header {
     text-align: left;
     display: inline-block;
@@ -18,6 +19,20 @@
         & ul li {
             margin-bottom: 25px;
 
+            // ------- login,out -------
+            &.login_out {
+                @include f_style($l_height:2.4rem, $f_size:2.5rem, $le_sp:2px);
+                margin: 40% 0 -40% 15%;
+            }
+
+            &.author {
+                margin-top: 80%;
+                font-size: 1.8rem;
+                letter-spacing: 2px;
+            }
+
+            // ------- login,out -------
+
             & a {
                 text-decoration: none;
                 letter-spacing: 2px;
@@ -29,6 +44,16 @@
         & ul.gnavi li a {
             /*線の基点とするためrelativeを指定*/
             position: relative;
+
+            // ------- login,out -------
+            &.bg_black {
+                /*背景色の基点とするためrelativeを指定*/
+                position: relative;
+                /*アニメーションの指定*/
+                transition: all .9s;
+            }
+
+            // ------- login,out -------
 
             &::after {
                 content: '';
@@ -47,6 +72,24 @@
                 transform-origin: left top;
                 /*左上基点*/
             }
+
+            // ------- login,out -------
+            &.bg_black::after {
+                content: '';
+                /*絶対配置で線の位置を決める*/
+                position: absolute;
+                z-index: -1;
+                bottom: 0;
+                left: 0;
+                /*背景の形状*/
+                width: 0;
+                height: 1px;
+                background: #0000005d;
+                opacity: 0;
+                /*はじめは透過を0に*/
+            }
+
+            // ------- login,out -------
         }
 
         & ul.gnavi li a:hover {
@@ -58,9 +101,49 @@
             transform: scale(1, 1);
             /*X方向にスケール拡大*/
         }
+
+        // ------- login,out -------
+        & ul.gnavi li a.bg_black:hover::after {
+            /*背景の形状*/
+            width: 100%;
+            opacity: 1;
+            /*アニメーションの指定*/
+            animation: bgappear 0.5s forwards;
+
+            /*アニメーションで線を伸ばして背景をつける*/
+            @keyframes bgappear {
+                0% {
+                    width: 0%;
+                    height: 1px;
+                }
+
+                50% {
+                    width: 100%;
+                    height: 1px;
+                }
+
+                100% {
+                    width: 100%;
+                    height: 100%;
+                    background: #0000005d;
+                }
+            }
+
+        }
+
+        /*現在地とhoverの設定*/
+        & ul.gnavi li a.bg_black:hover {
+            color: rgb(255, 255, 255);
+            /*テキストを最前面へ*/
+            z-index: 10;
+        }
+
+        // ------- login,out -------
     }
 }
 
+
+//  copywrite
 .side_copy {
     display: inline-block;
     position: fixed;
@@ -72,6 +155,7 @@
     @include f_style($l_height:2rem, $f_size:1.6rem, $le_sp:3px);
 }
 
+//  footer
 .footer {
     text-align: center;
     margin-left: 90px;

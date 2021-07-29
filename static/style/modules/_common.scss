@@ -16,8 +16,6 @@ content-boxを指定し直さなければいけません。
     display: none;
 }
 
-$mblack: #333;
-
 html {
     font-size: 62.5%;
     width: 100%;
@@ -36,9 +34,9 @@ html {
             text-decoration: none;
         }
 
-        // login box style
+        //------- login box style -------
         & .form-control {
-            color: #757575;
+            color: $tblack;
             background-color: rgba(0, 0, 0, 0.1);
             border: 2px solid rgba(0, 0, 0, 0.25);
             font-size: 1.6rem;
@@ -46,7 +44,7 @@ html {
 
 
             &:focus {
-                color: #757575;
+                color: $tblack;
                 background-color: rgba(255, 255, 255, 0.5);
                 outline: 0;
                 font-weight: 300 !important;
