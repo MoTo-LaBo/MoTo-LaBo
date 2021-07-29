@@ -6,59 +6,59 @@
 3. GAE(google app engine), Google Cloud Storage, GitHub を用いて service を公開
 ## 1. 環境構築と初期設定
 - 仮想環境とdjango install と upgrade
-### 1. 仮想環境構築
+#### 1-1. 仮想環境構築
     python3 -m venv venv
-### 2. 仮想環境を立ち上げる
+#### 1-2. 仮想環境を立ち上げる
     source venv/bin/activate
-### 3. django install
+#### 1-3. django install
     pip install django
-### 4. django upgrade
+#### 1-4. django upgrade
     pip install --upgrade pip
-### 5. プロジェクト名
+#### 1-5. プロジェクト名
     django-admin startproject < directory名 > .
 - directory 名はその時によって変更
 - . (ドット)をつけることにより、今いる directory の中に project dir を作成できる
 - . がない場合は directory を１つ作成してその中に project dir が作成される
-### 6. プロジェクト directory に降りて下記のコマンド実行
+#### 1-6. プロジェクト directory に降りて下記のコマンド実行
     python manage.py runserver
 - Starting development server at http://127.0.0.1:8000/
 - server が立ち上がっている事を確認
-### 7. runserver (127.0.0.1.:8000)
+#### 1-7. runserver (127.0.0.1.:8000)
     localhost:127.0.0.1.:8000
 - brawer にアクセスする
 - localhost = 127.0.0.1.:8000 = 自分の PC brawser
 - 8000 = ポート
 - Quit the server with CONTROL-C
   - CONTROL-Cでサーバーを終了する
-### 8. App 作成
+#### 1-8. App 作成
     python manage.py startapp < app名 >
 ## 2. setting file
-### 0. settings.py に import os を追加
+#### 2-0. settings.py に import os を追加
     import os
     from pathlib import Path
-### 1. settings.py に app を作成した事を記述する
+### 2-1. settings.py に app を作成した事を記述する
 - INSTALLED_APPS に 'mysite', を記述
 - ALLOWED_HOSTS = ['*'] どんな host でも許可
   - 本番環境は自身や特定の domain を記述して access domain を限定
 - LANGUAGE_CODE = 'ja'
 - TIME_ZONE = 'Asia/Tokyo'
-### 2. project urls.py file に path 追加
+#### 2-2. project urls.py file に path 追加
     from django.urls import path, include
     from mysite import views
 
     path('', views.index),　
 - include method も import する
 -  ' ' のなかに入ったものは、いかなる場合でも mysite の vews.index を呼び出す
-### 2-1. mysite views.py file に記述
+#### 2-3. mysite views.py file に記述
     from django.http import HttpResponse
 
 
     def index(request):
         return HttpResponse('hello MoTo LaBo site')
-### 2-2. localhost で確認
+#### 2-4. localhost で確認
     python manage.py runserver
 - hello MoTo LaBo site が表示されれば OK!
-### 3. project dir 直下に templates dir 作成
+## 3. project dir 直下に templates dir 作成
 - その中にまた mysite dir を作成する
 #### 3-1. templates directory とは？
 - views.py で render で返す時に、templates/mysite で作成した HTML file を読みっとて、その情報を response する
@@ -80,7 +80,7 @@
 #### context を引数に入れることで html file で使用できるようになる
     <h1>{{ title }}</h1>
 - browser では MoTo LaBo と h1 の装飾で表示される
-### 4. base.html
+## 4. base.html
 - head, footer, menubar etc... 使い回しができる部分は一つの file にまとめてしまう
 #### 4-1. 他の html file の一番上に下記を記述する
     {% extends 'mysite/base.html' %}
@@ -98,7 +98,7 @@
     {% endblock %}
 - browser では、base.html の継承と index.html の記述したものが表示される
 
-### 5. livereload
+## 5. livereload
 > https://pypi.org/project/django-livereload-server/
 - 自動でリロードしてくれる
 - settings.py に記述
