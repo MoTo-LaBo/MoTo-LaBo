@@ -1,25 +1,34 @@
 {% load static %}
-<div class="comment">
-    <div class="list-group">
-        <a href="" class="list-group-item list-group-item-action p-2 rounded-0">
-            <p class="m-0"><small>ここにコメントが入ります</small></p>
-            <p class="m-0"><small>2021.7.29</small></p>
+
+<div class="comments mb-5">
+    <h1 class="mb-2">Comment 一覧</h1>
+    <div class="list-group collapse" id="multiCollapseExample{{ article.id }}">
+        {% for comment in comments %}
+        <a href="" class="list-group-item list-group-item-action p-3 rounded-0">
+            <p class="m-0"><small>{{ comment.comment }}</small></p>
+            <p class="m-0"><small class="">{{ comment.created_at }}</small></p>
         </a>
+        {% endfor %}
     </div>
     {% if user.is_authenticated %}
-    <form method="POST" class="my-4">
-        <div class="post_comment">
+    <form method="POST" class="mt-4">
+        {% csrf_token %}
+        <!-- <div class="">
             <label>Post Comment</label>
-            <textarea class="rounded-0 bg-light form-control" rows="1">
+            <textarea name="comment" class="rounded-0 bg-light form-control　mb-5" rows="1">
             </textarea>
+        </div> -->
+        <div class="input-group mb-5">
+            <span class="input-group-text">Post Comment</span>
+            <textarea name="comment" class="form-control textarea my-0" aria-label="With textarea"></textarea>
+        </div>
+        <div class="comment_btn">
+            <button class="btn btn-black-50 hover-overlay ripple me-2" type="submit">Submission</button>
         </div>
     </form>
-    <div class="text-right">
-        <a href="#" class="btn btn-light me-2" data-mdb-ripple-color="dark">Submission</a>
-    </div>
     {% else %}
     <p class="mt-4">
-        コメントを投稿するには<a href="/login/" class="link_login text-decoration-underline">Login</a>して下さい
+        コメントを投稿するには<a href="/login/" class="link_login text-decoration-underline">&nbsp;Login&nbsp;</a>して下さい
     </p>
     {% endif %}
 </div>

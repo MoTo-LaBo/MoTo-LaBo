@@ -1,3 +1,4 @@
+// ------- 記事一覧 page -------
 .content {
     @include content_w;
     @include f_style;
@@ -12,10 +13,18 @@
         @include f_style($f_size:1.6rem);
     }
 
+    .pagination {
+
+        & .current {
+            @include f_style($l_height:1rem, $f_size:1.5rem, $le_sp:0px);
+        }
+    }
+
+
+    // ------- 記事詳細 page -------
     &_detail {
-        top: 10%;
         position: absolute;
-        @include content_w($mg:0% 30% 0% 30%);
+        @include content_w($mg:6% 30% 0% 30%);
         @include f_style;
 
         & .btn {
@@ -34,9 +43,26 @@
             @include f_style($f_size:1.6rem);
         }
 
-        // comment
-        & .comment {
+        // ------- comment -------
+        & .comments {
             @include f_style($l_height:2rem, $f_size:1.5rem);
+
+            & .input-group {
+
+                & .input-group-text {
+                    @include f_style($l_height:2rem, $f_size:1.5rem);
+                }
+
+                & .textarea {
+                    @include f_style($f_size:1.6rem);
+                    height: 35px;
+                }
+            }
+
+            & .comment_btn:hover {
+                @include btn_hov;
+            }
+
 
             & .link_login {
                 color: $tblack;
@@ -46,10 +72,41 @@
         }
     }
 
-    .pagination {
+    // ------- Account page(about.html) -------
 
-        & .current {
-            @include f_style($l_height:1rem, $f_size:1.5rem, $le_sp:0px);
+    &_mypage {
+        @include content_w($mg:18% 18% 0% 27%);
+
+        & .btn {
+            @include btn;
+
+            &:hover {
+                @include btn_hov;
+            }
         }
+
+        & .form-select {
+            @include f_style();
+        }
+
+        & .form-control {
+            color: $tblack;
+            background-color: rgba(0, 0, 0, 0.1) !important;
+            border: 0px solid rgba(0, 0, 0, 0) !important;
+            font-size: 1.6rem;
+            letter-spacing: 1px !important;
+
+            &:focus {
+                color: $tblack;
+                background-color: rgba(0, 0, 0, 0.35);
+                outline: 0;
+                font-weight: 300 !important;
+                border-color: rgba(0, 0, 0, 0.20);
+                box-shadow: inset 0 0 0 1px #ffffff62;
+            }
+        }
+
+
     }
+
 }

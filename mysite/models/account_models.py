@@ -1,3 +1,5 @@
+from django.dispatch import receiver
+from django.db.models.signals import post_save
 from django.db import models
 from django.contrib.auth.models import BaseUserManager, AbstractBaseUser
 
@@ -59,3 +61,15 @@ class User(AbstractBaseUser):  # DataBase の column(列) の定義
         "Is the user a member of staff?"
         # Simplest possible answer: All admins are staff
         return self.is_admin
+
+
+# ------- One To One Field　を同時に作成 -------
+
+
+@receiver(post_save, sender=User)  # user を作成した直後に profile model も作成される(呼び出される)
+def create_onetoone(sender, **kwargs):  # 先に profile を作成することはできない。user があって初めて prlfile が作成される
+    if kwargs['created']:
+        from mysite.models.profile_models import Profile
+        Profile.objects.create(user=kwargs['instance'])
+
+# ------- One To One Field　を同時に作成 -------

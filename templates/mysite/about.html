@@ -1,0 +1,40 @@
+{% extends 'mysite/base.html' %}
+{% load static %}
+
+{% block content %}
+<main class="content_mypage text-center">
+    <div class="col-xxl-10 p-0">
+        <h3 class="pb-4 border-bottom">
+            User Account
+        </h3>
+        <form class="row d-flex justify-content-center p-5" method="POST">
+            {% csrf_token %}
+            <div class="form-outline p-0 col-xl-6 mb-4 me-4">
+                <input type="text" class="form-control" id="id_username" name="username">
+                <label class="form-label">user name</label>
+            </div>
+            <div class="form-outline p-0 col-xl-4 mb-4 me-4">
+                <input type="text" class="form-control" id="id_zipcode" name="zipcode">
+                <label class="form-label">郵便番号</label>
+            </div>
+            <div class="p-0 col-xl-4 mb-4 me-4">
+                <select id="id_prefecture" name="prefecture" class="form-select form-select-lg">
+                    <option selected><label class="form-label">都道府県</label></option>
+                    <option>大阪</option>
+                </select>
+            </div>
+            <div class="form-outline p-0 col-xl-6 mb-4 me-4">
+                <input type="text" class="form-control" id="id_city" name="city">
+                <label class="form-label">市区</label>
+            </div>
+            <div class="form-outline p-0 col-xl-10 mb-5 me-4">
+                <input type="text" class="form-control" id="id_address" name="address" placeholder="">
+                <label class="form-label">住所</label>
+            </div>
+            <div class="col-12">
+                <button class="btn btn-black-50 hover-overlay ripple me-2" type="submit">save</button>
+            </div>
+        </form>
+    </div>
+</main>
+{% endblock %}

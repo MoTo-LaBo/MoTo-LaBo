@@ -1,12 +1,21 @@
 from django.contrib import admin
 from django.contrib.auth.admin import UserAdmin
 from django.contrib.auth.models import Group
-from mysite.models import User
+from django.db import models
+from mysite.models.account_models import User
+from mysite.models.profile_models import Profile
 from mysite.forms import UserCreationForm  # adminでuser作成用に追
 # ここで UserAdmin を継承
 
 
+# admin 画面で User と一緒に Profile を表示させる
+class ProfileInline(admin.StackedInline):
+    model = Profile
+    can_delete = False
+
+
 class CustomUserAdmin(UserAdmin):
+    inlines = (ProfileInline,)
     fieldsets = (
         (None, {
             'fields': (

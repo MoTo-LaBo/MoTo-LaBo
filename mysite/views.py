@@ -36,3 +36,8 @@ def signup(request):
             messages.success(request, 'Registration complete')
             return redirect('/')
     return render(request, 'mysite/auth.html', context)
+
+
+def mypage(request):
+    context = {}
+    return render(request, 'mysite/about.html')

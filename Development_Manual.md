@@ -567,10 +567,46 @@
   - user や記事が削除された時に comment はどうしますか？その場合の対処の仕方
   - 今回は **CASCADE** -> <u>その user が削除された場合は comment も一緒に削除する</u>
   - article のも同じく、記事が削除されたら一緒に comment も削除する
-## ForeignKey, One To One, Many To Many
+### ForeignKey, One To One, Many To Many
 - django class 参照の仕方
 - comment と user の相互の参照関係をみた時によって使用するモノを変える
   - <u>**ForeignKey = 1 対 多**</u>
   - <u>**One To One = 1 対 1**</u>
   - <u>**Many To Many = 多 対 多**</u>
-### 11-3.
+### 11-3. makemigrations, migrate
+- blog/models.py を database に反映させる
+- blog/admin.py file にも記載
+  - admin.site.register(Comment)
+  - これで管理画面でも表示・閲覧できる
+- blog/views.py
+  - Comment を関数に記載
+- Comment を表示させるために、comment.html 追記・編集
+  - list-group の中を template tag を使って for文でまわす
+  - views で渡した変数と models に登録した変数を template tag　を使用して回す
+  - comment.html 参照 -> < textarea name="comment" > 追記
+- blog/ views.py
+### error
+- form で作成した comment を投稿できなかった
+- 投稿された内容が terminal で表示傘れない…
+  - タイポや def, class, の間違いではなくform の使い方が hmtl のルールにそっていなかった
+  - form の button tag を a tag にしていた事が原因
+#### error code (投稿ボタンtag)
+    <form method="POST" class="mt-4">
+        {% csrf_token %}
+        <div class="">
+            <label>Post Comment</label>
+            <textarea name="comment" class="rounded-0 bg-light form-control　mb-4" rows="1">
+            </textarea>
+        </div>
+        <div class="">
+            <button class="btn btn-light me-2" type="submit">Submission</button>
+            <!-- <a href="#" class="btn btn-light me-2">Submission</a> --> error の原因
+        </div>
+    </form>
+1. 最初は < a > tag を使用していた。Comment 投稿ができない
+2. < button > tag に変えて Comment 投稿ができるようになった
+3. type="submit" …… フォーム入力内容を送信するサブミットボタン（初期値）
+### 11-4. mysite models.py 編集
+- 今後の管理・メンテナンスがしやすいように models dir 作成
+  - file を分けて記述していく
+  - mysite dir 参照
