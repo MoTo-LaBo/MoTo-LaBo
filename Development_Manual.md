@@ -662,4 +662,43 @@
   - なので tag は、どちらか見ても、「 多 対 多 」の関係になる
 #### 「 多 対 多 」の場合 django では、<u>中間table(sql:batabase)が作成される</u>
 - 直接的な関係ではなく、中間に table を挟んでの関係
+## 13. お問合せ page 実装
+1. contact.html 作成
+2. mysite/views.py contact 関数を編集・追記
+3. account.html と内容はほとんど同じ
+### 13-1. mail 送信先実装
+- settings.py は重要な password などは載せない
+  - 環境変数を使用して読み込むようにする事
+  - file を分けて使用する事
+1. project/secrets dir を作成
+2. secrets/secret_dev.yaml を作成
+#### 3. PyYAML install
+    pip install PyYAML
 
+    pip install --upgrade pip
+### 4. settings.py に yaml import
+    # yaml file
+    password: 'パスワードです'
+
+    # settings.py
+    import yaml
+    with open(os.path.join(BASE_DIR, 'secrets', 'secret_dev.yaml')) as file:
+        obj = yaml.safe_load(file)
+        os.environ['password'] = obj['password']
+        print('-------', os.environ['password'])
+- yaml file に password を記述して
+- settings.py に yaml file を import する
+- 'パスワードです' が使用できる
+- os.environ[' password '] は環境変数
+### 5. settings.py file に下記を記述
+    # --------- Gmail 送信設定 --------------
+    EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+    EMAIL_HOST = 'smtp.gmail.com'
+    EMAIL_PORT = 587
+    EMAIL_USE_TLS = True
+    EMAIL_HOST_USER = os.environ['EMAIL_HOST_USER']
+    EMAIL_HOST_PASSWORD = os.environ['EMAIL_HOST_PASSWORD']
+- os.environ[' EMAIL_HOST_USER ']
+- os.environ[' EMAIL_HOST_PASSWORD ']
+  - 上記の２つは yaml file に記述
+  - あくまで settings.py には環境変数を記述する

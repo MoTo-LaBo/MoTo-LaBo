@@ -16,4 +16,5 @@ pyvenv.cfg
 pip-selfcheck.json
 .DS_Store
 images
+secret_dev.yaml
 

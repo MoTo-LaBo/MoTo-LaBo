@@ -362,7 +362,7 @@ main .main__images-logo {
 }
 .content_auth .btn {
   padding: 0.8rem 1.5rem !important;
-  font-size: 1.4rem !important;
+  font-size: 1.6rem !important;
   letter-spacing: 1px;
 }
 .content_auth .btn:hover {
@@ -402,7 +402,7 @@ main .main__images-logo {
 }
 .content .btn {
   padding: 0.8rem 1.5rem !important;
-  font-size: 1.4rem !important;
+  font-size: 1.6rem !important;
   letter-spacing: 1px;
 }
 .content .card-text,
@@ -426,12 +426,12 @@ main .main__images-logo {
 }
 .content_detail .btn {
   padding: 0.8rem 1.5rem !important;
-  font-size: 1.4rem !important;
+  font-size: 1.6rem !important;
   letter-spacing: 1px;
 }
 .content_detail .like_btn .btn {
   padding: 0.8rem 1.5rem !important;
-  font-size: 1.4rem !important;
+  font-size: 1.6rem !important;
   letter-spacing: 1px;
 }
 .content_detail .like_btn .btn:hover {
@@ -499,7 +499,7 @@ main .main__images-logo {
 }
 .content_account .btn {
   padding: 0.8rem 1.5rem !important;
-  font-size: 1.4rem !important;
+  font-size: 1.6rem !important;
   letter-spacing: 1px;
 }
 .content_account .btn:hover {
