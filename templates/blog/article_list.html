@@ -17,14 +17,16 @@
                 <p class="card-text collapse mt-3 mb-3" id="multiCollapseExample{{ obj.id }}">
                     {{ obj.text }}
                 </p>
-                <div class="d-flex justify-content-between mt-4">
+                <div class="d-flex justify-content-between mt-3">
                     <div>
-                        <i class="fas fa-hand-holding-heart fa text-muted p-md-1 my-2 me-0" data-mdb-toggle="tooltip" data-mdb-placement="top" title="I like it"></i>
-                        <i class="fas fa-hand-point-up fa text-muted p-md-1 my-2 me-2" data-mdb-toggle="tooltip" data-mdb-placement="top" title="View this article"></i>
+                        <i class="fas fa-hand-holding-heart fa-sm text-muted p-md-1 my-2 me-0" data-mdb-toggle="tooltip" data-mdb-placement="top" title="I like it">{{ obj.count }}</i>
+                        <a href="/blog/{{ obj.id }}/">
+                            <i class="fas fa-hand-point-up fa text-muted p-md-1 my-2 me-2" data-mdb-toggle="tooltip" data-mdb-placement="top" title="View this article"></i>
+                        </a>
                     </div>
                     <a class="btn btn-black-50 hover-overlay ripple" data-mdb-toggle="collapse" href="#multiCollapseExample{{ obj.id }}" role="button" aria-expanded="false" aria-controls="multiCollapseExample{{ obj.id }}">article</a>
                 </div>
-                <hr class="mb-0">
+                <hr class="mb-0 mt-3">
                 <p class="author text-center p-3">{{ obj.author }}</p>
                 <div class="card-footer p-3">
                     <small class="created_at text-muted">{{ obj.created_at }}</small>

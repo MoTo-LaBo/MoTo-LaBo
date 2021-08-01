@@ -1,0 +1,9 @@
+{% load static %}
+
+<form method="POST" class="d-inline like_btn">
+    {% csrf_token %}
+    <input type="hidden" name="like_count" value="true">
+    <button class="btn btn-black-50 hover-overlay ripple me-2" type="submit">
+        <i class="far fa-heart mb-2">&nbsp;{{ article.count }}</i>
+    </button>
+</form>

@@ -31,6 +31,33 @@
             @include btn;
         }
 
+        // ------- like btn -------
+        & .like_btn {
+
+            & .btn {
+                @include btn;
+
+                &:hover {
+                    @include btn_hov($cl:#ff0000);
+                }
+            }
+        }
+
+        // ------- tag -------
+        & .tag_btn {
+            @include btn($pd:0.4rem 0.6rem, $f_size:1.1rem);
+            color: #ffffff;
+            background-color: #00000051 !important;
+
+            & .text-muted {
+                color: $tblack;
+            }
+
+            &:hover {
+                @include btn_hov($op:0.8, $cl:$tblack, $bgcl:#ffffff52);
+            }
+        }
+
         & .card-title {
             @include f_style($f_size:2.4rem);
         }

@@ -366,9 +366,9 @@ main .main__images-logo {
   letter-spacing: 1px;
 }
 .content_auth .btn:hover {
-  opacity: 0.5;
-  color: #4f4f4f;
-  background-color: #ffffff;
+  opacity: 0.5 !important;
+  color: #4f4f4f !important;
+  background-color: #ffffff !important;
 }
 .content_auth .title_box {
   margin: auto 7% 6% auto;
@@ -429,6 +429,31 @@ main .main__images-logo {
   font-size: 1.4rem !important;
   letter-spacing: 1px;
 }
+.content_detail .like_btn .btn {
+  padding: 0.8rem 1.5rem !important;
+  font-size: 1.4rem !important;
+  letter-spacing: 1px;
+}
+.content_detail .like_btn .btn:hover {
+  opacity: 0.5 !important;
+  color: #ff0000 !important;
+  background-color: #ffffff !important;
+}
+.content_detail .tag_btn {
+  padding: 0.4rem 0.6rem !important;
+  font-size: 1.1rem !important;
+  letter-spacing: 1px;
+  color: #ffffff;
+  background-color: #00000051 !important;
+}
+.content_detail .tag_btn .text-muted {
+  color: #757575;
+}
+.content_detail .tag_btn:hover {
+  opacity: 0.8 !important;
+  color: #757575 !important;
+  background-color: #ffffff52 !important;
+}
 .content_detail .card-title {
   line-height: 2.4rem !important;
   font-size: 2.4rem !important;
@@ -461,9 +486,9 @@ main .main__images-logo {
   height: 35px;
 }
 .content_detail .comments .comment_btn:hover {
-  opacity: 0.5;
-  color: #4f4f4f;
-  background-color: #ffffff;
+  opacity: 0.5 !important;
+  color: #4f4f4f !important;
+  background-color: #ffffff !important;
 }
 .content_detail .comments .link_login {
   color: #757575;
@@ -478,9 +503,9 @@ main .main__images-logo {
   letter-spacing: 1px;
 }
 .content_account .btn:hover {
-  opacity: 0.5;
-  color: #4f4f4f;
-  background-color: #ffffff;
+  opacity: 0.5 !important;
+  color: #4f4f4f !important;
+  background-color: #ffffff !important;
 }
 .content_account .form-select {
   line-height: 2.4rem !important;

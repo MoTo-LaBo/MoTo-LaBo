@@ -19,9 +19,9 @@
 }
 
 @mixin btn_hov($op:0.5, $cl:#4f4f4f, $bgcl:#ffffff) {
-    opacity: $op;
-    color: $cl;
-    background-color: $bgcl;
+    opacity: $op !important;
+    color: $cl !important;
+    background-color: $bgcl !important;
 }
 
 

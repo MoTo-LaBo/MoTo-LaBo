@@ -1,0 +1,7 @@
+{% load static %}
+
+{% for tag in article.tags.all %}
+<a href="/blog/tags/{{tag.slug }}/" class="btn btn-black-50 hover-overlay ripple btn-sm tag_btn">
+    <i class="fas fa-tag"></i>{{ tag.name }}
+</a>
+{% endfor %}

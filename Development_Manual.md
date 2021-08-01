@@ -629,3 +629,37 @@
         'city',
         'address',
     )
+## 12. いいね機能実装
+- 今回は誰が押しても、いいねのカント数が増えるやり方で実装
+1. blog/models.py に追記
+####
+    # class Article
+    count = models.IntegerField(default=0,)
+
+    python manage.py makemigrations
+    python manage.py migrate
+2. blog/views.py Articleに追記
+3. snippets/like_count.html 作成
+4. {{ article.count }} template tag　を使用
+5. {{ inculde 'mysite/snippets/like_count.html' }} を article_detail.html 記述
+### 12-1. 各種 tag 作成
+1. blog/models.py 追記編集
+2. tag 関数記述 -> article 関数に下記を追記
+   - tags = models.ManyToManyField(Tag, blank=True)
+3. python manage.py makemigrations
+4. python manage.py migrate
+5. blog/admin.py, admin 画面で表示・作成できるように追記
+#### admin 画面を update
+    model = Article.tags.through
+
+    class ArticleAdmin(admin.ModelAdmin):  Article 画面
+        inlines = [TagInline]
+        exclude = ['tags', ]
+- Tag でタグを作成して、 Article 画面でも tag の選択削除ができるように編集
+### Many To Many (多 対 多)
+- 一つの記事に対して、複数の tag がつく -> 1 対 多
+- tag からみた場合も 1つの tag に対して複数の記事で使用されている 1 対 多
+  - なので tag は、どちらか見ても、「 多 対 多 」の関係になる
+#### 「 多 対 多 」の場合 django では、<u>中間table(sql:batabase)が作成される</u>
+- 直接的な関係ではなく、中間に table を挟んでの関係
+
