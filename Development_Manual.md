@@ -610,3 +610,22 @@
 - 今後の管理・メンテナンスがしやすいように models dir 作成
   - file を分けて記述していく
   - mysite dir 参照
+  - admin 画面に反映させる為に admin.py を編集 (admin.py 参照)
+- mypage(profile用 account.html作成)
+### 11-5. account 登録内容の反映
+- 登録された情報を home に回して、バリデーション -> 保存
+1. mysite/ forms.py, views.py に class ProfileForm 追記
+2. accuount page で登録してみる -> admin画面で user 情報を確認
+3. 今登録されている情報を accuount box に表示
+    - accoutn.html の input tag に value="{{ user.profile.〇〇(fieldsで記述したモノ) }}
+    - 上記のように追記すれば、現在login user の登録している情報を表示させる事ができる
+    - One To One で user と profile が紐づいているので profile model で登録したモノを取得できる
+#### fileds
+    model = Profile
+    fields = (
+        'username',
+        'zipcode',
+        'prefecture',
+        'city',
+        'address',
+    )

@@ -74,7 +74,7 @@
 
     // ------- Account page(about.html) -------
 
-    &_mypage {
+    &_account {
         @include content_w($mg:18% 18% 0% 27%);
 
         & .btn {
@@ -93,7 +93,7 @@
             color: $tblack;
             background-color: rgba(0, 0, 0, 0.1) !important;
             border: 0px solid rgba(0, 0, 0, 0) !important;
-            font-size: 1.6rem;
+            font-size: 1.8rem;
             letter-spacing: 1px !important;
 
             &:focus {

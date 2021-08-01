@@ -469,32 +469,32 @@ main .main__images-logo {
   color: #757575;
   letter-spacing: 2px;
 }
-.content_mypage {
+.content_account {
   margin: 18% 18% 0% 27%;
 }
-.content_mypage .btn {
+.content_account .btn {
   padding: 0.8rem 1.5rem !important;
   font-size: 1.4rem !important;
   letter-spacing: 1px;
 }
-.content_mypage .btn:hover {
+.content_account .btn:hover {
   opacity: 0.5;
   color: #4f4f4f;
   background-color: #ffffff;
 }
-.content_mypage .form-select {
+.content_account .form-select {
   line-height: 2.4rem !important;
   font-size: 2rem !important;
   letter-spacing: 1px !important;
 }
-.content_mypage .form-control {
+.content_account .form-control {
   color: #757575;
   background-color: rgba(0, 0, 0, 0.1) !important;
   border: 0px solid rgba(0, 0, 0, 0) !important;
-  font-size: 1.6rem;
+  font-size: 1.8rem;
   letter-spacing: 1px !important;
 }
-.content_mypage .form-control:focus {
+.content_account .form-control:focus {
   color: #757575;
   background-color: rgba(0, 0, 0, 0.35);
   outline: 0;

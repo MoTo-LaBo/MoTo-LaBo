@@ -22,7 +22,7 @@
                 <div class="form-label-group mb-5">
                     <input type="password" id="id_password" class="form-control" placeholder="Password" name="password" required>
                 </div>
-                <button type="submit" class="btn btn-lg btn-black-50 hover-overlay ripple">ログイン</button>
+                <button type="submit" class="btn btn-lg btn-black-50 hover-overlay ripple">{% if 'login' in request.path %}Login{% elif 'signup' in request.path %}sign in{% endif %}</button>
             </form>
             {% if 'login' in request.path %}
             <div class="test-center">

@@ -2,8 +2,10 @@ from django.contrib.auth import forms
 from django.shortcuts import redirect, render
 from django.contrib.auth.views import LoginView
 from blog.models import Article
-from mysite.forms import UserCreationForm
+from mysite.forms import UserCreationForm, ProfileForm
 from django.contrib import messages
+from django.contrib.auth.decorators import login_required
+from django.contrib.auth import login
 
 
 def index(request):
@@ -33,11 +35,22 @@ def signup(request):
             user = form.save(commit=False)
             # user.is_active = False
             user.save()
-            messages.success(request, 'Registration complete')
+            # login させる (from django.contrib.auth import login)
+            login(request, user)
+
+            messages.success(request, 'Registration Complete')
             return redirect('/')
     return render(request, 'mysite/auth.html', context)
 
 
+@login_required  # 関数用(mypage に access するには login していないと access できない/.decorators import login_required)
 def mypage(request):
     context = {}
-    return render(request, 'mysite/about.html')
+    if request.method == 'POST':
+        form = ProfileForm(request.POST)
+        if form.is_valid():
+            profile = form.save(commit=False)
+            profile.user = request.user
+            profile.save()
+            messages.success(request, 'Account Update Complete')
+    return render(request, 'mysite/account.html')
