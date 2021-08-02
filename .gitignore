@@ -1,6 +1,7 @@
 __pycache__
 staticfiles
 db.sqlite3
+settings.py
 *.py[co]
 .Python
 [Bb]in

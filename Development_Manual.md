@@ -877,5 +877,5 @@
 ### 17-2. reCAPTCHA server side の設定
 - mysite/ views.py contact 関数に responce 後の code を記述
 - RESTAPI を使用して裏でも検証をかける
--
+
 
