@@ -136,4 +136,38 @@
 
     }
 
+    // ------- Account page(about.html) -------
+    &_contact {
+        @include content_w($mg:15% 18% 0% 27%);
+
+        & .btn {
+            @include btn;
+
+            &:hover {
+                @include btn_hov;
+            }
+        }
+
+        & .form-select {
+            @include f_style();
+        }
+
+        & .form-control {
+            color: $tblack;
+            background-color: rgba(0, 0, 0, 0.1) !important;
+            border: 0px solid rgba(0, 0, 0, 0) !important;
+            font-size: 1.8rem;
+            letter-spacing: 1px !important;
+
+            &:focus {
+                color: $tblack;
+                background-color: rgba(0, 0, 0, 0.35);
+                outline: 0;
+                font-weight: 300 !important;
+                border-color: rgba(0, 0, 0, 0.20);
+                box-shadow: inset 0 0 0 1px #ffffff62;
+            }
+        }
+    }
+
 }

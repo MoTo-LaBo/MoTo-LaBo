@@ -1,0 +1,15 @@
+{% load static %}
+<script src="https://www.google.com/recaptcha/api.js" async defer></script>
+
+<div class="g-recaptcha col-10 row d-flex justify-content-center my-3" data-sitekey="{{ grecaptcha_sitekey }}" data-callback='verifyCallback'>
+
+</div>
+
+<script>
+    // コールバック関数: reCAPTCHAをチェックしないと送信 button を押せないようにする
+    function verifyCallback(response) {
+        // submit の disabled 属性を解除
+        // console.log(response)
+        document.getElementById('submit_recap').disabled = false;
+    }
+</script>

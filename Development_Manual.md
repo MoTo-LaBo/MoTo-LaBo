@@ -702,3 +702,180 @@
 - os.environ[' EMAIL_HOST_PASSWORD ']
   - 上記の２つは yaml file に記述
   - あくまで settings.py には環境変数を記述する
+## 14. static
+    # ----- static 設定項目 -----
+    STATICFILES_DIRS = [
+        os.path.join(BASE_DIR, 'static'),
+    ]
+
+    # 〇〇.htm
+    {% load static %}
+    {% static 'mysite/〇〇.html' %}
+
+1. 上記を settings.py に記述する
+2. path を通す
+   - BASE_DIR は、project の root directory になっている
+3. static file を使用する html に上記の template tag を記述する
+   - {% load static %} をする
+   - {% static 'mysite/〇〇.html' %} -> static から現在の html までの path
+## 15. cloud SDK install
+> https://cloud.google.com/sdk/docs/quickstart-macos
+### install
+
+    # 1.
+    ./google-cloud-sdk/install.sh
+
+    # google に協力するかどうか？
+    y or N
+    今回は N
+
+    # gcloud command を作成するか？ path を通すか？
+    # deploy の時などに gcloud command を treminal で使用するので作成
+    Y or n
+    Y
+
+    # ~.zshrc file を update するかどうか？
+    Enter
+
+    # 2. SDKを初期化
+    ./google-cloud-sdk/bin/gcloud init
+
+    # 再起動
+    source ~/.zshrc
+
+    # update
+    gcloud components update
+
+    # SDKを以前にインストールしたバージョンに戻すには、以下を実行
+    gcloud components update --version 349.0.0
+### 15-1. GAE deploy 準備
+1. project/app.yaml 作成
+> https://cloud.google.com/appengine/docs/standard/python3/config/appref
+2. deploy に必要な情報を記載
+- 今回は github にも app.yaml file をあげれるように、重要な記載は secret/secret_dev.yaml で管理
+- 環境変数として app.yaml に読み込む
+### 15-2. 必要な library install
+    # install
+    pip  install gunicorn
+
+    # 使用しているlibrary 書き出し
+    pip freeze > requirements.txt
+### 15-3. deploy
+    # 1. login
+    gcloud auth login
+
+    # 2.  project id
+    gcloud config set project PROJECT_ID(GCPで作成したproject id)
+
+    # 3. gcloud init で現在の情報を確認
+    gcloud init
+
+    # 4. deploy
+    gcloud app deploy --project < project id >
+
+    # 5. app を browse で表示する
+    gcloud app browse
+### 15-4. 細かな修正
+1. settings.py で本番環境と開発環境の分岐
+2. DEBUG = False, True の使い分け
+## 16. DataBase Cloud SQL & MySQL
+    OperationalError at /login/
+    attempt to write a readonly database
+- login すると上記の error が出る
+  - **原因** -> SQLite3 を使用しているから
+  - SQLite3は気軽に使用できるのだが、簡単にdata削除できてしまう
+### 16-1. cloud SQL
+> https://cloud.google.com/python/django/appengine
+### code
+    # API の認証情報を取得して認証
+    gcloud auth application-default login
+
+    # Cloud SQL Auth Proxy をダウンロード
+    curl -o cloud_sql_proxy https://dl.google.com/cloudsql/cloud_sql_proxy.darwin.amd64
+
+    # Cloud SQL Auth Proxy を動作可能にする
+    chmod +x cloud_sql_proxy
+### 16-2. db の反映
+- settings.py file を編集
+  - 今回は secret.yaml を作成しているので、settings.py には環境変数を使用して github にあげても大丈夫なようにする
+  - <u>間違っても secrets dir は上げないこと</u>
+### 16-3. MySQL install
+    # 1.
+    brew install mysql
+
+    # 2. django 推奨 (MySQL を使用する時は必要になる library)
+    pip install mysqlclient
+
+    pip install --upgrade pip
+
+    # 3. 使用しているlibrary 書き出し
+    pip freeze > requirements.txt
+
+    # 4. cloud SQL へ接続: 下記の command を使用して開発環境からアクセスできる
+    memo.yaml 参照
+    開発環境で MySQL につないで開発したい時は、terminal を１つ立ち上げて起動しておく事
+
+    # 5. 新しく DB を立ち上げた状態で data がまだないので下記の command 実行
+    # PORT で error 有った。instance=tcp:5432　の 5432 が PORT 番号
+    python manage.py makemigrations
+    python manage.py migrate
+
+    # 6. My SQL の中に superuser 作成
+    python manage.py createsuperuser
+
+    # 7. runserver
+    python manage.py runserver
+- 記事一覧は MySQL では作成してないので何も表示されない
+### 16-4. DataBase の接続ができたので本番環境も試す
+    # app deploy
+    gcloud app deploy --project moto-labo
+
+    # browser で表示
+    gcloud app browse
+
+- yaml file の 改行や空白に注意！　error が起きる
+- gcloud の command が聞かない時は、 source ~/.zshrc command を実行してから gcloud command 実行
+- login して database が反映されているか確認！
+### 16-5. Django 管理画面崩れ修正
+    STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+> https://docs.djangoproject.com/ja/3.2/ref/contrib/staticfiles/
+- settings.py に追記
+  - **STATIC_ROOT**
+    - collectstatic -> django 標準の管理画面の css(style) 静的file が上記の directory を作成する事によって作成される
+    - 一緒に upload してくれる
+### terminal
+    # collectstatic : staticfile dir 作成
+    python manage.py collectstatic
+### app.yaml file 編集
+    handlers:
+    - url: /static
+      static_dir: staticfiles/
+- staticfiles に集めたので、本番環境は staticfiles から読み込むように修正
+### もう一度 deploy して style があたっているか確認
+    source ~/.zshrc
+    gcloud app deploy --project moto-labo
+### 16-6. .gcloudignore
+- .gitignore と同じ
+## 17. recaptcha 設定
+> https://www.google.com/recaptcha/admin/create
+- secret file に sitekey, secretkey を記述
+> https://developers.google.com/recaptcha/docs/display
+- template/mysite/contact.html に templat tag で {% include 'mysite/snippets/grecaptcha.html' %} 追記
+  - snippets/ grecaptcha.html 作成・追記
+### 17-1. grecaptcha.html 追記/ クライアント側の設定
+    <script>
+        // コールバック関数: reCAPTCHAをチェックしないと送信 button を押せないようにする
+        function verfyCallback(response) {
+            // submit の disabled 属性を解除
+            document.getElementById(submit).disabled = false;
+        }
+    </script>
+- reCAPTCHA をチェックすれば、送信 button が押せるようになる
+1. mysite/views.py から sitekey を渡す contact 関数 context {} に記述
+2. data-sitekey="{{ grecaptcha_sitekey }}"　template tag で記述
+3. input に属性追加　required : 入力必須項目
+### 17-2. reCAPTCHA server side の設定
+- mysite/ views.py contact 関数に responce 後の code を記述
+- RESTAPI を使用して裏でも検証をかける
+-
+
