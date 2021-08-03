@@ -1,3 +1,4 @@
+from google.oauth2 import service_account
 import yaml
 from django.contrib import messages
 import os
@@ -157,6 +158,19 @@ STATICFILES_DIRS = [
 ]
 
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+
+# ----- GCS 設定項目 -----
+
+GS_CREDENTIALS = service_account.Credentials.from_service_account_file(
+    os.path.join(BASE_DIR, 'secrets', os.environ['GS_CREDENTIALS_FILENAME'])
+)
+
+DEFAULT_FILE_STORAGE = 'storages.backends.gcloud.GoogleCloudStorage'
+
+GS_BUCKET_NAME = os.environ['GS_BUCKET_NAME']
+
+GS_PROJECT_ID = os.environ['GS_PROJECT_ID']
+
 # ----- static 設定項目 -----
 
 AUTH_USER_MODEL = 'mysite.User'

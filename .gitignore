@@ -18,4 +18,5 @@ secrets/
 secret_dev.yaml
 secret.yaml
 cloud_sql_proxy
+moto-labo-5e11dec0fdb2.json
 memo.yaml

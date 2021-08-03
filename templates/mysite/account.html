@@ -2,39 +2,61 @@
 {% load static %}
 
 {% block content %}
-<main class="content_account text-center">
-    <div class="row">
+<main class="content_account">
+    <div class="row d-flex justify-content-center">
         <div class="col-xxl-10 p-0">
-            <h3 class="pb-4">
+            <!-- User image -->
+            <div class="account_image bg-image hover-shadow" style="background-image: url('https://storage.googleapis.com/moto-labo/{{ user.profile.image }}');height: 30vh;">
+                <!-- <h1 class="text-white">{{ user.profile.username }}</h1> -->
+                <div class="hover-overlay user_name">
+                    <div class="mask" style="background-color: rgba(0, 0, 0, 0.15)"></div>
+                    <h1>{{ user.profile.username }}</h1>
+                </div>
+            </div>
+            <!-- User image -->
+            <h3 class="pb-3">
                 User Account
             </h3>
-            <form class="row d-flex justify-content-center p-3 g-3" method="POST">
-                <hr>
+            <form class="row g-3 needs-validation row d-flex justify-content-center" method="POST" enctype="multipart/form-data" novalidate>
                 {% csrf_token %}
-                <div class="form-outline p-0 col-xl-6 mb-4 me-2">
-                    <input type="text" class="form-control" id="id_username" name="username" value="{{ user.profile.username }}">
-                    <label class="form-label fs-4">user name</label>
+                <hr class="mb-3">
+                <div class="col-xl-4 position-relative pb-3">
+                    <div class="form-outline">
+                        <input type="text" class="form-control" id="id_username" name="username" value="{{ user.profile.username }}">
+                        <label class="form-label fs-4">user name</label>
+                    </div>
                 </div>
-                <div class="form-outline p-0 col-xl-4 mb-4">
-                    <input type="text" class="form-control" id="id_zipcode" name="zipcode" value="{{ user.profile.zipcode }}">
-                    <label class="form-label fs-4">郵便番号</label>
+                <div class="col-xl-4 position-relative pb-3">
+                    <div class="form-outline">
+                        <input type="text" class="form-control" id="id_zipcode" name="zipcode" value="{{ user.profile.zipcode }}">
+                        <label class="form-label fs-4">郵便番号</label>
+                    </div>
                 </div>
-                <div class="p-0 col-xl-4 mb-4">
+                <div class="col-xl-4 position-relative pb-3">
                     <select id="id_prefecture" name="prefecture" class="form-select form-select-lg">
                         <option selected><label class="form-label">都道府県</label></option>
                         <option>大阪</option>
                     </select>
                 </div>
-                <div class="form-outline p-0 col-xl-6 mb-4 ms-2">
-                    <input type="text" class="form-control" id="id_city" name="city" value="{{ user.profile.city }}">
-                    <label class="form-label fs-4">市区</label>
+                <div class="col-xl-2 position-relative pb-3">
+                    <div class="form-outline">
+                        <input type="text" class="form-control" id="id_city" name="city" value="{{ user.profile.city }}">
+                        <label class="form-label fs-4">市区</label>
+                    </div>
                 </div>
-                <div class="form-outline p-0 col-xl-10 mb-5">
-                    <input type="text" class="form-control" id="id_address" name="address" placeholder="" value="{{ user.profile.address }}">
-                    <label class="form-label fs-4">住所</label>
+                <div class="col-xl-5 position-relative pb-3">
+                    <div class="form-outline">
+                        <input type="text" class="form-control" id="id_address" name="address" placeholder="" value="{{ user.profile.address }}">
+                        <label class="form-label fs-4">住所</label>
+                    </div>
+                </div>
+                <div class="col-xl-5 position-relative pb-3">
+                    <div class="form-outline">
+                        <input type="file" class="form-control px-2" accept="image/*" id="id_image" name="image" />
+                    </div>
                 </div>
                 <div class="col-10">
-                    <button class="btn btn-black-50 hover-overlay ripple text-capitalize me-2" type="submit">save</button>
+                    <button class="btn btn-black-50 hover-overlay ripple text-capitalize mt-5" type="submit">save</button>
                 </div>
             </form>
         </div>

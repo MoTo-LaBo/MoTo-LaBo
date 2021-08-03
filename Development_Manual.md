@@ -111,7 +111,11 @@
     python manage.py livereload
 - livereload server は起動したままにする
 - error がでた場合は port 番号を変えないといけない
-  - ドキュメントに記載してある
+> https://pypi.org/project/django-livereload-server/
+- error -> Error: That port is already in use.
+  - port 番号の変更
+#### settings.py に下記を記述
+    LIVERELOAD_PORT = '8080'
 #### 5-2. terminal を１つ追加して
     python manage.py runserver
 - localserver も起動させておく
@@ -877,5 +881,30 @@
 ### 17-2. reCAPTCHA server side の設定
 - mysite/ views.py contact 関数に responce 後の code を記述
 - RESTAPI を使用して裏でも検証をかける
+## 18. GCS で画像 file を扱う
+1. mysite/model/profile_model.py に class に image を追記
+2. upload_image_to 関数を作成
+#### 3. makemigrations -> migrate
+    python manage.py makemigrations
 
+    python -m pip install Pillow
 
+    python manage.py migrate
+4. mysite/forms.py の fields に image を追加
+5. mysite/views.py mypage の関数に request.FILES を記述
+   - user から送られてきた POST, FILES どちらも渡す為に記述
+6.  account.html 下記を追記
+    - < input type="file" class="form-control px-2" accept="image/*" id="id_image" name="image" />
+### 18-1. GCS(Google Cloud Storage)
+1. GCS でバケット作成
+2. secret.yaml, secret_dev.yaml に GCS の変数になる KEY を記述
+### 3. pip install 各種 library install
+    # 1
+    pip install django-storages
+
+    # 2
+    pip install google-cloud-storage
+
+- django で簡単に接続してくれる library が含まれているもの
+- document には AmazonAWS でも接続できるやりたが記述してある
+- settings.py に GCS 設定項目を記述

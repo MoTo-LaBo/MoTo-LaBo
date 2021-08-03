@@ -102,7 +102,21 @@
     // ------- Account page(about.html) -------
 
     &_account {
-        @include content_w($mg:18% 18% 0% 27%);
+        @include content_w($mg:12% 25% 0% 25%);
+
+        & .account_image {
+            @include content_w($mg:0% 0% 5% 0%);
+            position: relative;
+
+            & h1 {
+                position: absolute;
+                top: 53%;
+                left: 50%;
+                transform: translateY(-50%) translateX(-50%);
+                @include f_style($f_size:3rem, $le_sp:3px);
+                color: rgb(255, 255, 255);
+            }
+        }
 
         & .btn {
             @include btn;
@@ -136,9 +150,9 @@
 
     }
 
-    // ------- Account page(about.html) -------
+    // ------- contact page(contact.html) -------
     &_contact {
-        @include content_w($mg:15% 18% 0% 27%);
+        @include content_w($mg:14% 25% 0% 25%);
 
         & .btn {
             @include btn;
