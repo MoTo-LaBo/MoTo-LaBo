@@ -5,54 +5,43 @@
 <main class="content_account">
     <div class="row d-flex justify-content-center">
         <div class="col-xxl-10 p-0">
-            <!-- User image -->
-            <div class="account_image bg-image hover-shadow" style="background-image: url('https://storage.googleapis.com/moto-labo/{{ user.profile.image }}');height: 30vh;">
-                <!-- <h1 class="text-white">{{ user.profile.username }}</h1> -->
-                <div class="hover-overlay user_name">
-                    <div class="mask" style="background-color: rgba(0, 0, 0, 0.15)"></div>
-                    <h1>{{ user.profile.username }}</h1>
-                </div>
-            </div>
-            <!-- User image -->
-            <h3 class="pb-3">
-                User Account
-            </h3>
             <form class="row g-3 needs-validation row d-flex justify-content-center" method="POST" enctype="multipart/form-data" novalidate>
                 {% csrf_token %}
+                <!-- User image -->
+                {% include 'mysite/snippets/profile_image.html' %}
+                <!-- User image -->
+                <h3 class="pb-3">
+                    User Account
+                </h3>
                 <hr class="mb-3">
-                <div class="col-xl-4 position-relative pb-3">
+                <div class="col-xl-6 position-relative pb-3">
                     <div class="form-outline">
                         <input type="text" class="form-control" id="id_username" name="username" value="{{ user.profile.username }}">
                         <label class="form-label fs-4">user name</label>
                     </div>
                 </div>
-                <div class="col-xl-4 position-relative pb-3">
+                <div class="col-xl-3 position-relative pb-3">
                     <div class="form-outline">
                         <input type="text" class="form-control" id="id_zipcode" name="zipcode" value="{{ user.profile.zipcode }}">
                         <label class="form-label fs-4">郵便番号</label>
                     </div>
                 </div>
-                <div class="col-xl-4 position-relative pb-3">
+                <div class="col-xl-3 position-relative pb-3">
                     <select id="id_prefecture" name="prefecture" class="form-select form-select-lg">
                         <option selected><label class="form-label">都道府県</label></option>
                         <option>大阪</option>
                     </select>
                 </div>
-                <div class="col-xl-2 position-relative pb-3">
+                <div class="col-xl-5 position-relative pb-3">
                     <div class="form-outline">
                         <input type="text" class="form-control" id="id_city" name="city" value="{{ user.profile.city }}">
                         <label class="form-label fs-4">市区</label>
                     </div>
                 </div>
-                <div class="col-xl-5 position-relative pb-3">
+                <div class="col-xl-7 position-relative pb-3">
                     <div class="form-outline">
                         <input type="text" class="form-control" id="id_address" name="address" placeholder="" value="{{ user.profile.address }}">
                         <label class="form-label fs-4">住所</label>
-                    </div>
-                </div>
-                <div class="col-xl-5 position-relative pb-3">
-                    <div class="form-outline">
-                        <input type="file" class="form-control px-2" accept="image/*" id="id_image" name="image" />
                     </div>
                 </div>
                 <div class="col-10">

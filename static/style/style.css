@@ -497,11 +497,24 @@ main .main__images-logo {
 .content_account {
   margin: 12% 25% 0% 25%;
 }
-.content_account .account_image {
+.content_account .profile_image {
   margin: 0% 0% 5% 0%;
   position: relative;
+  height: 30vh;
+  width: 100%;
+  overflow: hidden;
 }
-.content_account .account_image h1 {
+.content_account .profile_image img {
+  margin: 0% 0% 5% 0%;
+  position: relative;
+  height: 30vh;
+  width: 50vw;
+  -o-object-fit: cover;
+     object-fit: cover;
+  -o-object-position: center;
+     object-position: center;
+}
+.content_account .profile_image h1 {
   position: absolute;
   top: 53%;
   left: 50%;
@@ -510,6 +523,46 @@ main .main__images-logo {
   font-size: 3rem !important;
   letter-spacing: 3px !important;
   color: white;
+}
+.content_account .profile_image i.change_icon {
+  position: absolute;
+  top: 85%;
+  left: 50%;
+  transform: translateY(-50%) translateX(-50%);
+  color: rgba(255, 255, 255, 0.7);
+}
+.content_account .profile_image p.image_change {
+  position: absolute;
+  top: 70%;
+  left: 50%;
+  transform: translateY(-50%) translateX(-50%);
+  color: rgba(255, 255, 255, 0.7);
+}
+.content_account .profile_image:hover {
+  background-color: rgba(0, 0, 0, 0.15);
+}
+.content_account .profile_image:hover .up_icon {
+  color: white;
+}
+.content_account .profile_image:hover .upload_img {
+  color: white;
+}
+.content_account .profile_image .up_icon {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translateY(-50%) translateX(-50%);
+  color: #757575;
+}
+.content_account .profile_image .upload_img {
+  position: absolute;
+  top: 65%;
+  left: 50%;
+  transform: translateY(-50%) translateX(-50%);
+  line-height: 2.4rem !important;
+  font-size: 2rem !important;
+  letter-spacing: 3px !important;
+  color: #757575;
 }
 .content_account .btn {
   padding: 0.8rem 1.5rem !important;

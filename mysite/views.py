@@ -7,6 +7,8 @@ from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth import login
 from django.core.mail import send_mail
+from django.views import View
+from django.contrib.auth.mixins import LoginRequiredMixin
 import os
 
 
@@ -45,29 +47,49 @@ def signup(request):
     return render(request, 'mysite/auth.html', context)
 
 
-@login_required  # 関数用(mypage に access するには login していないと access できない/.decorators import login_required)
-def mypage(request):
+class MypageView(LoginRequiredMixin, View):  # LoginRequiredMixin は、必ず一番左端に記述:この記述だけで login しているか、していないかで線引きできる
     context = {}
-    if request.method == 'POST':
+
+    def get(self, request):
+        return render(request, 'mysite/account.html', self.context)
+
+    def post(self, request):
         form = ProfileForm(request.POST, request.FILES)
         if form.is_valid():
             profile = form.save(commit=False)
             profile.user = request.user
             profile.save()
             messages.success(request, 'Account Update Complete')
-    return render(request, 'mysite/account.html', context)
+        return render(request, 'mysite/account.html', self.context)
 
 
-def contact(request):
+# @login_required  # 関数用(mypage に access するには login していないと access できない/.decorators import login_required)
+# def mypage(request):
+#     context = {}
+#     if request.method == 'POST':
+#         form = ProfileForm(request.POST, request.FILES)
+#         if form.is_valid():
+#             profile = form.save(commit=False)
+#             profile.user = request.user
+#             profile.save()
+#             messages.success(request, 'Account Update Complete')
+#     return render(request, 'mysite/account.html', context)
+
+
+class ContactView(View):
     context = {
         'grecaptcha_sitekey': os.environ['GRECAPTCHA_SITEKEY'],
     }
-    if request.method == 'POST':
+
+    def get(self, request):
+        return render(request, 'mysite/contact.html', self.context)
+
+    def post(self, request):
         recaptcha_token = request.POST.get('g-recaptcha-response')
         res = grecaptcha_request(recaptcha_token)  # False か True が帰って来ている
         if not res:
             messages.error(request, '認証に失敗しました')
-            return render(request, 'mysite/account.html', context)
+            return render(request, 'mysite/account.html', self.context)
 
         # ------- email -------
         subject = 'お問合せがありました'
@@ -86,7 +108,38 @@ def contact(request):
         )
         # ------- email -------
         messages.success(request, 'お問い合わせ頂きありがとうございます')
-    return render(request, 'mysite/contact.html', context)
+        return render(request, 'mysite/contact.html', self.context)
+
+
+# def contact(request):
+#     context = {
+#         'grecaptcha_sitekey': os.environ['GRECAPTCHA_SITEKEY'],
+#     }
+#     if request.method == 'POST':
+#         recaptcha_token = request.POST.get('g-recaptcha-response')
+#         res = grecaptcha_request(recaptcha_token)  # False か True が帰って来ている
+#         if not res:
+#             messages.error(request, '認証に失敗しました')
+#             return render(request, 'mysite/account.html', context)
+
+#         # ------- email -------
+#         subject = 'お問合せがありました'
+#         message = "お問合せがありました。\n名前: {}\nメールアドレス: {}\n内容: {}".format(
+#             request.POST.get('name'),
+#             request.POST.get('email'),
+#             request.POST.get('content'))
+
+#         email_from = os.environ['DEFAULT_EMAIL_FROM']
+#         email_to = [os.environ['DEFAULT_EMAIL_FROM'], ]
+#         send_mail(
+#             subject,
+#             message,
+#             email_from,
+#             email_to
+#         )
+#         # ------- email -------
+#         messages.success(request, 'お問い合わせ頂きありがとうございます')
+#     return render(request, 'mysite/contact.html', context)
 
 
 def grecaptcha_request(token):

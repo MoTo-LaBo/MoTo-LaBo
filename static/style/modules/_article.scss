@@ -104,9 +104,21 @@
     &_account {
         @include content_w($mg:12% 25% 0% 25%);
 
-        & .account_image {
+        & .profile_image {
             @include content_w($mg:0% 0% 5% 0%);
             position: relative;
+            height: 30vh;
+            width: 100%;
+            overflow: hidden;
+
+            & img {
+                @include content_w($mg:0% 0% 5% 0%);
+                position: relative;
+                height: 30vh;
+                width: 50vw;
+                object-fit: cover;
+                object-position: center;
+            }
 
             & h1 {
                 position: absolute;
@@ -115,6 +127,52 @@
                 transform: translateY(-50%) translateX(-50%);
                 @include f_style($f_size:3rem, $le_sp:3px);
                 color: rgb(255, 255, 255);
+            }
+
+            & i.change_icon {
+                position: absolute;
+                top: 85%;
+                left: 50%;
+                transform: translateY(-50%) translateX(-50%);
+                color: rgba(255, 255, 255, 0.7);
+            }
+
+            & p.image_change {
+                position: absolute;
+                top: 70%;
+                left: 50%;
+                transform: translateY(-50%) translateX(-50%);
+                color: rgba(255, 255, 255, 0.7);
+            }
+
+            &:hover {
+                background-color: rgba(0, 0, 0, 0.15);
+
+                & .up_icon {
+                    color: rgb(255, 255, 255);
+                }
+
+                & .upload_img {
+                    color: rgb(255, 255, 255);
+                }
+
+            }
+
+            & .up_icon {
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translateY(-50%) translateX(-50%);
+                color: $tblack;
+            }
+
+            & .upload_img {
+                position: absolute;
+                top: 65%;
+                left: 50%;
+                transform: translateY(-50%) translateX(-50%);
+                @include f_style($le_sp:3px);
+                color: $tblack;
             }
         }
 

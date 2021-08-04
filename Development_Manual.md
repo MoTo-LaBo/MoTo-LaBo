@@ -908,3 +908,9 @@
 - django で簡単に接続してくれる library が含まれているもの
 - document には AmazonAWS でも接続できるやりたが記述してある
 - settings.py に GCS 設定項目を記述
+## 19. class view
+- mysite/views.py を編集
+  - mypage と contact 関数を class view に変える
+  - 汎用的なモノを使い、関数とクラスの違いを理解する
+  - class に変更後は、 config の urls.py file path を変更する
+  -

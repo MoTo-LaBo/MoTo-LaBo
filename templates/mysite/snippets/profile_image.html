@@ -1,0 +1,54 @@
+{% load static %}
+
+<!------ default image upload ------>
+<label id="id_image_label" for="id_image" class="profile_image hover-shadow p-0">
+    <div id="no_image" class="{% if user.profile.image != '' %}d-none{% endif %}">
+        <i class="up_icon fas fa-cloud-upload-alt fa-3x"></i>
+        <h1 class="upload_img">image up load</h1>
+    </div>
+
+    <!------ upload image ------>
+    <img id="image_preview" class="{% if user.profile.image == '' %}d-none{% endif %}" src="https://storage.googleapis.com/moto-labo/{{ user.profile.image }}" alt="">
+    <div id="image_title" class="hover-overlay user_name {% if user.profile.image == '' %}d-none{% endif %}">
+        <h1>{{ user.profile.username }}</h1>
+        <div class="mask" style="background-color: rgba(0, 0, 0, 0.15)">
+            <i class="change_icon fas fa-cloud-upload-alt fa-2x"></i>
+            <p class="image_change">image change</p>
+        </div>
+    </div>
+
+</label>
+
+
+<!------ default image upload ------>
+<!-- <label id="id_image_label" for="id_image" class="profile_image hover-shadow">
+    <div id="no_image" class="{% if user.profile.image != '' %}d-none{% endif %}">
+        <i class="fas fa-cloud-upload-alt fa-3x"></i>
+        <h1 class="upload_img">image up load</h1>
+    </div> -->
+<!------ upload image ------>
+<!-- <div id="image_preview" class="{% if user.profile.image == '' %}d-none{% endif %}" style="background-image: url('https://storage.googleapis.com/moto-labo/{{ user.profile.image }}');height: 30vh;">
+        <h1>{{ user.profile.username }}</h1>
+    </div>
+</label> -->
+
+
+<!------ inupt ------>
+<div class="d-none">
+    <input type="file" accept="image/*" id="id_image" name="image" onchange="previewImage(this)" />
+</div>
+
+<!------ preview script ------>
+<script>
+    function previewImage(elem) {
+        const fileReader = new FileReader();
+        fileReader.onload = (function () {
+            document.querySelector('#image_preview').classList.remove('d-none');
+            document.querySelector('#image_title').classList.remove('d-none');
+            document.querySelector('#no_image').classList.add('d-none');
+
+            document.querySelector('#image_preview').src = fileReader.result;
+        });
+        fileReader.readAsDataURL(elem.files[0]);
+    }
+</script>
