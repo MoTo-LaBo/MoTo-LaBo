@@ -1,0 +1,29 @@
+<!-- {% extends 'mysite/base.html' %}
+{% load static %}
+
+{% block content %}
+<main class="content_contact text-center">
+    <div class="row d-flex justify-content-center">
+        <div class="col-xxl-10 p-0">
+            <h3 class="pb-2">
+                決済デモ(PAY.JP)
+            </h3>
+
+            {% if charge %}
+            <p>ブランド:{{ charge.card.brand }}</p>
+            <p>****-****-****-{{ charge.card.last4 }}</p>
+            {% endif %}
+
+            <form class="row d-flex justify-content-center p-3 g-3" method="POST">
+                <hr class="mb-5">
+                {% csrf_token %}
+
+                <script type="text/javascript" src="https://checkout.pay.jp" class="payjp-button" data-key="{{ public_key }}">
+
+                </script>
+
+            </form>
+        </div>
+    </div>
+</main>
+{% endblock %} -->

@@ -913,4 +913,15 @@
   - mypage と contact 関数を class view に変える
   - 汎用的なモノを使い、関数とクラスの違いを理解する
   - class に変更後は、 config の urls.py file path を変更する
-  -
+## 20. PAY.JP 決済機能追加 (Demo)
+1. mysite/views.py class PayView で実装
+2. config/urls.py path 追記
+3. template/mysite/pay.html 作成・記述
+4. > https://pay.jp/
+   - アカウント作成・API 秘密鍵と公開鍵を secret_dev.yaml に記述
+#### 5. pip install
+    pip install payjp
+> https://pay.jp/docs/api/#charge%E3%82%AA%E3%83%96%E3%82%B8%E3%82%A7%E3%82%AF%E3%83%88
+   - pay.jp リファレンス
+6. python に関しては Flask を参考に実装
+> https://pay.jp/docs/flask-checkout
