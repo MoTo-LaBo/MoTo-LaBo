@@ -1,3 +1,5 @@
+from django.http import JsonResponse
+from django.views.decorators.csrf import ensure_csrf_cookie
 from django.core import paginator
 from django.shortcuts import render
 from blog.models import Article, Comment, Tag
@@ -51,3 +53,15 @@ def tags(request, slug):
         'page_number': page_number,
     }
     return render(request, 'blog/article_list.html', context)
+
+
+@ensure_csrf_cookie
+def like(request, pk):
+    d = {'message': 'error'}
+    if request.method == 'POST':
+        obj = Article.objects.get(pk=pk)
+        obj.count += 1
+        obj.save()
+
+        d['message'] = 'success'
+    return JsonResponse(d)

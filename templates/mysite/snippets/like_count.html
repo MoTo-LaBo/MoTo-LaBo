@@ -1,9 +1,71 @@
 {% load static %}
 
-<form method="POST" class="d-inline like_btn">
+<!-- <form method="POST" class="d-inline like_btn">
     {% csrf_token %}
     <input type="hidden" name="like_count" value="true">
     <button class="btn btn-black-50 hover-overlay ripple me-2" type="submit">
         <i class="far fa-heart mb-2">&nbsp;{{ article.count }}</i>
     </button>
-</form>
+</form> -->
+<div class="d-inline like_btn">
+    <button id="like_btn" class="btn btn-black-50 hover-overlay ripple me-2" type="button">
+        <i id="like_count" class="far fa-heart mb-2">&nbsp;{{ article.count }}</i>
+    </button>
+</div>
+
+
+
+<script>
+    window.addEventListener("DOMContentLoaded", (event) => {
+
+        const likeBtn = document.querySelector("#like_btn");
+        likeBtn.addEventListener('click', (event) => {
+            // 送信先URL
+            const url = "/blog/{{ article.id }}/like/";
+            // csrftokenの取得
+            const csrfToken = getCookie("csrftoken");
+            // 送信したいデータがある場合
+            const data = {};
+
+
+            fetch(url, {
+                    method: "POST",
+                    credentials: "same-origin",
+                    headers: {
+                        "Content-Type": "application/json",
+                        "X-Requested-With": "XMLHttpRequest",
+                        "X-CSRFToken": csrfToken,
+                    },
+                    body: JSON.stringify(data),
+                })
+                .then(Response => Response.json())
+                .then(data => {
+                    if (data["message"] === "success") {
+                        const likeCount = document.querySelector("#like_count");
+                        likeCount.innerText = (Number(likeCount.innerText) + 1).toString();
+                    }
+                })
+                .catch((error) => {
+                    console.log(error);
+                });
+
+        }, false);
+
+
+
+    }, false);
+
+
+
+    function getCookie(name) {
+        if (document.cookie && document.cookie !== "") {
+            for (const cookie of document.cookie.split(';')) {
+                const [key, value] = cookie.trim().split("=");
+                if (key === name) {
+                    return decodeURIComponent(value);
+                }
+            }
+        }
+        return null;
+    }
+</script>

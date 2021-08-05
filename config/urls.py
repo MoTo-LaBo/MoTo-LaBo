@@ -3,6 +3,7 @@ from django.urls import path, include
 from django.contrib.auth.views import LogoutView
 from mysite import views
 
+
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', views.index),
@@ -12,5 +13,6 @@ urlpatterns = [
     path('signup/', views.signup),
     path('account/', views.MypageView.as_view()),
     path('contact/', views.ContactView.as_view()),
-    # path('pay/', views.PayView.as_view()),
+    path('pay/', views.PayView.as_view()),
+    path('cache_test/', (views.cache_test)),
 ]

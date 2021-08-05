@@ -925,3 +925,136 @@
    - pay.jp リファレンス
 6. python に関しては Flask を参考に実装
 > https://pay.jp/docs/flask-checkout
+## 21. cache(キャッシュ)について
+- キャッシュが遅くなる原因は色々ある
+   - 計算、画像処理、BDマシーン性能 etc...
+   - cache = 計算された後の結果:(１から計算しなくて良い)ので初回以降の responce が早くなる
+- Django document にも導入方法の記載はある
+    > https://docs.djangoproject.com/en/3.2/topics/cache/#database-caching
+### 21-1. cache の設定
+    CACHES = {
+        'default': {
+            'BACKEND': 'django.core.cache.backends.db.DatabaseCache',
+            'LOCATION': 'my_cache_table',
+        }
+    }
+1. config/settings.py に上記を記述
+   - 今回は　<u>データベースキャッシング</u>
+   - キャッシュされたデータをデータベースに保存。これは、高速でインデックスが適切なデータベースサーバーがある場合に最適に機能する
+#### 2. 下記 command 実行
+    python manage.py createcachetable
+   - 作成完了
+#### 3. shell で database を確認
+    python manage.py dbshell
+
+    # database check(mysql)
+    show tables;
+
+    # 外に出る
+    Ctr + D
+4. config/urls.py に path 記述
+#### 5. Django’s cache framework import
+    from django.views.decorators.cache import cache_page
+> https://docs.djangoproject.com/en/3.2/topics/cache/#django.views.decorators.cache.cache_page
+6. 動的な page ではなく今後あまり変更がないのであれば、view ごと cache するやり方もある
+   - @cache_page() : view の一番上に デコレーター を記述する
+7. url 事に cache するやり方もある
+   - config/urls.py -> from ... の上記を import
+   - cache_page(30) を path に記述 : (30) は 30秒 cache(同じ結果) が持続という事
+     - その後はまた読み込まれて、30秒 cache(同じ結果) の繰り返し
+#### 8. template の部分的 cache もできる
+    {% load cache %}
+
+    {% cache 30 first_cache %}
+
+    {% endcache %}
+   - 特定の部分だけ計算が重くなっている時や、特手の部分を cache したい時に使用
+   -
+#### 9. cache を分岐させる事もできる
+    {% load cache %}
+
+    {% cache 40 first_cache request.user.id %}
+
+    {% endcache %}
+- 上記のように各 user によって cache を分ける事もできる
+- user 各自が一度訪れたところには、各自の cache が実行される
+- 一律に cache をかけるのではなく、個々に対応させる
+## 22. 非同期通信の実装
+- 今の状態だと、いいねを押した場合に page 全部が更新されてしまう
+  - いいね button だけ更新されればのいいのだが、page が再読み込みされてしまうのでそこを改善する
+  - server 状況によってはかなり遅くなってしまう
+  - いいね button だけを更新したい場合、そのような状況の場合に非同期通信を利用すると UX もよくなる
+### 1. blog/views.py 下記を追記
+    from django.views.decorators.csrf import ensure_csrf_cookie
+    from django.http import JsonResponse
+
+    @ensure_csrf_cookie
+    def like(request, pk):
+        d = {'message': 'error'}
+        return JsonResponse(d)
+- <u>django の場合 csrf_token の対策がされている</u>ので、csrf_token がついてないと POST 送信が許可されない
+  - @ensure_csrf_cookie : 上記のデコレーターを記述する事により許可がされ、POST 送信ができるようになる
+  - json 形式で返すので responce は JsonResponse を import をしている
+2. blog/urls.py に path を通す
+3. local host で　確認 http://127.0.0.1:8000/blog/article/like
+   - message : error が　表示されれば成功
+4. like_count.html を編集・修正: from と input と {% csrf_token %} 削除, div に変更, button type=button に変更
+5. < button > < i > tag に id="like_count", id="like_btn" 追記
+### 6. script 追記
+    <script>
+        window.addEventListener("DOMContentLoaded", (event) => {
+
+        }, false);
+    </script>
+- page が読み込まれて、使用できるようになった段階で { } の中の code が事項される
+### 7. code
+    {
+        const likeBtn = document.querySelector("like_btn");
+        likeBtn.addEventListener('click', (event) => {
+            const url = "/blog/{{ article.id }}/like/";
+            const csrf_token = getCookie("csrftoken");
+            // 送信したい data がある場合 body: に渡す
+            const data = {};
+
+            fetch(url, {
+                method: "POST",
+                credentials: "same-origin",
+                headers: {
+                    "Content-Type": "application/json",
+                    "X-Requested-With": "XMLHttpRequest",
+                    "X-CSRFToken": csrfToken,
+                },
+                body: JSON.stringify({data})
+            })
+            .then(Response => Response.json())
+            .then(data => {
+                if (data["message"] === "success") {
+                    const likeCount = document.querySelector("like_count");
+                    likeCount.innerText = (Number(likeCount.innerText)+1).toString();
+                }
+            })
+            .catch((error) => {
+                console.log(error);
+            });
+        })
+    }
+- id=like_btn を取得 -> click された場合 url に送信される
+- csrftoken の値を取得
+- fetch は非同期通信の仕組み(通信の仕方): 送信 -> like view に届く
+- like view -> .then に帰ってくる(受け取る): 帰ってきた data を json に変換し扱う
+- if -> 取得してきた data に error がなければ、今現在の like_count(いいねの数)を取得する
+  - 帰ってきた data が文字列なので数字に変換して, その数字(いいね)に + 1 する！
+  - toString で、１つ増えた数をまた文字列に戻してあげる
+### 7-1. code こちらも scrip tag に追記
+    function getCookie(name) {
+        if (document.cookie && document.cookie !== "") {
+            for (const cookie of document.cookie.split(';')) {
+                const [key, value] = cookie.trim().split('=');
+                if (key == name) {
+                    return decodeURIComponent(value);
+                }
+            }
+        }
+        return null;
+    }
+- django の document にも記載してある。cookie の name を記述すると key を取得してくれる

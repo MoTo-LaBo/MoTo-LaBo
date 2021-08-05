@@ -193,7 +193,7 @@ MESSAGE_TAGS = {
     messages.INFO: 'rounded-0 alert alert-info',
     messages.DEBUG: 'rounded-0 alert alert-secondary',
 }
-# --------- massage tab with bootstrap alert class --------
+
 
 # --------- Gmail 送信設定 -----------
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
@@ -202,7 +202,15 @@ EMAIL_PORT = 587
 EMAIL_USE_TLS = True
 EMAIL_HOST_USER = os.environ['EMAIL_HOST_USER']
 EMAIL_HOST_PASSWORD = os.environ['EMAIL_HOST_PASSWORD']
-# --------- Gmail 送信設定 ----------
+
+
+# --------- Cache 設定 ----------
+CACHES = {
+    'default': {
+        'BACKEND': 'django.core.cache.backends.db.DatabaseCache',
+        'LOCATION': 'cache_table',
+    }
+}
 
 
 # Default primary key field type
