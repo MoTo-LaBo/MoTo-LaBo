@@ -1,4 +1,4 @@
-import payjp
+# import payjp
 from django.contrib.auth import forms
 from django.shortcuts import redirect, render
 from django.contrib.auth.views import LoginView
@@ -170,35 +170,35 @@ def grecaptcha_request(token):
     return response['success']
 
 
-class PayView(View):
-    payjp.api_key = os.environ['PAYJP_SECRET_KEY']
-    public_key = os.environ['PAYJP_PUBLIC_KEY']
-    amount = 1000
+# class PayView(View):
+#     payjp.api_key = os.environ['PAYJP_SECRET_KEY']
+#     public_key = os.environ['PAYJP_PUBLIC_KEY']
+#     amount = 1000
 
-    def get(self, request):
-        context = {
-            'amount': self.amount,
-            'public_key': self.public_key,
-        }
-        return render(request, 'mysite/pay.html', context)
+#     def get(self, request):
+#         context = {
+#             'amount': self.amount,
+#             'public_key': self.public_key,
+#         }
+#         return render(request, 'mysite/pay.html', context)
 
-    def post(self, request):
-        customer = payjp.Customer.create(
-            email='example@pay.jp',
-            card=request.POST.get('payjp-token')
-        )
-        charge = payjp.Charge.create(
-            amount=self.amount,
-            currency='jpy',
-            customer=customer.id,
-            description='支払いtest'
-        )
-        context = {
-            'amount': self.amount,
-            'public_key': self.public_key,
-            'charge': charge,
-        }
-        return render(request, 'mysite/pay.html', context)
+#     def post(self, request):
+#         customer = payjp.Customer.create(
+#             email='example@pay.jp',
+#             card=request.POST.get('payjp-token')
+#         )
+#         charge = payjp.Charge.create(
+#             amount=self.amount,
+#             currency='jpy',
+#             customer=customer.id,
+#             description='支払いtest'
+#         )
+#         context = {
+#             'amount': self.amount,
+#             'public_key': self.public_key,
+#             'charge': charge,
+#         }
+#         return render(request, 'mysite/pay.html', context)
 
 
 def cache_test(request):
