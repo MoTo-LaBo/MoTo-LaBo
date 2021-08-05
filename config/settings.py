@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'livereload',
     'django.contrib.staticfiles',
+    'django.contrib.sitemaps',  # site map
     'mysite',
     'blog',
 ]

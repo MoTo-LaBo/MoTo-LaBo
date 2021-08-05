@@ -12,6 +12,26 @@ from django.views import View
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.views.decorators.cache import cache_page
 import os
+from django.contrib.sitemaps import ping_google
+
+
+# page の更新・生成があった場合の設定(Google にクロールに来て下さいと呼びかけ)
+# login した user + admin(管理画面にaccessできる) user しか ping は実行できないようにする
+# url に ping path を打ち込んで、更新 top に飛ばされる。これで完了！
+@login_required
+def ping(request):
+    try:
+        if request.user.is_admin:
+            ping_google()
+    except:
+        pass
+    return redirect('/')
+
+
+def landing(request):
+    context = {
+    }
+    return render(request, 'mysite/landing.html', context)
 
 
 def index(request):

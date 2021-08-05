@@ -1000,14 +1000,14 @@
    - message : error が　表示されれば成功
 4. like_count.html を編集・修正: from と input と {% csrf_token %} 削除, div に変更, button type=button に変更
 5. < button > < i > tag に id="like_count", id="like_btn" 追記
-### 6. script 追記
+#### 6. script 追記
     <script>
         window.addEventListener("DOMContentLoaded", (event) => {
 
         }, false);
     </script>
 - page が読み込まれて、使用できるようになった段階で { } の中の code が事項される
-### 7. code
+#### 7. code
     {
         const likeBtn = document.querySelector("like_btn");
         likeBtn.addEventListener('click', (event) => {
@@ -1045,7 +1045,7 @@
 - if -> 取得してきた data に error がなければ、今現在の like_count(いいねの数)を取得する
   - 帰ってきた data が文字列なので数字に変換して, その数字(いいね)に + 1 する！
   - toString で、１つ増えた数をまた文字列に戻してあげる
-### 7-1. code こちらも scrip tag に追記
+#### 7-1. code こちらも scrip tag に追記
     function getCookie(name) {
         if (document.cookie && document.cookie !== "") {
             for (const cookie of document.cookie.split(';')) {
@@ -1058,3 +1058,15 @@
         return null;
     }
 - django の document にも記載してある。cookie の name を記述すると key を取得してくれる
+## 23. sitemap 作成
+- site の各 page を Google に教えて効率よく巡回(クロール)しやすくする
+- Google search console
+    > https://search.google.com/search-console/about?hl=ja
+- django framework(公式 document)
+    > https://docs.djangoproject.com/en/3.1/ref/contrib/sitemaps/
+### 1. config/settings.py に追記
+    INSTALLED_APPS = [
+        'django.contrib.sitemaps'  # site map
+    ]
+2. config/sitemaps.py 作成・関数記述
+3. mysite, blog, config, urls.py に記述(参照)
