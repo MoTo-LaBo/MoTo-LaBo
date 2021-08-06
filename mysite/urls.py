@@ -8,7 +8,8 @@ app_name = 'mysite'
 
 urlpatterns = [
     path('', views.index, name='index'),
-    path('landing/', views.landing, name='landing'),
+    path('identity/', views.identity, name='identity'),
+    path('about/', views.about, name='about'),
 
     path('login/', views.Login.as_view()),
     path('logout/', LogoutView.as_view()),

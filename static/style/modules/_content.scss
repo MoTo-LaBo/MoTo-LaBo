@@ -1,4 +1,3 @@
-// ------- 記事一覧 page -------
 .content {
     @include content_w;
     @include f_style;
@@ -7,21 +6,31 @@
         @include btn;
     }
 
-    & .card-text,
-    .author,
-    .created_at {
-        @include f_style($f_size:1.6rem);
-    }
+    // ------- Article list page(article_list.html) -------
+    &_list {
 
-    .pagination {
+        @include content_w;
+        @include f_style;
 
-        & .current {
-            @include f_style($l_height:1rem, $f_size:1.5rem, $le_sp:0px);
+        & .btn {
+            @include btn;
+        }
+
+        & .card-text,
+        .author,
+        .created_at {
+            @include f_style($f_size:1.6rem);
+        }
+
+        .pagination {
+
+            & .current {
+                @include f_style($l_height:1rem, $f_size:1.5rem, $le_sp:0px);
+            }
         }
     }
 
-
-    // ------- 記事詳細 page -------
+    // ------- Article detail page(artcle_detail.html) -------
     &_detail {
         position: absolute;
         @include content_w($mg:6% 30% 0% 30%);
@@ -99,7 +108,7 @@
         }
     }
 
-    // ------- Account page(about.html) -------
+    // ------- Account page(account.html) -------
 
     &_account {
         @include content_w($mg:12% 25% 0% 25%);

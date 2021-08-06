@@ -1,0 +1,28 @@
+{% extends 'mysite/base_identity.html' %}
+{% load static %}
+
+{% block content %}
+<main class="identity_bg">
+    <div class="content_identity">
+        <div class="row d-flex justify-content-center">
+            <div class="col-12">
+                <div class="img_main bg-image col-12 position-relative">
+                    <img class="img-fluid" src="{% static '/images/identity/moto_log.png' %}" alt="MoTo log">
+                </div>
+                <div class="img_sub bg-image col-12 position-relative">
+                    <img class="img-fluid" src="{% static '/images/identity/mountains.png' %}" alt="mountains">
+                </div>
+                <div class="img_sub bg-image col-12 position-relative">
+                    <img class="img-fluid" src="{% static '/images/identity/water_well.png' %}" alt="water well">
+                </div>
+                <div class="img_sub bg-image col-12 position-relative">
+                    <img class="img-fluid" src="{% static '/images/identity/scoop_out.png' %}" alt="scoop out">
+                </div>
+                <div class="img_sub bg-image col-12 position-relative">
+                    <img class="img-fluid" src="{% static '/images/identity/flow_of_nature.png' %}" alt="flow of nature">
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+{% endblock %}

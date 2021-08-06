@@ -129,7 +129,7 @@ html body .form-outline {
   /*背景の形状*/
   width: 0;
   height: 1px;
-  background: #000000;
+  background: #333;
   opacity: 0;
   /*はじめは透過を0に*/
 }
@@ -245,6 +245,39 @@ main {
   line-height: 2.4rem !important;
   font-size: 2rem !important;
   letter-spacing: 1px !important;
+}
+main .about_image {
+  margin: 0% 10% 0% 21%;
+  height: 100vmin;
+  background-size: 81vw;
+  overflow: hidden;
+  position: relative;
+}
+main .about_image .bgimg_about {
+  height: 100%;
+  width: 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  position: absolute;
+  z-index: -1;
+  padding: 0 18%;
+}
+main .about_image .drection {
+  line-height: 2.4rem !important;
+  font-size: 2rem !important;
+  letter-spacing: 1px !important;
+  color: white;
+  text-align: left;
+  font-weight: 100;
+  margin-top: 15%;
+  padding: 5% 15% 5% 25%;
+}
+main .about_image .drection p {
+  line-height: 3.5rem !important;
+  font-size: 2rem !important;
+  letter-spacing: 2px !important;
+  font-weight: 100;
 }
 main .main__images {
   height: 100vmin;
@@ -405,14 +438,25 @@ main .main__images-logo {
   font-size: 1.6rem !important;
   letter-spacing: 1px;
 }
-.content .card-text,
-.content .author,
-.content .created_at {
+.content_list {
+  margin: 165px 25% 0% 25%;
+  line-height: 2.4rem !important;
+  font-size: 2rem !important;
+  letter-spacing: 1px !important;
+}
+.content_list .btn {
+  padding: 0.8rem 1.5rem !important;
+  font-size: 1.6rem !important;
+  letter-spacing: 1px;
+}
+.content_list .card-text,
+.content_list .author,
+.content_list .created_at {
   line-height: 2.4rem !important;
   font-size: 1.6rem !important;
   letter-spacing: 1px !important;
 }
-.content .pagination .current {
+.content_list .pagination .current {
   line-height: 1rem !important;
   font-size: 1.5rem !important;
   letter-spacing: 0px !important;
@@ -626,4 +670,212 @@ main .main__images-logo {
   font-weight: 300 !important;
   border-color: rgba(0, 0, 0, 0.2);
   box-shadow: inset 0 0 0 1px #ffffff62;
+}
+
+header.identity {
+  text-align: left;
+  display: inline-block;
+  position: fixed;
+  top: 100px;
+  left: 0;
+  margin: 0 0 0 75px;
+  line-height: 2.4rem !important;
+  font-size: 2rem !important;
+  letter-spacing: 1px !important;
+}
+header.identity .ide_logo {
+  margin-bottom: 260px;
+}
+header.identity .ide_menu {
+  font-size: 2rem;
+  margin-left: 5px;
+  /*現在地とhoverの設定*/
+  /*現在地とhoverの設定*/
+}
+header.identity .ide_menu ul li {
+  margin-bottom: 25px;
+}
+header.identity .ide_menu ul li.ide_login_out {
+  line-height: 2.4rem !important;
+  font-size: 2.5rem !important;
+  letter-spacing: 2px !important;
+  margin: 40% 0 -40% 15%;
+}
+header.identity .ide_menu ul li.ide_author {
+  margin-top: 80%;
+  font-size: 1.8rem;
+  letter-spacing: 2px;
+}
+header.identity .ide_menu ul li a {
+  text-decoration: none;
+  letter-spacing: 2px;
+  color: #ffffff;
+  padding: 5px;
+}
+header.identity .ide_menu ul.ide_gnavi li a {
+  /*線の基点とするためrelativeを指定*/
+  position: relative;
+}
+header.identity .ide_menu ul.ide_gnavi li a.ide_bg {
+  /*背景色の基点とするためrelativeを指定*/
+  position: relative;
+  /*アニメーションの指定*/
+  transition: all 0.5s;
+}
+header.identity .ide_menu ul.ide_gnavi li a::after {
+  content: "";
+  /*絶対配置で線の位置を決める*/
+  position: absolute;
+  bottom: 0;
+  left: 7%;
+  /*線の形状*/
+  width: 80%;
+  height: 1px;
+  background: #ffffff;
+  /*アニメーションの指定*/
+  transition: all 1s;
+  transform: scale(0, 1);
+  /*X方向0、Y方向1*/
+  transform-origin: left top;
+  /*左上基点*/
+}
+header.identity .ide_menu ul.ide_gnavi li a.ide_bg::after {
+  content: "";
+  /*絶対配置で線の位置を決める*/
+  position: absolute;
+  z-index: -1;
+  bottom: 0;
+  left: 0;
+  /*背景の形状*/
+  width: 0;
+  height: 1px;
+  background: #ffffff;
+  opacity: 0;
+  /*はじめは透過を0に*/
+}
+header.identity .ide_menu ul.ide_gnavi li a:hover {
+  color: #ffffff;
+}
+header.identity .ide_menu ul.ide_gnavi li a:hover::after {
+  transform: scale(1, 1);
+  /*X方向にスケール拡大*/
+}
+header.identity .ide_menu ul.ide_gnavi li a.ide_bg:hover::after {
+  /*背景の形状*/
+  width: 100%;
+  opacity: 1;
+  /*アニメーションの指定*/
+  -webkit-animation: bgcolor 0.7s forwards;
+          animation: bgcolor 0.7s forwards;
+  /*アニメーションで線を伸ばして背景をつける*/
+}
+@-webkit-keyframes bgcolor {
+  0% {
+    width: 0%;
+    height: 1px;
+  }
+  50% {
+    width: 100%;
+    height: 1px;
+  }
+  70% {
+    width: 100%;
+    height: 1px;
+  }
+  85% {
+    width: 100%;
+    height: 75%;
+  }
+  100% {
+    width: 100%;
+    height: 100%;
+    background: #ffffff5d;
+  }
+}
+@keyframes bgcolor {
+  0% {
+    width: 0%;
+    height: 1px;
+  }
+  50% {
+    width: 100%;
+    height: 1px;
+  }
+  70% {
+    width: 100%;
+    height: 1px;
+  }
+  85% {
+    width: 100%;
+    height: 75%;
+  }
+  100% {
+    width: 100%;
+    height: 100%;
+    background: #ffffff5d;
+  }
+}
+header.identity .ide_menu ul.ide_gnavi li a.ide_bg:hover {
+  color: white;
+  /*テキストを最前面へ*/
+  z-index: 10;
+}
+
+main.identity_bg {
+  background-color: #1e1e1e;
+}
+main.identity_bg .content_identity {
+  margin: 0% 25% 0% 25%;
+  line-height: 2.4rem !important;
+  font-size: 2rem !important;
+  letter-spacing: 1px !important;
+  padding-top: 15%;
+  height: 100%;
+}
+main.identity_bg .content_identity .img_main {
+  margin-bottom: 40%;
+}
+main.identity_bg .content_identity .img_sub {
+  margin-bottom: 30%;
+}
+
+.side_copy_ide {
+  display: inline-block;
+  color: white;
+  position: fixed;
+  top: 50%;
+  right: -2%;
+  margin: 0 0 0 0;
+  transform: rotate(90deg);
+  letter-spacing: 2px;
+  line-height: 2rem !important;
+  font-size: 1.6rem !important;
+  letter-spacing: 3px !important;
+}
+
+.footer_ide {
+  text-align: center;
+  margin-left: 90px;
+  z-index: 0;
+  line-height: 2.4rem !important;
+  font-size: 2rem !important;
+  letter-spacing: 1px !important;
+}
+.footer_ide .footer__sns-links {
+  position: fixed;
+  bottom: 50px;
+}
+.footer_ide .footer__sns-links ul li {
+  display: inline-block;
+  margin-right: 31px;
+}
+.footer_ide .footer__sns-links ul li a.sns_link {
+  text-decoration: none;
+}
+.footer_ide .footer__sns-links ul li a.sns_link:hover {
+  color: white;
+  background-color: rgba(255, 255, 255, 0.5);
+}
+.footer_ide .footer__sns-links ul li a.sns_link i.icon {
+  color: #ffffff;
 }/*# sourceMappingURL=style.css.map */

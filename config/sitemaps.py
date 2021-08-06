@@ -1,4 +1,4 @@
-from mysite.views import landing
+from mysite.views import identity, about
 from django.contrib import sitemaps
 from django.urls import reverse
 from blog.models import Article
@@ -9,7 +9,7 @@ class StaticViewSitemap(sitemaps.Sitemap):
     changefreq = 'dayily'  # 更新頻度・変更頻度
 
     def items(self):
-        return['mysite:index', 'mysite:landing', ]  # mysite: -> mysite app から読み込むという意味
+        return['mysite:index', 'mysite:identity', 'mysite:about']  # mysite: -> mysite app から読み込むという意味
 
     def location(self, item):  # url
         return reverse(item)  # item url を返していく

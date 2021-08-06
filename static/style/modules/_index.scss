@@ -2,6 +2,40 @@ main {
 
     @include f_style;
 
+    // ------- About (about.html) -------
+    & .about_image {
+        @include content_w(0% 10% 0% 21%);
+        height: 100vmin;
+        background-size: 81vw;
+        overflow: hidden;
+        position: relative;
+
+        & .bgimg_about {
+            height: 100%;
+            width: 100%;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: contain;
+            position: absolute;
+            z-index: -1;
+            padding: 0 18%;
+        }
+
+        & .drection {
+            @include f_style();
+            color: rgb(255, 255, 255);
+            text-align: left;
+            font-weight: 100;
+            margin-top: 15%;
+            padding: 5% 15% 5% 25%;
+
+            & p {
+                @include f_style($l_height:3.5rem, $le_sp:2px);
+                font-weight: 100;
+            }
+        }
+    }
+
     & .main__images {
         height: 100vmin;
         margin: 0 0 0 350px;

@@ -28,17 +28,21 @@ def ping(request):
     return redirect('/')
 
 
-def landing(request):
-    context = {
-    }
-    return render(request, 'mysite/landing.html', context)
-
-
 def index(request):
     context = {
         'title': 'MoTo LaBo'
     }
     return render(request, 'mysite/index.html', context)
+
+
+def identity(request):
+    context = {}
+    return render(request, 'mysite/identity.html', context)
+
+
+def about(request):
+    context = {}
+    return render(request, 'mysite/about.html', context)
 
 
 class Login(LoginView):

@@ -1,0 +1,25 @@
+{% load static %}
+<header class="identity">
+    <h1 class="ide_logo">
+        <a href="/">
+            <img src="{% static '/images/identity/MOTOYA-ITO-DESIGN-title_identity_logo-.png' %}" alt="MOTOYA ITO DESGIN" />
+        </a>
+    </h1>
+    <nav class="ide_menu">
+        <ul class="ide_gnavi">
+            <!-- <li><a href="/">HOME</a></li> -->
+            <li><a href="/blog/articles/">LABO</a></li>
+            <li><a href="/about/">ABOUT</a></li>
+            <li><a href="/identity/">IDENTITY</a></li>
+            <li><a href="/contact/">CONTACT</a></li>
+            <!-- <li><a href="/account/">ACCOUNT</a></li> -->
+
+            {% if user.is_authenticated %}
+            <li class="ide_login_out"><a href="/logout/" class="ide_bg">Logout</a></li>
+            <li class="ide_author"><a href="/account/">User Account</a></li>
+            {% else %}
+            <li class="ide_login_out"><a href="/login/" class="ide_bg">Login</a></li>
+            <li class="ide_author"><a href="/signup/">Create User</a></li>
+            {% endif %}
+        </ul>
+</header>

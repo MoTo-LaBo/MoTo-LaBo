@@ -1,5 +1,5 @@
 // header nav
-.header {
+header.identity {
     text-align: left;
     display: inline-block;
     position: fixed;
@@ -8,11 +8,11 @@
     margin: 0 0 0 75px;
     @include f_style;
 
-    &__logo {
+    & .ide_logo {
         margin-bottom: 260px;
     }
 
-    &__menu {
+    & .ide_menu {
         font-size: 2rem;
         margin-left: 5px;
 
@@ -20,12 +20,12 @@
             margin-bottom: 25px;
 
             // ------- login,out -------
-            &.login_out {
+            &.ide_login_out {
                 @include f_style($l_height:2.4rem, $f_size:2.5rem, $le_sp:2px);
                 margin: 40% 0 -40% 15%;
             }
 
-            &.author {
+            &.ide_author {
                 margin-top: 80%;
                 font-size: 1.8rem;
                 letter-spacing: 2px;
@@ -36,17 +36,17 @@
             & a {
                 text-decoration: none;
                 letter-spacing: 2px;
-                color: $mblack;
+                color: #ffffff;
                 padding: 5px;
             }
         }
 
-        & ul.gnavi li a {
+        & ul.ide_gnavi li a {
             /*線の基点とするためrelativeを指定*/
             position: relative;
 
             // ------- login,out -------
-            &.bg_black {
+            &.ide_bg {
                 /*背景色の基点とするためrelativeを指定*/
                 position: relative;
                 /*アニメーションの指定*/
@@ -64,7 +64,7 @@
                 /*線の形状*/
                 width: 80%;
                 height: 1px;
-                background: $mblack;
+                background: #ffffff;
                 /*アニメーションの指定*/
                 transition: all 1s;
                 transform: scale(0, 1);
@@ -74,7 +74,7 @@
             }
 
             // ------- login,out -------
-            &.bg_black::after {
+            &.ide_bg::after {
                 content: '';
                 /*絶対配置で線の位置を決める*/
                 position: absolute;
@@ -84,7 +84,7 @@
                 /*背景の形状*/
                 width: 0;
                 height: 1px;
-                background: $mblack;
+                background: #ffffff;
                 opacity: 0;
                 /*はじめは透過を0に*/
             }
@@ -92,26 +92,26 @@
             // ------- login,out -------
         }
 
-        & ul.gnavi li a:hover {
-            color: $mblack;
+        & ul.ide_gnavi li a:hover {
+            color: #ffffff;
         }
 
         /*現在地とhoverの設定*/
-        & ul.gnavi li a:hover::after {
+        & ul.ide_gnavi li a:hover::after {
             transform: scale(1, 1);
             /*X方向にスケール拡大*/
         }
 
         // ------- login,out -------
-        & ul.gnavi li a.bg_black:hover::after {
+        & ul.ide_gnavi li a.ide_bg:hover::after {
             /*背景の形状*/
             width: 100%;
             opacity: 1;
             /*アニメーションの指定*/
-            animation: bgappear 0.7s forwards;
+            animation: bgcolor 0.7s forwards;
 
             /*アニメーションで線を伸ばして背景をつける*/
-            @keyframes bgappear {
+            @keyframes bgcolor {
                 0% {
                     width: 0%;
                     height: 1px;
@@ -135,14 +135,14 @@
                 100% {
                     width: 100%;
                     height: 100%;
-                    background: #0000005d;
+                    background: #ffffff5d;
                 }
             }
 
         }
 
         /*現在地とhoverの設定*/
-        & ul.gnavi li a.bg_black:hover {
+        & ul.ide_gnavi li a.ide_bg:hover {
             color: rgb(255, 255, 255);
             /*テキストを最前面へ*/
             z-index: 10;
@@ -153,9 +153,34 @@
 }
 
 
+// ----------- identity main  ----------
+
+main.identity_bg {
+    background-color: rgb(30, 30, 30);
+
+    & .content_identity {
+        @include content_w($mg:0% 25% 0% 25%);
+        @include f_style;
+        padding-top: 15%;
+        height: 100%;
+
+        & .img_main {
+            margin-bottom: 40%;
+        }
+
+        & .img_sub {
+            margin-bottom: 30%;
+        }
+    }
+
+}
+
+
+
 //  copywrite
-.side_copy {
+.side_copy_ide {
     display: inline-block;
+    color: rgb(255, 255, 255);
     position: fixed;
     top: 50%;
     right: -2%;
@@ -166,13 +191,13 @@
 }
 
 //  footer
-.footer {
+.footer_ide {
     text-align: center;
     margin-left: 90px;
     z-index: 0;
     @include f_style;
 
-    &__sns-links {
+    & .footer__sns-links {
         position: fixed;
         bottom: 50px;
 
@@ -185,11 +210,11 @@
 
                 &:hover {
                     color: rgb(255, 255, 255);
-                    background-color: rgba(0, 0, 0, 0.3);
+                    background-color: rgba(255, 255, 255, 0.5);
                 }
 
                 & i.icon {
-                    color: $mblack;
+                    color: #ffffff;
                 }
             }
         }
