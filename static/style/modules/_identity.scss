@@ -165,14 +165,107 @@ main.identity_bg {
         height: 100%;
 
         & .img_main {
-            margin-bottom: 40%;
+            padding-top: 5%;
+            padding-bottom: 40%;
+            position: relative;
+            opacity: 0;
+            transform: translateY(50px);
+            transition: 3s;
+
+            &.show {
+                opacity: 1;
+                transform: none;
+
+                & .contentsText {
+
+                    & h2,
+                    p {
+                        opacity: 1;
+                        transform: none;
+                    }
+                }
+            }
+
+            & .contentsText {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                position: absolute;
+                left: 50%;
+                top: 70%;
+                transform: translateY(-50%) translateX(-50%);
+                @include f_style();
+                color: rgb(255, 255, 255);
+
+                & h2 {
+                    @include f_style($l_height:1.5, $f_size:5rem, $le_sp:5px);
+                    opacity: 0;
+                    transform: translateY(70px);
+                    transition: 3s;
+                }
+
+                & p {
+                    @include f_style($le_sp:2px);
+                    opacity: 0;
+                    transform: translateY(70px);
+                    transition: 3s;
+                }
+            }
         }
 
         & .img_sub {
-            margin-bottom: 30%;
+            padding-top: 5%;
+            padding-bottom: 40%;
+            position: relative;
+            opacity: 0;
+            transform: translateY(70px);
+            transition: 3s;
+
+            &.end {
+                padding-bottom: 45%;
+            }
+
+            &.show {
+                opacity: 1;
+                transform: none;
+
+                & .contentsText {
+
+                    & h2,
+                    p {
+                        opacity: 1;
+                        transform: none;
+                    }
+                }
+            }
+
+            & .contentsText {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                position: absolute;
+                left: 50%;
+                top: 70%;
+                transform: translateY(-50%) translateX(-50%);
+                @include f_style();
+                color: rgb(255, 255, 255);
+
+                & h2 {
+                    @include f_style($l_height:1.5, $f_size:5rem, $le_sp:5px);
+                    opacity: 0;
+                    transform: translateY(70px);
+                    transition: 3s;
+                }
+
+                & p {
+                    @include f_style($le_sp:2px);
+                    opacity: 0;
+                    transform: translateY(70px);
+                    transition: 3s;
+                }
+            }
         }
     }
-
 }
 
 

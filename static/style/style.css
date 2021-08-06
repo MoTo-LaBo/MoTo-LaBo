@@ -833,10 +833,99 @@ main.identity_bg .content_identity {
   height: 100%;
 }
 main.identity_bg .content_identity .img_main {
-  margin-bottom: 40%;
+  padding-top: 5%;
+  padding-bottom: 40%;
+  position: relative;
+  opacity: 0;
+  transform: translateY(50px);
+  transition: 3s;
+}
+main.identity_bg .content_identity .img_main.show {
+  opacity: 1;
+  transform: none;
+}
+main.identity_bg .content_identity .img_main.show .contentsText h2,
+main.identity_bg .content_identity .img_main.show .contentsText p {
+  opacity: 1;
+  transform: none;
+}
+main.identity_bg .content_identity .img_main .contentsText {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: absolute;
+  left: 50%;
+  top: 70%;
+  transform: translateY(-50%) translateX(-50%);
+  line-height: 2.4rem !important;
+  font-size: 2rem !important;
+  letter-spacing: 1px !important;
+  color: white;
+}
+main.identity_bg .content_identity .img_main .contentsText h2 {
+  line-height: 1.5 !important;
+  font-size: 5rem !important;
+  letter-spacing: 5px !important;
+  opacity: 0;
+  transform: translateY(70px);
+  transition: 3s;
+}
+main.identity_bg .content_identity .img_main .contentsText p {
+  line-height: 2.4rem !important;
+  font-size: 2rem !important;
+  letter-spacing: 2px !important;
+  opacity: 0;
+  transform: translateY(70px);
+  transition: 3s;
 }
 main.identity_bg .content_identity .img_sub {
-  margin-bottom: 30%;
+  padding-top: 5%;
+  padding-bottom: 40%;
+  position: relative;
+  opacity: 0;
+  transform: translateY(70px);
+  transition: 3s;
+}
+main.identity_bg .content_identity .img_sub.end {
+  padding-bottom: 45%;
+}
+main.identity_bg .content_identity .img_sub.show {
+  opacity: 1;
+  transform: none;
+}
+main.identity_bg .content_identity .img_sub.show .contentsText h2,
+main.identity_bg .content_identity .img_sub.show .contentsText p {
+  opacity: 1;
+  transform: none;
+}
+main.identity_bg .content_identity .img_sub .contentsText {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: absolute;
+  left: 50%;
+  top: 70%;
+  transform: translateY(-50%) translateX(-50%);
+  line-height: 2.4rem !important;
+  font-size: 2rem !important;
+  letter-spacing: 1px !important;
+  color: white;
+}
+main.identity_bg .content_identity .img_sub .contentsText h2 {
+  line-height: 1.5 !important;
+  font-size: 5rem !important;
+  letter-spacing: 5px !important;
+  opacity: 0;
+  transform: translateY(70px);
+  transition: 3s;
+}
+main.identity_bg .content_identity .img_sub .contentsText p {
+  line-height: 2.4rem !important;
+  font-size: 2rem !important;
+  letter-spacing: 2px !important;
+  opacity: 0;
+  transform: translateY(70px);
+  transition: 3s;
 }
 
 .side_copy_ide {
