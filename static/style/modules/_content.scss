@@ -55,7 +55,7 @@
         // ------- tag -------
         & .tag_btn {
             @include btn($pd:0.4rem 0.6rem, $f_size:1.1rem);
-            color: #ffffff;
+            color: $mwhite;
             background-color: #00000051 !important;
 
             & .text-muted {
@@ -135,7 +135,7 @@
                 left: 50%;
                 transform: translateY(-50%) translateX(-50%);
                 @include f_style($f_size:3rem, $le_sp:3px);
-                color: rgb(255, 255, 255);
+                color: $mwhite;
             }
 
             & i.change_icon {
@@ -158,11 +158,11 @@
                 background-color: rgba(0, 0, 0, 0.15);
 
                 & .up_icon {
-                    color: rgb(255, 255, 255);
+                    color: $mwhite;
                 }
 
                 & .upload_img {
-                    color: rgb(255, 255, 255);
+                    color: $mwhite;
                 }
 
             }

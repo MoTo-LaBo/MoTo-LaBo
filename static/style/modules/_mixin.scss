@@ -18,7 +18,7 @@
     letter-spacing: $le_sp;
 }
 
-@mixin btn_hov($op:0.5, $cl:#4f4f4f, $bgcl:#ffffff) {
+@mixin btn_hov($op:0.5, $cl:#4f4f4f, $bgcl:$mwhite) {
     opacity: $op;
     color: $cl;
     background-color: $bgcl;

@@ -146,7 +146,7 @@ header {
 
             /*現在地とhoverの設定*/
             & ul.gnavi li a.bg_black:hover {
-                color: rgb(255, 255, 255);
+                color: $mwhite;
                 /*テキストを最前面へ*/
                 z-index: 10;
             }
@@ -193,7 +193,7 @@ header {
                 & a {
                     text-decoration: none;
                     letter-spacing: 2px;
-                    color: #ffffff;
+                    color: $mwhite;
                     padding: 5px;
                 }
             }
@@ -221,7 +221,7 @@ header {
                     /*線の形状*/
                     width: 80%;
                     height: 1px;
-                    background: #ffffff;
+                    background: $mwhite;
                     /*アニメーションの指定*/
                     transition: all 1s;
                     transform: scale(0, 1);
@@ -241,7 +241,7 @@ header {
                     /*背景の形状*/
                     width: 0;
                     height: 1px;
-                    background: #ffffff;
+                    background: $mwhite;
                     opacity: 0;
                     /*はじめは透過を0に*/
                 }
@@ -250,7 +250,7 @@ header {
             }
 
             & ul.ide_gnavi li a:hover {
-                color: #ffffff;
+                color: $mwhite;
             }
 
             /*現在地とhoverの設定*/
@@ -300,7 +300,7 @@ header {
 
             /*現在地とhoverの設定*/
             & ul.ide_gnavi li a.ide_bg:hover {
-                color: rgb(255, 255, 255);
+                color: $mwhite;
                 /*テキストを最前面へ*/
                 z-index: 10;
             }
@@ -327,7 +327,7 @@ header {
 // ---------- copywrite (base_identity.html) ---------
 .side_copy_ide {
     display: inline-block;
-    color: rgb(255, 255, 255);
+    color: $mwhite;
     position: fixed;
     top: 50%;
     right: -2%;
@@ -357,7 +357,7 @@ header {
                 text-decoration: none;
 
                 &:hover {
-                    color: rgb(255, 255, 255);
+                    color: $mwhite;
                     background-color: rgba(0, 0, 0, 0.3);
                 }
 
@@ -389,12 +389,12 @@ header {
                 text-decoration: none;
 
                 &:hover {
-                    color: rgb(255, 255, 255);
+                    color: $mwhite;
                     background-color: rgba(255, 255, 255, 0.5);
                 }
 
                 & i.icon {
-                    color: #ffffff;
+                    color: $mwhite;
                 }
             }
         }

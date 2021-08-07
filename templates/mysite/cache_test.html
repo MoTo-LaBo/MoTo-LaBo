@@ -1,8 +1,0 @@
-{% load cache %}
-
-キャッシュ無し{{ time }}
-<br>
-{% cache 40 first_cache name %}
-キャッシュ有り{{ time }}
-
-{% endcache %}

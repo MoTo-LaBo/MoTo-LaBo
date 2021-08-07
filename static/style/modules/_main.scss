@@ -123,10 +123,10 @@ main {
 
             & .drection {
                 @include f_style();
-                color: rgb(255, 255, 255);
+                color: $mwhite;
                 text-align: left;
                 font-weight: 100;
-                margin-top: 15%;
+                margin-top: 10%;
                 padding: 5% 15% 5% 25%;
 
                 & p {
@@ -148,7 +148,7 @@ main {
             padding-top: 15%;
             height: 100%;
 
-            /* scrolldown 全体の場所)*/
+            /* scrolldown (全体の場所)*/
             & .scrolldown1:not(:root) {
                 position: absolute;
                 top: 15%;
@@ -161,7 +161,7 @@ main {
                     position: absolute;
                     left: 48.7%;
                     transform: translateY(-50%) translateY(-50%);
-                    color: rgb(255, 255, 255);
+                    color: $mwhite;
                     padding-bottom: 10px;
                     @include f_style($l_height:2rem, $f_size:1.7rem, $le_sp: 4px);
                 }
@@ -234,7 +234,7 @@ main {
                     top: 70%;
                     transform: translateY(-50%) translateX(-50%);
                     @include f_style();
-                    color: rgb(255, 255, 255);
+                    color: $mwhite;
 
                     & h2 {
                         @include f_style($l_height:2.5, $f_size:6rem, $le_sp:7px);
@@ -289,7 +289,7 @@ main {
                     top: 70%;
                     transform: translateY(-50%) translateX(-50%);
                     @include f_style();
-                    color: rgb(255, 255, 255);
+                    color: $mwhite;
 
                     & h2 {
                         @include f_style($l_height:2.5, $f_size:5.5rem, $le_sp:7px);

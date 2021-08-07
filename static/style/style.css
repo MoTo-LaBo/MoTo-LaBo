@@ -196,7 +196,7 @@ header.header .header_menu ul.gnavi li a.bg_black:hover::after {
   }
 }
 header.header .header_menu ul.gnavi li a.bg_black:hover {
-  color: white;
+  color: #ffffff;
   /*テキストを最前面へ*/
   z-index: 10;
 }
@@ -344,7 +344,7 @@ header.identity .ide_menu ul.ide_gnavi li a.ide_bg:hover::after {
   }
 }
 header.identity .ide_menu ul.ide_gnavi li a.ide_bg:hover {
-  color: white;
+  color: #ffffff;
   /*テキストを最前面へ*/
   z-index: 10;
 }
@@ -364,7 +364,7 @@ header.identity .ide_menu ul.ide_gnavi li a.ide_bg:hover {
 
 .side_copy_ide {
   display: inline-block;
-  color: white;
+  color: #ffffff;
   position: fixed;
   top: 50%;
   right: -2%;
@@ -396,7 +396,7 @@ header.identity .ide_menu ul.ide_gnavi li a.ide_bg:hover {
   text-decoration: none;
 }
 .footer__sns-links ul li a.sns_link:hover {
-  color: white;
+  color: #ffffff;
   background-color: rgba(0, 0, 0, 0.3);
 }
 .footer__sns-links ul li a.sns_link i.icon {
@@ -423,7 +423,7 @@ header.identity .ide_menu ul.ide_gnavi li a.ide_bg:hover {
   text-decoration: none;
 }
 .footer_ide .footer__sns-links ul li a.sns_link:hover {
-  color: white;
+  color: #ffffff;
   background-color: rgba(255, 255, 255, 0.5);
 }
 .footer_ide .footer__sns-links ul li a.sns_link i.icon {
@@ -559,10 +559,10 @@ main.about .about_image .drection {
   line-height: 2.4rem;
   font-size: 2rem;
   letter-spacing: 1px;
-  color: white;
+  color: #ffffff;
   text-align: left;
   font-weight: 100;
-  margin-top: 15%;
+  margin-top: 10%;
   padding: 5% 15% 5% 25%;
 }
 main.about .about_image .drection p {
@@ -581,7 +581,7 @@ main.identity_bg .content_identity:not(:root) {
   letter-spacing: 1px;
   padding-top: 15%;
   height: 100%;
-  /* scrolldown 全体の場所)*/
+  /* scrolldown (全体の場所)*/
 }
 main.identity_bg .content_identity:not(:root) .scrolldown1:not(:root) {
   position: absolute;
@@ -597,7 +597,7 @@ main.identity_bg .content_identity:not(:root) .scrolldown1:not(:root) span {
   position: absolute;
   left: 48.7%;
   transform: translateY(-50%) translateY(-50%);
-  color: white;
+  color: #ffffff;
   padding-bottom: 10px;
   line-height: 2rem;
   font-size: 1.7rem;
@@ -677,7 +677,7 @@ main.identity_bg .content_identity:not(:root) .img_main .contentsText {
   line-height: 2.4rem;
   font-size: 2rem;
   letter-spacing: 1px;
-  color: white;
+  color: #ffffff;
 }
 main.identity_bg .content_identity:not(:root) .img_main .contentsText h2 {
   line-height: 2.5;
@@ -728,7 +728,7 @@ main.identity_bg .content_identity:not(:root) .img_sub .contentsText {
   line-height: 2.4rem;
   font-size: 2rem;
   letter-spacing: 1px;
-  color: white;
+  color: #ffffff;
 }
 main.identity_bg .content_identity:not(:root) .img_sub .contentsText h2 {
   line-height: 2.5;
@@ -932,7 +932,7 @@ main.identity_bg .content_identity:not(:root) .img_sub .contentsText p {
   line-height: 2.4rem;
   font-size: 3rem;
   letter-spacing: 3px;
-  color: white;
+  color: #ffffff;
 }
 .content_account .profile_image i.change_icon {
   position: absolute;
@@ -952,10 +952,10 @@ main.identity_bg .content_identity:not(:root) .img_sub .contentsText p {
   background-color: rgba(0, 0, 0, 0.15);
 }
 .content_account .profile_image:hover .up_icon {
-  color: white;
+  color: #ffffff;
 }
 .content_account .profile_image:hover .upload_img {
-  color: white;
+  color: #ffffff;
 }
 .content_account .profile_image .up_icon {
   position: absolute;
@@ -1036,4 +1036,64 @@ main.identity_bg .content_identity:not(:root) .img_sub .contentsText p {
   font-weight: 300 !important;
   border-color: rgba(0, 0, 0, 0.2);
   box-shadow: inset 0 0 0 1px #ffffff62;
+}
+
+#container {
+  position: relative;
+  background-color: rgba(0, 0, 0, 0.51);
+  height: 100vh;
+  z-index: 2;
+  transform: translateX(-100%);
+  transition: all 2s;
+}
+
+.menu-open #container {
+  transform: translateX(0%);
+}
+
+.mobile-menu {
+  position: fixed;
+  left: 0px;
+  top: 60px;
+}
+
+.mobile-menu_btn {
+  background-color: unset;
+  border: none;
+  outline: none !important;
+  cursor: pointer;
+  position: absolute;
+  top: 3%;
+  right: 3%;
+  z-index: 3;
+}
+.mobile-menu_btn > span {
+  background-color: #333;
+  width: 35px;
+  height: 2px;
+  display: block;
+  margin-bottom: 9px;
+  transition: transform 0.7s;
+}
+.mobile-menu_btn > span:last-child {
+  margin-bottom: 0;
+}
+
+.menu-open {
+  background-color: #ffffff;
+}
+.menu-open .mobile-menu_btn > span {
+  background-color: #333;
+}
+.menu-open .mobile-menu_btn > span:nth-child(1) {
+  transition-delay: 70ms;
+  transform: translateY(11px) rotate(135deg);
+}
+.menu-open .mobile-menu_btn > span:nth-child(2) {
+  transition-delay: 0s;
+  transform: translateX(-18px) scaleX(0);
+}
+.menu-open .mobile-menu_btn > span:nth-child(3) {
+  transition-delay: 140ms;
+  transform: translateY(-11px) rotate(-135deg);
 }/*# sourceMappingURL=style.css.map */
