@@ -1,159 +1,317 @@
 // header nav
-.header {
-    text-align: left;
-    display: inline-block;
-    position: fixed;
-    top: 100px;
-    left: 0;
-    margin: 0 0 0 75px;
-    @include f_style;
+header {
 
-    &__logo {
-        margin-bottom: 260px;
+    &.header {
+
+        text-align: left;
+        display: inline-block;
+        position: fixed;
+        top: 100px;
+        left: 0;
+        margin: 0 0 0 75px;
+        @include f_style;
+
+        & .header_logo {
+            margin-bottom: 260px;
+        }
+
+        & .header_menu {
+            font-size: 2rem;
+            margin-left: 5px;
+
+            & ul li {
+                margin-bottom: 25px;
+
+                // ------- login,out -------
+                &.login_out {
+                    @include f_style($l_height:2.4rem, $f_size:2.5rem, $le_sp:2px);
+                    margin: 40% 0 -40% 15%;
+                }
+
+                &.author {
+                    margin-top: 80%;
+                    font-size: 1.8rem;
+                    letter-spacing: 2px;
+                }
+
+                // ------- login,out -------
+
+                & a {
+                    text-decoration: none;
+                    letter-spacing: 2px;
+                    color: $mblack;
+                    padding: 5px;
+                }
+            }
+
+            & ul.gnavi li a {
+                /*線の基点とするためrelativeを指定*/
+                position: relative;
+
+                // ------- login,out -------
+                &.bg_black {
+                    /*背景色の基点とするためrelativeを指定*/
+                    position: relative;
+                    /*アニメーションの指定*/
+                    transition: all .5s;
+                }
+
+                // ------- login,out -------
+
+                &::after {
+                    content: '';
+                    /*絶対配置で線の位置を決める*/
+                    position: absolute;
+                    bottom: 0;
+                    left: 7%;
+                    /*線の形状*/
+                    width: 80%;
+                    height: 1px;
+                    background: $mblack;
+                    /*アニメーションの指定*/
+                    transition: all 1s;
+                    transform: scale(0, 1);
+                    /*X方向0、Y方向1*/
+                    transform-origin: left top;
+                    /*左上基点*/
+                }
+
+                // ------- login,out -------
+                &.bg_black::after {
+                    content: '';
+                    /*絶対配置で線の位置を決める*/
+                    position: absolute;
+                    z-index: -1;
+                    bottom: 0;
+                    left: 0;
+                    /*背景の形状*/
+                    width: 0;
+                    height: 1px;
+                    background: $mblack;
+                    opacity: 0;
+                    /*はじめは透過を0に*/
+                }
+
+                // ------- login,out -------
+            }
+
+            & ul.gnavi li a:hover {
+                color: $mblack;
+            }
+
+            /*現在地とhoverの設定*/
+            & ul.gnavi li a:hover::after {
+                transform: scale(1, 1);
+                /*X方向にスケール拡大*/
+            }
+
+            // ------- login,out -------
+            & ul.gnavi li a.bg_black:hover::after {
+                /*背景の形状*/
+                width: 100%;
+                opacity: 1;
+                /*アニメーションの指定*/
+                animation: bgappear 0.7s forwards;
+
+                /*アニメーションで線を伸ばして背景をつける*/
+                @keyframes bgappear {
+                    0% {
+                        width: 0%;
+                        height: 1px;
+                    }
+
+                    50% {
+                        width: 100%;
+                        height: 1px;
+                    }
+
+                    70% {
+                        width: 100%;
+                        height: 1px;
+                    }
+
+                    85% {
+                        width: 100%;
+                        height: 75%;
+                    }
+
+                    100% {
+                        width: 100%;
+                        height: 100%;
+                        background: #0000005d;
+                    }
+                }
+
+            }
+
+            /*現在地とhoverの設定*/
+            & ul.gnavi li a.bg_black:hover {
+                color: rgb(255, 255, 255);
+                /*テキストを最前面へ*/
+                z-index: 10;
+            }
+
+            // ------- login,out -------
+        }
     }
 
-    &__menu {
-        font-size: 2rem;
-        margin-left: 5px;
+    // ---------- identity header ----------
+    &.identity {
+        text-align: left;
+        display: inline-block;
+        position: fixed;
+        top: 100px;
+        left: 0;
+        margin: 0 0 0 75px;
+        @include f_style;
 
-        & ul li {
-            margin-bottom: 25px;
-
-            // ------- login,out -------
-            &.login_out {
-                @include f_style($l_height:2.4rem, $f_size:2.5rem, $le_sp:2px);
-                margin: 40% 0 -40% 15%;
-            }
-
-            &.author {
-                margin-top: 80%;
-                font-size: 1.8rem;
-                letter-spacing: 2px;
-            }
-
-            // ------- login,out -------
-
-            & a {
-                text-decoration: none;
-                letter-spacing: 2px;
-                color: $mblack;
-                padding: 5px;
-            }
+        & .ide_logo {
+            margin-bottom: 260px;
         }
 
-        & ul.gnavi li a {
-            /*線の基点とするためrelativeを指定*/
-            position: relative;
+        & .ide_menu {
+            font-size: 2rem;
+            margin-left: 5px;
 
-            // ------- login,out -------
-            &.bg_black {
-                /*背景色の基点とするためrelativeを指定*/
+            & ul li {
+                margin-bottom: 25px;
+
+                // ------- login,out -------
+                &.ide_login_out {
+                    @include f_style($l_height:2.4rem, $f_size:2.5rem, $le_sp:2px);
+                    margin: 40% 0 -40% 15%;
+                }
+
+                &.ide_author {
+                    margin-top: 80%;
+                    font-size: 1.8rem;
+                    letter-spacing: 2px;
+                }
+
+                // ------- login,out -------
+
+                & a {
+                    text-decoration: none;
+                    letter-spacing: 2px;
+                    color: #ffffff;
+                    padding: 5px;
+                }
+            }
+
+            & ul.ide_gnavi li a {
+                /*線の基点とするためrelativeを指定*/
                 position: relative;
-                /*アニメーションの指定*/
-                transition: all .5s;
+
+                // ------- login,out -------
+                &.ide_bg {
+                    /*背景色の基点とするためrelativeを指定*/
+                    position: relative;
+                    /*アニメーションの指定*/
+                    transition: all .5s;
+                }
+
+                // ------- login,out -------
+
+                &::after {
+                    content: '';
+                    /*絶対配置で線の位置を決める*/
+                    position: absolute;
+                    bottom: 0;
+                    left: 7%;
+                    /*線の形状*/
+                    width: 80%;
+                    height: 1px;
+                    background: #ffffff;
+                    /*アニメーションの指定*/
+                    transition: all 1s;
+                    transform: scale(0, 1);
+                    /*X方向0、Y方向1*/
+                    transform-origin: left top;
+                    /*左上基点*/
+                }
+
+                // ------- login,out -------
+                &.ide_bg::after {
+                    content: '';
+                    /*絶対配置で線の位置を決める*/
+                    position: absolute;
+                    z-index: -1;
+                    bottom: 0;
+                    left: 0;
+                    /*背景の形状*/
+                    width: 0;
+                    height: 1px;
+                    background: #ffffff;
+                    opacity: 0;
+                    /*はじめは透過を0に*/
+                }
+
+                // ------- login,out -------
+            }
+
+            & ul.ide_gnavi li a:hover {
+                color: #ffffff;
+            }
+
+            /*現在地とhoverの設定*/
+            & ul.ide_gnavi li a:hover::after {
+                transform: scale(1, 1);
+                /*X方向にスケール拡大*/
             }
 
             // ------- login,out -------
-
-            &::after {
-                content: '';
-                /*絶対配置で線の位置を決める*/
-                position: absolute;
-                bottom: 0;
-                left: 7%;
-                /*線の形状*/
-                width: 80%;
-                height: 1px;
-                background: $mblack;
-                /*アニメーションの指定*/
-                transition: all 1s;
-                transform: scale(0, 1);
-                /*X方向0、Y方向1*/
-                transform-origin: left top;
-                /*左上基点*/
-            }
-
-            // ------- login,out -------
-            &.bg_black::after {
-                content: '';
-                /*絶対配置で線の位置を決める*/
-                position: absolute;
-                z-index: -1;
-                bottom: 0;
-                left: 0;
+            & ul.ide_gnavi li a.ide_bg:hover::after {
                 /*背景の形状*/
-                width: 0;
-                height: 1px;
-                background: $mblack;
-                opacity: 0;
-                /*はじめは透過を0に*/
+                width: 100%;
+                opacity: 1;
+                /*アニメーションの指定*/
+                animation: bgcolor 0.7s forwards;
+
+                /*アニメーションで線を伸ばして背景をつける*/
+                @keyframes bgcolor {
+                    0% {
+                        width: 0%;
+                        height: 1px;
+                    }
+
+                    50% {
+                        width: 100%;
+                        height: 1px;
+                    }
+
+                    70% {
+                        width: 100%;
+                        height: 1px;
+                    }
+
+                    85% {
+                        width: 100%;
+                        height: 75%;
+                    }
+
+                    100% {
+                        width: 100%;
+                        height: 100%;
+                        background: #ffffff5d;
+                    }
+                }
+
+            }
+
+            /*現在地とhoverの設定*/
+            & ul.ide_gnavi li a.ide_bg:hover {
+                color: rgb(255, 255, 255);
+                /*テキストを最前面へ*/
+                z-index: 10;
             }
 
             // ------- login,out -------
         }
-
-        & ul.gnavi li a:hover {
-            color: $mblack;
-        }
-
-        /*現在地とhoverの設定*/
-        & ul.gnavi li a:hover::after {
-            transform: scale(1, 1);
-            /*X方向にスケール拡大*/
-        }
-
-        // ------- login,out -------
-        & ul.gnavi li a.bg_black:hover::after {
-            /*背景の形状*/
-            width: 100%;
-            opacity: 1;
-            /*アニメーションの指定*/
-            animation: bgappear 0.7s forwards;
-
-            /*アニメーションで線を伸ばして背景をつける*/
-            @keyframes bgappear {
-                0% {
-                    width: 0%;
-                    height: 1px;
-                }
-
-                50% {
-                    width: 100%;
-                    height: 1px;
-                }
-
-                70% {
-                    width: 100%;
-                    height: 1px;
-                }
-
-                85% {
-                    width: 100%;
-                    height: 75%;
-                }
-
-                100% {
-                    width: 100%;
-                    height: 100%;
-                    background: #0000005d;
-                }
-            }
-
-        }
-
-        /*現在地とhoverの設定*/
-        & ul.gnavi li a.bg_black:hover {
-            color: rgb(255, 255, 255);
-            /*テキストを最前面へ*/
-            z-index: 10;
-        }
-
-        // ------- login,out -------
     }
 }
 
 
-//  copywrite
+// ---------- copywrite (base.html) ---------
 .side_copy {
     display: inline-block;
     position: fixed;
@@ -165,7 +323,22 @@
     @include f_style($l_height:2rem, $f_size:1.6rem, $le_sp:3px);
 }
 
-//  footer
+
+// ---------- copywrite (base_identity.html) ---------
+.side_copy_ide {
+    display: inline-block;
+    color: rgb(255, 255, 255);
+    position: fixed;
+    top: 50%;
+    right: -2%;
+    margin: 0 0 0 0;
+    transform: rotate(90deg);
+    letter-spacing: 2px;
+    @include f_style($l_height:2rem, $f_size:1.6rem, $le_sp:3px);
+}
+
+
+// ---------- footer base.html (footer.html) ---------
 .footer {
     text-align: center;
     margin-left: 90px;
@@ -190,6 +363,38 @@
 
                 & i.icon {
                     color: $mblack;
+                }
+            }
+        }
+    }
+}
+
+
+// ----- footer base_identity.html (footer_identity.html) ------
+.footer_ide {
+    text-align: center;
+    margin-left: 90px;
+    z-index: 0;
+    @include f_style;
+
+    & .footer__sns-links {
+        position: fixed;
+        bottom: 50px;
+
+        & ul li {
+            display: inline-block;
+            margin-right: 31px;
+
+            & a.sns_link {
+                text-decoration: none;
+
+                &:hover {
+                    color: rgb(255, 255, 255);
+                    background-color: rgba(255, 255, 255, 0.5);
+                }
+
+                & i.icon {
+                    color: #ffffff;
                 }
             }
         }

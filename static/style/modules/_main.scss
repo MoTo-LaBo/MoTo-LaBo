@@ -1,0 +1,258 @@
+main {
+
+    @include f_style;
+
+    // ------- index (index.html) -------
+    &.index {
+        & .main__images {
+            height: 100vmin;
+            margin: 0 0 0 350px;
+            background-size: 81vw;
+            overflow: hidden;
+            position: relative;
+
+            & .top_title {
+                /*要素の配置*/
+                position: absolute;
+                /*要素を天地中央寄せ*/
+                top: 49%;
+                left: 42%;
+                text-align: center;
+                transform: translateY(-50%) translateX(-50%);
+                /*見た目の調整*/
+                color: $tblack;
+                // text-shadow: 0 0 15px #666;
+
+                & .meta {
+                    @include m_title();
+                }
+
+                & .sub {
+                    font-size: 2.5rem;
+                    letter-spacing: 3px;
+                }
+
+                & .sub-j {
+                    font-size: 2rem;
+                    letter-spacing: 2px;
+                }
+            }
+
+            &-pohoto {
+                z-index: 10;
+                opacity: 0;
+                height: 100%;
+                width: 105%;
+                background-position: center;
+                background-repeat: no-repeat;
+                background-size: cover;
+                position: absolute;
+                animation: anime 24s 0s infinite;
+
+                &::before {
+                    display: block;
+                    content: "";
+                    padding-top: 50%;
+                }
+
+                &:nth-of-type(2) {
+                    animation-delay: 6s;
+                }
+
+                &:nth-of-type(3) {
+                    animation-delay: 12s;
+                }
+
+                &:nth-of-type(4) {
+                    animation-delay: 18s;
+                }
+
+                @keyframes anime {
+                    0% {
+                        opacity: 0;
+                    }
+
+                    8% {
+                        opacity: 1;
+                    }
+
+                    17% {
+                        opacity: 1;
+                    }
+
+                    25% {
+                        opacity: 0;
+                        transform: translateX(-37px);
+                        z-index: 9;
+                    }
+
+                    100% {
+                        opacity: 0;
+                    }
+                }
+            }
+
+            &-logo {
+                position: fixed;
+                right: 55px;
+                bottom: 45px;
+                z-index: 11;
+            }
+        }
+    }
+
+    // ------- About (about.html) -------
+    &.about {
+        & .about_image {
+            @include content_w(0% 10% 0% 21%);
+            height: 100vmin;
+            background-size: 81vw;
+            overflow: hidden;
+            position: relative;
+
+            & .bgimg_about {
+                height: 100%;
+                width: 100%;
+                background-position: center;
+                background-repeat: no-repeat;
+                background-size: contain;
+                position: absolute;
+                z-index: -1;
+                padding: 0 18%;
+            }
+
+            & .drection {
+                @include f_style();
+                color: rgb(255, 255, 255);
+                text-align: left;
+                font-weight: 100;
+                margin-top: 15%;
+                padding: 5% 15% 5% 25%;
+
+                & p {
+                    @include f_style($l_height:3.5rem, $le_sp:2px);
+                    font-weight: 100;
+                }
+            }
+        }
+    }
+
+    // ----------- identity main  ----------
+
+    &.identity_bg {
+        background-color: rgb(30, 30, 30);
+
+        & .content_identity:not(:root) {
+            @include content_w($mg:0% 25% 0% 25%);
+            @include f_style;
+            padding-top: 15%;
+            height: 100%;
+
+            & .img_main {
+                padding-top: 5%;
+                padding-bottom: 40%;
+                position: relative;
+                opacity: 0;
+                transform: translateY(50px);
+                transition: 3s;
+
+                &.show {
+                    opacity: 1;
+                    transform: none;
+
+                    & .contentsText {
+
+                        & h2,
+                        p {
+                            opacity: 1;
+                            transform: none;
+                        }
+                    }
+                }
+
+                & .contentsText {
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                    position: absolute;
+                    left: 50%;
+                    top: 70%;
+                    transform: translateY(-50%) translateX(-50%);
+                    @include f_style();
+                    color: rgb(255, 255, 255);
+
+                    & h2 {
+                        @include f_style($l_height:2.5, $f_size:6rem, $le_sp:7px);
+                        white-space: nowrap;
+                        opacity: 0;
+                        transform: translateY(70px);
+                        transition: 3s .5s;
+                    }
+
+                    & p {
+                        @include f_style($l_height:4rem, $f_size:2.5rem, $le_sp:5px);
+                        white-space: nowrap;
+                        opacity: 0;
+                        transform: translateY(70px);
+                        transition: 3s 1s;
+                    }
+                }
+            }
+
+            & .img_sub {
+                padding-top: 5%;
+                padding-bottom: 40%;
+                position: relative;
+                opacity: 0;
+                transform: translateY(70px);
+                transition: 3s;
+
+                &.end {
+                    padding-bottom: 46%;
+                }
+
+                &.show {
+                    opacity: 1;
+                    transform: none;
+
+                    & .contentsText {
+
+                        & h2,
+                        p {
+                            opacity: 1;
+                            transform: none;
+                        }
+                    }
+                }
+
+                & .contentsText {
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                    position: absolute;
+                    left: 50%;
+                    top: 70%;
+                    transform: translateY(-50%) translateX(-50%);
+                    @include f_style();
+                    color: rgb(255, 255, 255);
+
+                    & h2 {
+                        @include f_style($l_height:2.5, $f_size:5.5rem, $le_sp:7px);
+                        white-space: nowrap;
+                        opacity: 0;
+                        transform: translateY(70px);
+                        transition: 3s .5s;
+                    }
+
+                    & p {
+                        @include f_style($l_height:4rem, $f_size:2.4rem, $le_sp:5px);
+                        white-space: nowrap;
+                        opacity: 0;
+                        transform: translateY(70px);
+                        transition: 3s 1s;
+                    }
+                }
+            }
+        }
+    }
+}
