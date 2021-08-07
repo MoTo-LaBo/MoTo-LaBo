@@ -59,9 +59,9 @@ header.header {
   top: 100px;
   left: 0;
   margin: 0 0 0 75px;
-  line-height: 2.4rem !important;
-  font-size: 2rem !important;
-  letter-spacing: 1px !important;
+  line-height: 2.4rem;
+  font-size: 2rem;
+  letter-spacing: 1px;
 }
 header.header .header_logo {
   margin-bottom: 260px;
@@ -76,9 +76,9 @@ header.header .header_menu ul li {
   margin-bottom: 25px;
 }
 header.header .header_menu ul li.login_out {
-  line-height: 2.4rem !important;
-  font-size: 2.5rem !important;
-  letter-spacing: 2px !important;
+  line-height: 2.4rem;
+  font-size: 2.5rem;
+  letter-spacing: 2px;
   margin: 40% 0 -40% 15%;
 }
 header.header .header_menu ul li.author {
@@ -207,9 +207,9 @@ header.identity {
   top: 100px;
   left: 0;
   margin: 0 0 0 75px;
-  line-height: 2.4rem !important;
-  font-size: 2rem !important;
-  letter-spacing: 1px !important;
+  line-height: 2.4rem;
+  font-size: 2rem;
+  letter-spacing: 1px;
 }
 header.identity .ide_logo {
   margin-bottom: 260px;
@@ -224,9 +224,9 @@ header.identity .ide_menu ul li {
   margin-bottom: 25px;
 }
 header.identity .ide_menu ul li.ide_login_out {
-  line-height: 2.4rem !important;
-  font-size: 2.5rem !important;
-  letter-spacing: 2px !important;
+  line-height: 2.4rem;
+  font-size: 2.5rem;
+  letter-spacing: 2px;
   margin: 40% 0 -40% 15%;
 }
 header.identity .ide_menu ul li.ide_author {
@@ -357,9 +357,9 @@ header.identity .ide_menu ul.ide_gnavi li a.ide_bg:hover {
   margin: 0 0 0 0;
   transform: rotate(90deg);
   letter-spacing: 2px;
-  line-height: 2rem !important;
-  font-size: 1.6rem !important;
-  letter-spacing: 3px !important;
+  line-height: 2rem;
+  font-size: 1.6rem;
+  letter-spacing: 3px;
 }
 
 .side_copy_ide {
@@ -371,18 +371,18 @@ header.identity .ide_menu ul.ide_gnavi li a.ide_bg:hover {
   margin: 0 0 0 0;
   transform: rotate(90deg);
   letter-spacing: 2px;
-  line-height: 2rem !important;
-  font-size: 1.6rem !important;
-  letter-spacing: 3px !important;
+  line-height: 2rem;
+  font-size: 1.6rem;
+  letter-spacing: 3px;
 }
 
 .footer {
   text-align: center;
   margin-left: 90px;
   z-index: 0;
-  line-height: 2.4rem !important;
-  font-size: 2rem !important;
-  letter-spacing: 1px !important;
+  line-height: 2.4rem;
+  font-size: 2rem;
+  letter-spacing: 1px;
 }
 .footer__sns-links {
   position: fixed;
@@ -407,9 +407,9 @@ header.identity .ide_menu ul.ide_gnavi li a.ide_bg:hover {
   text-align: center;
   margin-left: 90px;
   z-index: 0;
-  line-height: 2.4rem !important;
-  font-size: 2rem !important;
-  letter-spacing: 1px !important;
+  line-height: 2.4rem;
+  font-size: 2rem;
+  letter-spacing: 1px;
 }
 .footer_ide .footer__sns-links {
   position: fixed;
@@ -431,9 +431,9 @@ header.identity .ide_menu ul.ide_gnavi li a.ide_bg:hover {
 }
 
 main {
-  line-height: 2.4rem !important;
-  font-size: 2rem !important;
-  letter-spacing: 1px !important;
+  line-height: 2.4rem;
+  font-size: 2rem;
+  letter-spacing: 1px;
 }
 main.index .main__images {
   height: 100vmin;
@@ -556,9 +556,9 @@ main.about .about_image .bgimg_about {
   padding: 0 18%;
 }
 main.about .about_image .drection {
-  line-height: 2.4rem !important;
-  font-size: 2rem !important;
-  letter-spacing: 1px !important;
+  line-height: 2.4rem;
+  font-size: 2rem;
+  letter-spacing: 1px;
   color: white;
   text-align: left;
   font-weight: 100;
@@ -566,9 +566,9 @@ main.about .about_image .drection {
   padding: 5% 15% 5% 25%;
 }
 main.about .about_image .drection p {
-  line-height: 3.5rem !important;
-  font-size: 2rem !important;
-  letter-spacing: 2px !important;
+  line-height: 3.5rem;
+  font-size: 2rem;
+  letter-spacing: 2px;
   font-weight: 100;
 }
 main.identity_bg {
@@ -576,11 +576,78 @@ main.identity_bg {
 }
 main.identity_bg .content_identity:not(:root) {
   margin: 0% 25% 0% 25%;
-  line-height: 2.4rem !important;
-  font-size: 2rem !important;
-  letter-spacing: 1px !important;
+  line-height: 2.4rem;
+  font-size: 2rem;
+  letter-spacing: 1px;
   padding-top: 15%;
   height: 100%;
+  /* scrolldown 全体の場所)*/
+}
+main.identity_bg .content_identity:not(:root) .scrolldown1 {
+  position: absolute;
+  top: 15%;
+  transform: translateY(-50%) translateY(-50%);
+  /*全体の高さ*/
+  height: 50px;
+  /* 線の描写 */
+  /*高さ・位置・透過が変化して線が上から下に動く*/
+}
+main.identity_bg .content_identity:not(:root) .scrolldown1 span {
+  /*描画位置*/
+  position: absolute;
+  left: 48.5%;
+  transform: translateY(-50%) translateY(-50%);
+  color: white;
+  padding-bottom: 10px;
+  line-height: 2rem;
+  font-size: 2rem;
+  letter-spacing: 4px;
+}
+main.identity_bg .content_identity:not(:root) .scrolldown1::after {
+  content: "";
+  /*描画位置*/
+  position: absolute;
+  top: 0;
+  /*線の形状*/
+  width: 1px;
+  height: 30px;
+  background: #eee;
+  /*線の動き1.4秒かけて動く。永遠にループ*/
+  -webkit-animation: pathmove 2s ease-in-out infinite;
+          animation: pathmove 2s ease-in-out infinite;
+  opacity: 0;
+}
+@-webkit-keyframes pathmove {
+  0% {
+    height: 0;
+    top: 0;
+    opacity: 0;
+  }
+  30% {
+    height: 30px;
+    opacity: 1;
+  }
+  100% {
+    height: 0;
+    top: 50px;
+    opacity: 0;
+  }
+}
+@keyframes pathmove {
+  0% {
+    height: 0;
+    top: 0;
+    opacity: 0;
+  }
+  30% {
+    height: 30px;
+    opacity: 1;
+  }
+  100% {
+    height: 0;
+    top: 50px;
+    opacity: 0;
+  }
 }
 main.identity_bg .content_identity:not(:root) .img_main {
   padding-top: 5%;
@@ -607,24 +674,24 @@ main.identity_bg .content_identity:not(:root) .img_main .contentsText {
   left: 50%;
   top: 70%;
   transform: translateY(-50%) translateX(-50%);
-  line-height: 2.4rem !important;
-  font-size: 2rem !important;
-  letter-spacing: 1px !important;
+  line-height: 2.4rem;
+  font-size: 2rem;
+  letter-spacing: 1px;
   color: white;
 }
 main.identity_bg .content_identity:not(:root) .img_main .contentsText h2 {
-  line-height: 2.5 !important;
-  font-size: 6rem !important;
-  letter-spacing: 7px !important;
+  line-height: 2.5;
+  font-size: 6rem;
+  letter-spacing: 7px;
   white-space: nowrap;
   opacity: 0;
   transform: translateY(70px);
   transition: 3s 0.5s;
 }
 main.identity_bg .content_identity:not(:root) .img_main .contentsText p {
-  line-height: 4rem !important;
-  font-size: 2.5rem !important;
-  letter-spacing: 5px !important;
+  line-height: 4rem;
+  font-size: 2.5rem;
+  letter-spacing: 5px;
   white-space: nowrap;
   opacity: 0;
   transform: translateY(70px);
@@ -658,24 +725,24 @@ main.identity_bg .content_identity:not(:root) .img_sub .contentsText {
   left: 50%;
   top: 70%;
   transform: translateY(-50%) translateX(-50%);
-  line-height: 2.4rem !important;
-  font-size: 2rem !important;
-  letter-spacing: 1px !important;
+  line-height: 2.4rem;
+  font-size: 2rem;
+  letter-spacing: 1px;
   color: white;
 }
 main.identity_bg .content_identity:not(:root) .img_sub .contentsText h2 {
-  line-height: 2.5 !important;
-  font-size: 5.5rem !important;
-  letter-spacing: 7px !important;
+  line-height: 2.5;
+  font-size: 5.5rem;
+  letter-spacing: 7px;
   white-space: nowrap;
   opacity: 0;
   transform: translateY(70px);
   transition: 3s 0.5s;
 }
 main.identity_bg .content_identity:not(:root) .img_sub .contentsText p {
-  line-height: 4rem !important;
-  font-size: 2.4rem !important;
-  letter-spacing: 5px !important;
+  line-height: 4rem;
+  font-size: 2.4rem;
+  letter-spacing: 5px;
   white-space: nowrap;
   opacity: 0;
   transform: translateY(70px);
@@ -684,23 +751,23 @@ main.identity_bg .content_identity:not(:root) .img_sub .contentsText p {
 
 .content_auth {
   margin: 19% 0 0 0;
-  line-height: 2.4rem !important;
-  font-size: 2rem !important;
-  letter-spacing: 1px !important;
+  line-height: 2.4rem;
+  font-size: 2rem;
+  letter-spacing: 1px;
 }
 .content_auth a {
   color: #757575;
   letter-spacing: 2px;
 }
 .content_auth .btn {
-  padding: 0.8rem 1.5rem !important;
-  font-size: 1.6rem !important;
+  padding: 0.8rem 1.5rem;
+  font-size: 1.6rem;
   letter-spacing: 1px;
 }
 .content_auth .btn:hover {
-  opacity: 0.5 !important;
-  color: #4f4f4f !important;
-  background-color: #ffffff !important;
+  opacity: 0.5;
+  color: #4f4f4f;
+  background-color: #ffffff;
 }
 .content_auth .title_box {
   margin: auto 7% 6% auto;
@@ -721,70 +788,70 @@ main.identity_bg .content_identity:not(:root) .img_sub .contentsText p {
   width: 100%;
   color: #333;
   background-color: #ffffff51;
-  line-height: 2rem !important;
-  font-size: 2rem !important;
-  letter-spacing: 2px !important;
+  line-height: 2rem;
+  font-size: 2rem;
+  letter-spacing: 2px;
 }
 
 .content {
   margin: 165px 25% 0% 25%;
-  line-height: 2.4rem !important;
-  font-size: 2rem !important;
-  letter-spacing: 1px !important;
+  line-height: 2.4rem;
+  font-size: 2rem;
+  letter-spacing: 1px;
 }
 .content .btn {
-  padding: 0.8rem 1.5rem !important;
-  font-size: 1.6rem !important;
+  padding: 0.8rem 1.5rem;
+  font-size: 1.6rem;
   letter-spacing: 1px;
 }
 .content_list {
   margin: 165px 25% 0% 25%;
-  line-height: 2.4rem !important;
-  font-size: 2rem !important;
-  letter-spacing: 1px !important;
+  line-height: 2.4rem;
+  font-size: 2rem;
+  letter-spacing: 1px;
 }
 .content_list .btn {
-  padding: 0.8rem 1.5rem !important;
-  font-size: 1.6rem !important;
+  padding: 0.8rem 1.5rem;
+  font-size: 1.6rem;
   letter-spacing: 1px;
 }
 .content_list .card-text,
 .content_list .author,
 .content_list .created_at {
-  line-height: 2.4rem !important;
-  font-size: 1.6rem !important;
-  letter-spacing: 1px !important;
+  line-height: 2.4rem;
+  font-size: 1.6rem;
+  letter-spacing: 1px;
 }
 .content_list .pagination .current {
-  line-height: 1rem !important;
-  font-size: 1.5rem !important;
-  letter-spacing: 0px !important;
+  line-height: 1rem;
+  font-size: 1.5rem;
+  letter-spacing: 0px;
 }
 .content_detail {
   position: absolute;
   margin: 6% 30% 0% 30%;
-  line-height: 2.4rem !important;
-  font-size: 2rem !important;
-  letter-spacing: 1px !important;
+  line-height: 2.4rem;
+  font-size: 2rem;
+  letter-spacing: 1px;
 }
 .content_detail .btn {
-  padding: 0.8rem 1.5rem !important;
-  font-size: 1.6rem !important;
+  padding: 0.8rem 1.5rem;
+  font-size: 1.6rem;
   letter-spacing: 1px;
 }
 .content_detail .like_btn .btn {
-  padding: 0.8rem 1.5rem !important;
-  font-size: 1.6rem !important;
+  padding: 0.8rem 1.5rem;
+  font-size: 1.6rem;
   letter-spacing: 1px;
 }
 .content_detail .like_btn .btn:hover {
-  opacity: 0.5 !important;
-  color: #ff0000 !important;
-  background-color: #ffffff !important;
+  opacity: 0.5;
+  color: #ff0000;
+  background-color: #ffffff;
 }
 .content_detail .tag_btn {
-  padding: 0.4rem 0.6rem !important;
-  font-size: 1.1rem !important;
+  padding: 0.4rem 0.6rem;
+  font-size: 1.1rem;
   letter-spacing: 1px;
   color: #ffffff;
   background-color: #00000051 !important;
@@ -793,45 +860,45 @@ main.identity_bg .content_identity:not(:root) .img_sub .contentsText p {
   color: #757575;
 }
 .content_detail .tag_btn:hover {
-  opacity: 0.8 !important;
-  color: #757575 !important;
-  background-color: #ffffff52 !important;
+  opacity: 0.8;
+  color: #757575;
+  background-color: #ffffff52;
 }
 .content_detail .card-title {
-  line-height: 2.4rem !important;
-  font-size: 2.4rem !important;
-  letter-spacing: 1px !important;
+  line-height: 2.4rem;
+  font-size: 2.4rem;
+  letter-spacing: 1px;
 }
 .content_detail .card-text {
-  line-height: 2.4rem !important;
-  font-size: 1.8rem !important;
-  letter-spacing: 1px !important;
+  line-height: 2.4rem;
+  font-size: 1.8rem;
+  letter-spacing: 1px;
 }
 .content_detail .created_at {
-  line-height: 2.4rem !important;
-  font-size: 1.6rem !important;
-  letter-spacing: 1px !important;
+  line-height: 2.4rem;
+  font-size: 1.6rem;
+  letter-spacing: 1px;
 }
 .content_detail .comments {
-  line-height: 2rem !important;
-  font-size: 1.5rem !important;
-  letter-spacing: 1px !important;
+  line-height: 2rem;
+  font-size: 1.5rem;
+  letter-spacing: 1px;
 }
 .content_detail .comments .input-group .input-group-text {
-  line-height: 2rem !important;
-  font-size: 1.5rem !important;
-  letter-spacing: 1px !important;
+  line-height: 2rem;
+  font-size: 1.5rem;
+  letter-spacing: 1px;
 }
 .content_detail .comments .input-group .textarea {
-  line-height: 2.4rem !important;
-  font-size: 1.6rem !important;
-  letter-spacing: 1px !important;
+  line-height: 2.4rem;
+  font-size: 1.6rem;
+  letter-spacing: 1px;
   height: 35px;
 }
 .content_detail .comments .comment_btn:hover {
-  opacity: 0.5 !important;
-  color: #4f4f4f !important;
-  background-color: #ffffff !important;
+  opacity: 0.5;
+  color: #4f4f4f;
+  background-color: #ffffff;
 }
 .content_detail .comments .link_login {
   color: #757575;
@@ -862,9 +929,9 @@ main.identity_bg .content_identity:not(:root) .img_sub .contentsText p {
   top: 53%;
   left: 50%;
   transform: translateY(-50%) translateX(-50%);
-  line-height: 2.4rem !important;
-  font-size: 3rem !important;
-  letter-spacing: 3px !important;
+  line-height: 2.4rem;
+  font-size: 3rem;
+  letter-spacing: 3px;
   color: white;
 }
 .content_account .profile_image i.change_icon {
@@ -902,25 +969,25 @@ main.identity_bg .content_identity:not(:root) .img_sub .contentsText p {
   top: 65%;
   left: 50%;
   transform: translateY(-50%) translateX(-50%);
-  line-height: 2.4rem !important;
-  font-size: 2rem !important;
-  letter-spacing: 3px !important;
+  line-height: 2.4rem;
+  font-size: 2rem;
+  letter-spacing: 3px;
   color: #757575;
 }
 .content_account .btn {
-  padding: 0.8rem 1.5rem !important;
-  font-size: 1.6rem !important;
+  padding: 0.8rem 1.5rem;
+  font-size: 1.6rem;
   letter-spacing: 1px;
 }
 .content_account .btn:hover {
-  opacity: 0.5 !important;
-  color: #4f4f4f !important;
-  background-color: #ffffff !important;
+  opacity: 0.5;
+  color: #4f4f4f;
+  background-color: #ffffff;
 }
 .content_account .form-select {
-  line-height: 2.4rem !important;
-  font-size: 2rem !important;
-  letter-spacing: 1px !important;
+  line-height: 2.4rem;
+  font-size: 2rem;
+  letter-spacing: 1px;
 }
 .content_account .form-control {
   color: #757575;
@@ -941,19 +1008,19 @@ main.identity_bg .content_identity:not(:root) .img_sub .contentsText p {
   margin: 14% 25% 0% 25%;
 }
 .content_contact .btn {
-  padding: 0.8rem 1.5rem !important;
-  font-size: 1.6rem !important;
+  padding: 0.8rem 1.5rem;
+  font-size: 1.6rem;
   letter-spacing: 1px;
 }
 .content_contact .btn:hover {
-  opacity: 0.5 !important;
-  color: #4f4f4f !important;
-  background-color: #ffffff !important;
+  opacity: 0.5;
+  color: #4f4f4f;
+  background-color: #ffffff;
 }
 .content_contact .form-select {
-  line-height: 2.4rem !important;
-  font-size: 2rem !important;
-  letter-spacing: 1px !important;
+  line-height: 2.4rem;
+  font-size: 2rem;
+  letter-spacing: 1px;
 }
 .content_contact .form-control {
   color: #757575;

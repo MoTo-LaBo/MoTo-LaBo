@@ -1,8 +1,8 @@
 //------- font style -------
 @mixin f_style($l_height:2.4rem, $f_size:2rem, $le_sp:1px) {
-    line-height: $l_height !important;
-    font-size: $f_size !important;
-    letter-spacing: $le_sp !important;
+    line-height: $l_height;
+    font-size: $f_size;
+    letter-spacing: $le_sp;
 }
 
 @mixin m_title($f_size:5.5rem, $le_sp:8px) {
@@ -13,15 +13,15 @@
 
 //------- btn style -------
 @mixin btn($pd:0.8rem 1.5rem, $f_size:1.6rem, $le_sp:1px) {
-    padding: $pd !important;
-    font-size: $f_size !important;
+    padding: $pd;
+    font-size: $f_size;
     letter-spacing: $le_sp;
 }
 
 @mixin btn_hov($op:0.5, $cl:#4f4f4f, $bgcl:#ffffff) {
-    opacity: $op !important;
-    color: $cl !important;
-    background-color: $bgcl !important;
+    opacity: $op;
+    color: $cl;
+    background-color: $bgcl;
 }
 
 
