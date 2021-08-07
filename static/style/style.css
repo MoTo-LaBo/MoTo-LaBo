@@ -583,7 +583,7 @@ main.identity_bg .content_identity:not(:root) {
   height: 100%;
   /* scrolldown 全体の場所)*/
 }
-main.identity_bg .content_identity:not(:root) .scrolldown1 {
+main.identity_bg .content_identity:not(:root) .scrolldown1:not(:root) {
   position: absolute;
   top: 15%;
   transform: translateY(-50%) translateY(-50%);
@@ -592,18 +592,18 @@ main.identity_bg .content_identity:not(:root) .scrolldown1 {
   /* 線の描写 */
   /*高さ・位置・透過が変化して線が上から下に動く*/
 }
-main.identity_bg .content_identity:not(:root) .scrolldown1 span {
+main.identity_bg .content_identity:not(:root) .scrolldown1:not(:root) span {
   /*描画位置*/
   position: absolute;
-  left: 48.5%;
+  left: 48.7%;
   transform: translateY(-50%) translateY(-50%);
   color: white;
   padding-bottom: 10px;
   line-height: 2rem;
-  font-size: 2rem;
+  font-size: 1.7rem;
   letter-spacing: 4px;
 }
-main.identity_bg .content_identity:not(:root) .scrolldown1::after {
+main.identity_bg .content_identity:not(:root) .scrolldown1:not(:root)::after {
   content: "";
   /*描画位置*/
   position: absolute;

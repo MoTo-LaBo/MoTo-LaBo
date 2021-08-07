@@ -149,7 +149,7 @@ main {
             height: 100%;
 
             /* scrolldown 全体の場所)*/
-            & .scrolldown1 {
+            & .scrolldown1:not(:root) {
                 position: absolute;
                 top: 15%;
                 transform: translateY(-50%) translateY(-50%);
@@ -159,11 +159,11 @@ main {
                 & span {
                     /*描画位置*/
                     position: absolute;
-                    left: 48.5%;
+                    left: 48.7%;
                     transform: translateY(-50%) translateY(-50%);
                     color: rgb(255, 255, 255);
                     padding-bottom: 10px;
-                    @include f_style($l_height:2rem, $f_size:2rem, $le_sp: 4px);
+                    @include f_style($l_height:2rem, $f_size:1.7rem, $le_sp: 4px);
                 }
 
                 /* 線の描写 */
