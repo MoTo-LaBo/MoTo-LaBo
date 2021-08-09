@@ -7,7 +7,6 @@ main {
         & .main__images {
             height: 100vmin;
             margin: 0 0 0 350px;
-            background-size: 81vw;
             overflow: hidden;
             position: relative;
 
@@ -17,11 +16,10 @@ main {
                 /*要素を天地中央寄せ*/
                 top: 49%;
                 left: 42%;
-                text-align: center;
                 transform: translateY(-50%) translateX(-50%);
                 /*見た目の調整*/
                 color: $tblack;
-                // text-shadow: 0 0 15px #666;
+                white-space: nowrap;
 
                 & .meta {
                     @include m_title();
@@ -38,11 +36,11 @@ main {
                 }
             }
 
-            &-pohoto {
+            &-photo {
                 z-index: 10;
                 opacity: 0;
                 height: 100%;
-                width: 105%;
+                width: 106%;
                 background-position: center;
                 background-repeat: no-repeat;
                 background-size: cover;
@@ -152,17 +150,19 @@ main {
             & .scrolldown1:not(:root) {
                 position: absolute;
                 top: 15%;
-                transform: translateY(-50%) translateY(-50%);
+                left: 50%;
+                margin-top: 10px;
+                transform: translateY(-50%) translateX(-50%);
                 /*全体の高さ*/
                 height: 50px;
 
                 & span {
                     /*描画位置*/
                     position: absolute;
-                    left: 48.7%;
-                    transform: translateY(-50%) translateY(-50%);
+                    top: -35%;
+                    transform: translateY(-50%) translatex(-50%);
                     color: $mwhite;
-                    padding-bottom: 10px;
+                    align-items: center;
                     @include f_style($l_height:2rem, $f_size:1.7rem, $le_sp: 4px);
                 }
 

@@ -438,7 +438,6 @@ main {
 main.index .main__images {
   height: 100vmin;
   margin: 0 0 0 350px;
-  background-size: 81vw;
   overflow: hidden;
   position: relative;
 }
@@ -448,10 +447,10 @@ main.index .main__images .top_title {
   /*要素を天地中央寄せ*/
   top: 49%;
   left: 42%;
-  text-align: center;
   transform: translateY(-50%) translateX(-50%);
   /*見た目の調整*/
   color: #757575;
+  white-space: nowrap;
 }
 main.index .main__images .top_title .meta {
   font-size: 5.5rem;
@@ -465,11 +464,11 @@ main.index .main__images .top_title .sub-j {
   font-size: 2rem;
   letter-spacing: 2px;
 }
-main.index .main__images-pohoto {
+main.index .main__images-photo {
   z-index: 10;
   opacity: 0;
   height: 100%;
-  width: 105%;
+  width: 106%;
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -477,20 +476,20 @@ main.index .main__images-pohoto {
   -webkit-animation: anime 24s 0s infinite;
           animation: anime 24s 0s infinite;
 }
-main.index .main__images-pohoto::before {
+main.index .main__images-photo::before {
   display: block;
   content: "";
   padding-top: 50%;
 }
-main.index .main__images-pohoto:nth-of-type(2) {
+main.index .main__images-photo:nth-of-type(2) {
   -webkit-animation-delay: 6s;
           animation-delay: 6s;
 }
-main.index .main__images-pohoto:nth-of-type(3) {
+main.index .main__images-photo:nth-of-type(3) {
   -webkit-animation-delay: 12s;
           animation-delay: 12s;
 }
-main.index .main__images-pohoto:nth-of-type(4) {
+main.index .main__images-photo:nth-of-type(4) {
   -webkit-animation-delay: 18s;
           animation-delay: 18s;
 }
@@ -586,7 +585,9 @@ main.identity_bg .content_identity:not(:root) {
 main.identity_bg .content_identity:not(:root) .scrolldown1:not(:root) {
   position: absolute;
   top: 15%;
-  transform: translateY(-50%) translateY(-50%);
+  left: 50%;
+  margin-top: 10px;
+  transform: translateY(-50%) translateX(-50%);
   /*全体の高さ*/
   height: 50px;
   /* 線の描写 */
@@ -595,10 +596,10 @@ main.identity_bg .content_identity:not(:root) .scrolldown1:not(:root) {
 main.identity_bg .content_identity:not(:root) .scrolldown1:not(:root) span {
   /*描画位置*/
   position: absolute;
-  left: 48.7%;
-  transform: translateY(-50%) translateY(-50%);
+  top: -35%;
+  transform: translateY(-50%) translatex(-50%);
   color: #ffffff;
-  padding-bottom: 10px;
+  align-items: center;
   line-height: 2rem;
   font-size: 1.7rem;
   letter-spacing: 4px;
@@ -805,10 +806,11 @@ main.identity_bg .content_identity:not(:root) .img_sub .contentsText p {
   letter-spacing: 1px;
 }
 .content_list {
-  margin: 165px 25% 0% 25%;
+  margin: 0 25% 0 25%;
   line-height: 2.4rem;
   font-size: 2rem;
   letter-spacing: 1px;
+  padding-top: 7%;
 }
 .content_list .btn {
   padding: 0.8rem 1.5rem;
@@ -1005,7 +1007,8 @@ main.identity_bg .content_identity:not(:root) .img_sub .contentsText p {
   box-shadow: inset 0 0 0 1px #ffffff62;
 }
 .content_contact {
-  margin: 14% 25% 0% 25%;
+  margin: 0% 25% 0% 25%;
+  padding-top: 14%;
 }
 .content_contact .btn {
   padding: 0.8rem 1.5rem;
@@ -1038,6 +1041,13 @@ main.identity_bg .content_identity:not(:root) .img_sub .contentsText p {
   box-shadow: inset 0 0 0 1px #ffffff62;
 }
 
+#global-container {
+  position: fixed;
+  width: 100%;
+  background: none;
+  z-index: 20;
+}
+
 #container {
   position: relative;
   background-color: rgba(0, 0, 0, 0.51);
@@ -1046,15 +1056,134 @@ main.identity_bg .content_identity:not(:root) .img_sub .contentsText p {
   transform: translateX(-100%);
   transition: all 2s;
 }
+#container .mobile-header {
+  text-align: left;
+  display: inline-block;
+  position: fixed;
+  top: 8%;
+  left: 0;
+  margin: 0 0 0 7%;
+  line-height: 2.4rem;
+  font-size: 2rem;
+  letter-spacing: 1px;
+}
+#container .mobile-header .mobile_logo {
+  margin-bottom: 115%;
+}
+#container .mobile-header .mobile-menu {
+  font-size: 2rem;
+  margin-left: 5px;
+  /*現在地とhoverの設定*/
+  /*現在地とhoverの設定*/
+}
+#container .mobile-header .mobile-menu ul li {
+  margin-bottom: 25px;
+}
+#container .mobile-header .mobile-menu ul li.mobile_login_out {
+  line-height: 2.4rem;
+  font-size: 2.5rem;
+  letter-spacing: 2px;
+  margin: 40% 0 -40% 15%;
+}
+#container .mobile-header .mobile-menu ul li.mobile_author {
+  margin-top: 80%;
+  font-size: 1.8rem;
+  letter-spacing: 2px;
+}
+#container .mobile-header .mobile-menu ul li a {
+  text-decoration: none;
+  letter-spacing: 2px;
+  color: #ffffff;
+  padding: 5px;
+}
+#container .mobile-header .mobile-menu ul.mobile_gnavi li a {
+  /*線の基点とするためrelativeを指定*/
+  position: relative;
+}
+#container .mobile-header .mobile-menu ul.mobile_gnavi li a.mobile_bg {
+  /*背景色の基点とするためrelativeを指定*/
+  position: relative;
+  /*アニメーションの指定*/
+  transition: all 0.5s;
+}
+#container .mobile-header .mobile-menu ul.mobile_gnavi li a::after {
+  content: "";
+  /*絶対配置で線の位置を決める*/
+  position: absolute;
+  bottom: 0;
+  left: 7%;
+  /*線の形状*/
+  width: 80%;
+  height: 1px;
+  background: #ffffff;
+  /*アニメーションの指定*/
+  transition: all 1s;
+  transform: scale(0, 1);
+  /*X方向0、Y方向1*/
+  transform-origin: left top;
+  /*左上基点*/
+}
+#container .mobile-header .mobile-menu ul.mobile_gnavi li a.mobile_bg::after {
+  content: "";
+  /*絶対配置で線の位置を決める*/
+  position: absolute;
+  z-index: -1;
+  bottom: 0;
+  left: 0;
+  /*背景の形状*/
+  width: 0;
+  height: 1px;
+  background: #ffffff;
+  opacity: 0;
+  /*はじめは透過を0に*/
+}
+#container .mobile-header .mobile-menu ul.mobile_gnavi li a:hover {
+  color: #ffffff;
+}
+#container .mobile-header .mobile-menu ul.mobile_gnavi li a:hover::after {
+  transform: scale(1, 1);
+  /*X方向にスケール拡大*/
+}
+#container .mobile-header .mobile-menu ul.mobile_gnavi li a.mobile_bg:hover::after {
+  /*背景の形状*/
+  width: 100%;
+  opacity: 1;
+  /*アニメーションの指定*/
+  -webkit-animation: bgcolor 0.7s forwards;
+          animation: bgcolor 0.7s forwards;
+  /*アニメーションで線を伸ばして背景をつける*/
+}
+@keyframes bgcolor {
+  0% {
+    width: 0%;
+    height: 1px;
+  }
+  50% {
+    width: 100%;
+    height: 1px;
+  }
+  70% {
+    width: 100%;
+    height: 1px;
+  }
+  85% {
+    width: 100%;
+    height: 75%;
+  }
+  100% {
+    width: 100%;
+    height: 100%;
+    background: #ffffff5d;
+  }
+}
+#container .mobile-header .mobile-menu ul.mobile_gnavi li a.mobile_bg:hover {
+  color: #ffffff;
+  /*テキストを最前面へ*/
+  z-index: 10;
+}
 
 .menu-open #container {
   transform: translateX(0%);
-}
-
-.mobile-menu {
-  position: fixed;
-  left: 0px;
-  top: 60px;
 }
 
 .mobile-menu_btn {
@@ -1065,10 +1194,10 @@ main.identity_bg .content_identity:not(:root) .img_sub .contentsText p {
   position: absolute;
   top: 3%;
   right: 3%;
-  z-index: 3;
+  z-index: 20;
 }
 .mobile-menu_btn > span {
-  background-color: #333;
+  background-color: #ffffff;
   width: 35px;
   height: 2px;
   display: block;
@@ -1083,7 +1212,7 @@ main.identity_bg .content_identity:not(:root) .img_sub .contentsText p {
   background-color: #ffffff;
 }
 .menu-open .mobile-menu_btn > span {
-  background-color: #333;
+  background-color: #ffffff;
 }
 .menu-open .mobile-menu_btn > span:nth-child(1) {
   transition-delay: 70ms;
@@ -1096,4 +1225,160 @@ main.identity_bg .content_identity:not(:root) .img_sub .contentsText p {
 .menu-open .mobile-menu_btn > span:nth-child(3) {
   transition-delay: 140ms;
   transform: translateY(-11px) rotate(-135deg);
+}
+
+.mobile-side_copy {
+  display: inline-block;
+  color: #ffffff;
+  position: fixed;
+  top: 50%;
+  right: -7%;
+  margin: 0 0 0 0;
+  transform: rotate(90deg);
+  letter-spacing: 2px;
+  line-height: 2rem;
+  font-size: 1.6rem;
+  letter-spacing: 3px;
+}
+
+#footer-mobile {
+  z-index: 0;
+  line-height: 2.4rem;
+  font-size: 2rem;
+  letter-spacing: 1px;
+}
+#footer-mobile #footer-mobile_links {
+  position: absolute;
+  bottom: 5%;
+  left: 13%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  list-style: none;
+}
+#footer-mobile #footer-mobile_links li {
+  display: inline;
+  margin: 0 25% 0 0;
+}
+#footer-mobile #footer-mobile_links li a.sns_link {
+  text-decoration: none;
+}
+#footer-mobile #footer-mobile_links li a.sns_link:hover {
+  color: #ffffff;
+  background-color: rgba(0, 0, 0, 0.3);
+}
+#footer-mobile #footer-mobile_links li a.sns_link i.icon {
+  color: #ffffff;
+}
+
+@media (max-width: 601px) {
+  /******************************************************************
+
+  Stylesheet: 601px以下のタブレットやモニタで適用
+
+  ******************************************************************/
+  #index #top_title {
+    top: 80%;
+    left: 50%;
+  }
+  #index #top_title .meta {
+    font-size: 2rem;
+    letter-spacing: 3px;
+  }
+  #index #top_title .sub {
+    line-height: 2rem;
+    font-size: 1.8rem;
+    letter-spacing: 1px;
+  }
+  #index #top_title .sub-j {
+    line-height: 2rem;
+    font-size: 1.5rem;
+    letter-spacing: 1px;
+  }
+  #index .main__images-logo {
+    position: sticky;
+    top: 38%;
+  }
+
+  #global-container .mobile-menu_btn {
+    top: 5%;
+    right: 5%;
+  }
+
+  #container .mobile-header {
+    top: 5%;
+  }
+  #container .mobile-header .mobile_logo {
+    margin-bottom: 32%;
+  }
+  #container .mobile-header .mobile_logo a img {
+    width: 80%;
+  }
+  #container .mobile-header .mobile-menu ul li.mobile_login_out {
+    margin: 25% 0 0% 15%;
+  }
+  #container .mobile-header .mobile-menu ul li.mobile_author {
+    margin-top: 25%;
+  }
+  #container .mobile-header .mobile-side_copy {
+    right: -20%;
+  }
+  #container .mobile-side_copy {
+    right: -18%;
+  }
+  #container #footer-mobile #footer-mobile_links {
+    left: 42%;
+  }
+}
+@media (max-width: 1024px) {
+  /******************************************************************
+
+  Stylesheet: 1024px以下のモニタで適用
+
+  ******************************************************************/
+  #header {
+    display: none;
+  }
+
+  #index .main__images {
+    height: 100vh;
+    margin: 0;
+  }
+  #index .main__images .top_title {
+    top: 50%;
+    left: 50%;
+  }
+  #index .main__images-photo {
+    width: 113%;
+  }
+
+  .side_copy {
+    display: none;
+  }
+
+  .footer {
+    display: none;
+  }
+
+  #identity {
+    display: none;
+  }
+
+  .side_copy_ide {
+    display: none;
+  }
+
+  .footer_ide {
+    display: none;
+  }
+}
+@media (min-width: 1025px) {
+  /******************************************************************
+
+  Stylesheet: 1025px以上のモニタで適用
+
+  ******************************************************************/
+  #global-container {
+    display: none;
+  }
 }/*# sourceMappingURL=style.css.map */

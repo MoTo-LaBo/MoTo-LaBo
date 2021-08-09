@@ -1,8 +1,22 @@
 @import 'modules/variables';
-@import 'modules/common';
 @import 'modules/mixin';
+@import 'modules/common';
 @import 'modules/base';
 @import 'modules/main';
 @import 'modules/auth';
 @import 'modules/content';
 @import 'modules/mobile';
+
+
+
+@media (max-width: 601px) {
+    @import "breakpoints/601down";
+}
+
+@media (max-width: 1024px) {
+    @import "breakpoints/1024down";
+}
+
+@media (min-width: 1025px) {
+    @import "breakpoints/1025up";
+}

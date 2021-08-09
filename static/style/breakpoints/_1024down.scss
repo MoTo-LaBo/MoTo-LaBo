@@ -1,0 +1,49 @@
+/******************************************************************
+
+Stylesheet: 1024px以下のモニタで適用
+
+******************************************************************/
+
+// ------- dase.html -------
+#header {
+    display: none;
+}
+
+#index {
+
+    .main__images {
+        height: 100vh;
+        margin: 0;
+
+        & .top_title {
+            top: 50%;
+            left: 50%;
+        }
+
+        &-photo {
+            width: 113%;
+        }
+    }
+}
+
+
+.side_copy {
+    display: none;
+}
+
+.footer {
+    display: none;
+}
+
+// ------- base_identity.html -------
+#identity {
+    display: none;
+}
+
+.side_copy_ide {
+    display: none;
+}
+
+.footer_ide {
+    display: none;
+}

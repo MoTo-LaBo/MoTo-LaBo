@@ -1,0 +1,55 @@
+{% load static %}
+
+<div id="global-container">
+    <button class="mobile-menu_btn">
+        <span></span>
+        <span></span>
+        <span></span>
+    </button>
+    <div id="container">
+        <header class="mobile-header">
+            <nav class="mobile-menu">
+                <h1 class="mobile_logo">
+                    <a href="/">
+                        <img src="{% static '/images/identity/MOTOYA-ITO-DESIGN-title_identity_logo-.png' %}" alt="MOTOYA ITO DESGIN" />
+                    </a>
+                </h1>
+                <ul class="mobile_gnavi">
+                    <!-- <li><a href="/">HOME</a></li> -->
+                    <li><a href="/blog/articles/">LABO</a></li>
+                    <li><a href="/about/">ABOUT</a></li>
+                    <li><a href="/identity/">IDENTITY</a></li>
+                    <li><a href="/contact/">CONTACT</a></li>
+                    <!-- <li><a href="/account/">ACCOUNT</a></li> -->
+
+                    {% if user.is_authenticated %}
+                    <li class="mobile_login_out"><a href="/logout/" class="mobile_bg">Logout</a></li>
+                    <li class="mobile_author"><a href="/account/">User Account</a></li>
+                    {% else %}
+                    <li class="mobile_login_out"><a href="/login/" class="mobile_bg">Login</a></li>
+                    <li class="mobile_author"><a href="/signup/">Create User</a></li>
+                    {% endif %}
+                </ul>
+            </nav>
+        </header>
+        <div class="mobile-side_copy">
+            <span>&copy; 2021 MoTo LaBo</span> </aside>
+        </div>
+        <footer class="footer-mobile" id="footer-mobile">
+            <ul class="footer-mobile_links" id="footer-mobile_links">
+                <li>
+                    <!-- Twitter -->
+                    <a class="sns_link btn btn-link btn-floating btn-lg" href="https://twitter.com/MoTo_labo" role="button" data-mdb-ripple-color="dark"><i class="icon fab fa-twitter fa-2x"></i></a>
+                </li>
+                <li>
+                    <!-- note -->
+                    <a class="sns_link btn btn-link btn-floating btn-lg" href="https://note.com/moto_labo" role="button" data-mdb-ripple-color="dark"><i class="icon far fa-sticky-note fa-2x"></i></a>
+                </li>
+                <li>
+                    <!-- Github -->
+                    <a class="sns_link btn btn-link btn-floating btn-lg" href="https://github.com/MoTo-LaBo" role="button" data-mdb-ripple-color="dark"><i class="icon fab fa-github fa-2x"></i></a>
+                </li>
+            </ul>
+        </footer>
+    </div>
+</div>

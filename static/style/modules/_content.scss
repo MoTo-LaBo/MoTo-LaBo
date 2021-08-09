@@ -8,9 +8,9 @@
 
     // ------- Article list page(article_list.html) -------
     &_list {
-
-        @include content_w;
+        @include content_w(0 25% 0 25%);
         @include f_style;
+        padding-top: 7%;
 
         & .btn {
             @include btn;
@@ -219,7 +219,8 @@
 
     // ------- contact page(contact.html) -------
     &_contact {
-        @include content_w($mg:14% 25% 0% 25%);
+        @include content_w($mg:0% 25% 0% 25%);
+        padding-top: 14%;
 
         & .btn {
             @include btn;

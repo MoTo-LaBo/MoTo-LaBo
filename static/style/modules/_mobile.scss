@@ -1,6 +1,13 @@
 // ---------- mobile menu ----------
 
+#global-container {
+    position: fixed;
+    width: 100%;
+    background: none;
+    z-index: 20;
+}
 
+// ---------- slider menu ----------
 #container {
     position: relative;
     background-color: rgba(0, 0, 0, 0.51);
@@ -8,18 +15,167 @@
     z-index: 2;
     transform: translateX(-100%);
     transition: all 2s;
+
+    // ---------- mobile header nav ----------
+    & .mobile-header {
+        text-align: left;
+        display: inline-block;
+        position: fixed;
+        top: 8%;
+        left: 0;
+        margin: 0 0 0 7%;
+        @include f_style;
+
+        & .mobile_logo {
+            margin-bottom: 115%;
+        }
+
+        & .mobile-menu {
+            font-size: 2rem;
+            margin-left: 5px;
+
+            & ul li {
+                margin-bottom: 25px;
+
+                // ------- login,out -------
+                &.mobile_login_out {
+                    @include f_style($l_height:2.4rem, $f_size:2.5rem, $le_sp:2px);
+                    margin: 40% 0 -40% 15%;
+                }
+
+                &.mobile_author {
+                    margin-top: 80%;
+                    font-size: 1.8rem;
+                    letter-spacing: 2px;
+                }
+
+                // ------- login,out -------
+
+                & a {
+                    text-decoration: none;
+                    letter-spacing: 2px;
+                    color: $mwhite;
+                    padding: 5px;
+                }
+            }
+
+            & ul.mobile_gnavi li a {
+                /*線の基点とするためrelativeを指定*/
+                position: relative;
+
+                // ------- login,out -------
+                &.mobile_bg {
+                    /*背景色の基点とするためrelativeを指定*/
+                    position: relative;
+                    /*アニメーションの指定*/
+                    transition: all .5s;
+                }
+
+                // ------- login,out -------
+
+                &::after {
+                    content: '';
+                    /*絶対配置で線の位置を決める*/
+                    position: absolute;
+                    bottom: 0;
+                    left: 7%;
+                    /*線の形状*/
+                    width: 80%;
+                    height: 1px;
+                    background: $mwhite;
+                    /*アニメーションの指定*/
+                    transition: all 1s;
+                    transform: scale(0, 1);
+                    /*X方向0、Y方向1*/
+                    transform-origin: left top;
+                    /*左上基点*/
+                }
+
+                // ------- login,out -------
+                &.mobile_bg::after {
+                    content: '';
+                    /*絶対配置で線の位置を決める*/
+                    position: absolute;
+                    z-index: -1;
+                    bottom: 0;
+                    left: 0;
+                    /*背景の形状*/
+                    width: 0;
+                    height: 1px;
+                    background: $mwhite;
+                    opacity: 0;
+                    /*はじめは透過を0に*/
+                }
+
+                // ------- login,out -------
+            }
+
+            & ul.mobile_gnavi li a:hover {
+                color: $mwhite;
+            }
+
+            /*現在地とhoverの設定*/
+            & ul.mobile_gnavi li a:hover::after {
+                transform: scale(1, 1);
+                /*X方向にスケール拡大*/
+            }
+
+            // ------- login,out -------
+            & ul.mobile_gnavi li a.mobile_bg:hover::after {
+                /*背景の形状*/
+                width: 100%;
+                opacity: 1;
+                /*アニメーションの指定*/
+                animation: bgcolor 0.7s forwards;
+
+                /*アニメーションで線を伸ばして背景をつける*/
+                @keyframes bgcolor {
+                    0% {
+                        width: 0%;
+                        height: 1px;
+                    }
+
+                    50% {
+                        width: 100%;
+                        height: 1px;
+                    }
+
+                    70% {
+                        width: 100%;
+                        height: 1px;
+                    }
+
+                    85% {
+                        width: 100%;
+                        height: 75%;
+                    }
+
+                    100% {
+                        width: 100%;
+                        height: 100%;
+                        background: #ffffff5d;
+                    }
+                }
+
+            }
+
+            /*現在地とhoverの設定*/
+            & ul.mobile_gnavi li a.mobile_bg:hover {
+                color: $mwhite;
+                /*テキストを最前面へ*/
+                z-index: 10;
+            }
+
+            // ------- login,out -------
+        }
+    }
 }
 
+// ---------- menu javascript & scss ----------
 .menu-open {
     & #container {
         transform: translateX(0%);
     }
-}
-
-.mobile-menu {
-    position: fixed;
-    left: 0px;
-    top: 60px;
 }
 
 .mobile-menu_btn {
@@ -30,10 +186,10 @@
     position: absolute;
     top: 3%;
     right: 3%;
-    z-index: 3;
+    z-index: 20;
 
     &>span {
-        background-color: $mblack;
+        background-color: $mwhite;
         width: 35px;
         height: 2px;
         display: block;
@@ -51,7 +207,7 @@
 
     & .mobile-menu_btn {
         &>span {
-            background-color: $mblack;
+            background-color: $mwhite;
 
             &:nth-child(1) {
                 transition-delay: 70ms;
@@ -66,6 +222,55 @@
             &:nth-child(3) {
                 transition-delay: 140ms;
                 transform: translateY(-11px) rotate(-135deg);
+            }
+        }
+    }
+}
+
+
+// ---------- copywrite (base_identity.html) ---------
+.mobile-side_copy {
+    display: inline-block;
+    color: $mwhite;
+    position: fixed;
+    top: 50%;
+    right: -7%;
+    margin: 0 0 0 0;
+    transform: rotate(90deg);
+    letter-spacing: 2px;
+    @include f_style($l_height:2rem, $f_size:1.6rem, $le_sp:3px);
+}
+
+
+// ----- footer base_identity.html (footer_identity.html) ------
+#footer-mobile {
+    z-index: 0;
+    @include f_style;
+
+    & #footer-mobile_links {
+        position: absolute;
+        bottom: 5%;
+        left: 13%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        list-style: none;
+
+        & li {
+            display: inline;
+            margin: 0 25% 0 0;
+
+            & a.sns_link {
+                text-decoration: none;
+
+                &:hover {
+                    color: $mwhite;
+                    background-color: rgba(0, 0, 0, 0.3);
+                }
+
+                & i.icon {
+                    color: $mwhite;
+                }
             }
         }
     }
