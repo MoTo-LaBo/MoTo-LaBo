@@ -1,0 +1,130 @@
+/******************************************************************
+
+Stylesheet: 600px以下のタブレットやモニタで適用
+
+******************************************************************/
+
+// ----------- mobile.html -----------
+
+// ------- mobile menu -------
+#global-container {
+
+    & .mobile-menu_btn {
+        top: 5%;
+        right: 5%;
+    }
+}
+
+#container {
+
+    & .mobile-header {
+        top: 5%;
+
+        & .mobile_logo {
+            margin-bottom: 50%;
+
+            & a img {
+                width: 80%;
+            }
+        }
+
+        & .mobile-menu ul li.mobile_login_out {
+            margin: 20% 0 0% 15%;
+        }
+
+        & .mobile-menu ul li.mobile_author {
+            margin-top: 20%;
+        }
+
+        & .mobile-side_copy {
+            right: -20%;
+        }
+    }
+
+    & .mobile-side_copy {
+        right: -18%;
+    }
+
+    & #footer-mobile {
+
+        & #footer-mobile_links {
+            left: 67%;
+            bottom: 22%;
+        }
+    }
+}
+
+
+// ----------- index.html -----------
+#index {
+
+    & #top_title {
+        top: 80%;
+        left: 50%;
+
+        & .meta {
+            @include m_title($f_size:2rem, $le_sp:3px);
+        }
+
+        & .sub {
+            @include f_style($l_height:2rem, $f_size:1.8rem);
+        }
+
+        & .sub-j {
+            @include f_style($l_height:2rem, $f_size:1.5rem);
+        }
+    }
+
+    & .main__images-logo {
+        position: sticky;
+        top: 38%;
+    }
+}
+
+
+// ----------- identity.html ------------
+
+html {
+    body {
+        main.identity_bg .content_identity:not(:root) {
+            margin: 0% 10%;
+            padding-top: 50%;
+        }
+
+        main.identity_bg .content_identity:not(:root) .img_main .contentsText {
+            top: 76%;
+        }
+
+        main.identity_bg .content_identity:not(:root) .img_main {
+            padding-bottom: 90%;
+            margin-bottom: 10%;
+        }
+
+        main.identity_bg .content_identity:not(:root) .img_main .contentsText h2 {
+            font-size: 3rem;
+        }
+
+        main.identity_bg .content_identity:not(:root) .img_main .contentsText p {
+            font-size: 1.5rem;
+            white-space: pre-wrap;
+        }
+
+        main.identity_bg .content_identity:not(:root) .img_sub {
+            padding-bottom: 80%;
+            padding-top: 20%;
+        }
+
+        main.identity_bg .content_identity:not(:root) .img_sub .contentsText h2 {
+            font-size: 3rem;
+        }
+
+        main.identity_bg .content_identity:not(:root) .img_sub .contentsText p {
+            font-size: 1.3rem;
+            white-space: pre-wrap;
+        }
+
+        main.identity_bg .content_identity:not(:root) .img_sub.end {
+            padding-bottom: 75%;
+        }
+    }
+}

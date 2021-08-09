@@ -56,7 +56,7 @@ header.header {
   text-align: left;
   display: inline-block;
   position: fixed;
-  top: 100px;
+  top: 7%;
   left: 0;
   margin: 0 0 0 75px;
   line-height: 2.4rem;
@@ -204,7 +204,7 @@ header.identity {
   text-align: left;
   display: inline-block;
   position: fixed;
-  top: 100px;
+  top: 7%;
   left: 0;
   margin: 0 0 0 75px;
   line-height: 2.4rem;
@@ -1187,7 +1187,8 @@ main.identity_bg .content_identity:not(:root) .img_sub .contentsText p {
 }
 
 .mobile-menu_btn {
-  background-color: unset;
+  background-color: rgba(0, 0, 0, 0.1);
+  padding: 4px 2px;
   border: none;
   outline: none !important;
   cursor: pointer;
@@ -1248,8 +1249,8 @@ main.identity_bg .content_identity:not(:root) .img_sub .contentsText p {
   letter-spacing: 1px;
 }
 #footer-mobile #footer-mobile_links {
-  position: absolute;
-  bottom: 5%;
+  position: fixed;
+  bottom: 10%;
   left: 13%;
   display: flex;
   justify-content: center;
@@ -1258,7 +1259,7 @@ main.identity_bg .content_identity:not(:root) .img_sub .contentsText p {
 }
 #footer-mobile #footer-mobile_links li {
   display: inline;
-  margin: 0 25% 0 0;
+  margin: 0 30% 0 0;
 }
 #footer-mobile #footer-mobile_links li a.sns_link {
   text-decoration: none;
@@ -1271,12 +1272,43 @@ main.identity_bg .content_identity:not(:root) .img_sub .contentsText p {
   color: #ffffff;
 }
 
-@media (max-width: 601px) {
+@media (max-width: 600px) {
   /******************************************************************
 
-  Stylesheet: 601px以下のタブレットやモニタで適用
+  Stylesheet: 600px以下のタブレットやモニタで適用
 
   ******************************************************************/
+  #global-container .mobile-menu_btn {
+    top: 5%;
+    right: 5%;
+  }
+
+  #container .mobile-header {
+    top: 5%;
+  }
+  #container .mobile-header .mobile_logo {
+    margin-bottom: 50%;
+  }
+  #container .mobile-header .mobile_logo a img {
+    width: 80%;
+  }
+  #container .mobile-header .mobile-menu ul li.mobile_login_out {
+    margin: 20% 0 0% 15%;
+  }
+  #container .mobile-header .mobile-menu ul li.mobile_author {
+    margin-top: 20%;
+  }
+  #container .mobile-header .mobile-side_copy {
+    right: -20%;
+  }
+  #container .mobile-side_copy {
+    right: -18%;
+  }
+  #container #footer-mobile #footer-mobile_links {
+    left: 67%;
+    bottom: 22%;
+  }
+
   #index #top_title {
     top: 80%;
     left: 50%;
@@ -1300,34 +1332,37 @@ main.identity_bg .content_identity:not(:root) .img_sub .contentsText p {
     top: 38%;
   }
 
-  #global-container .mobile-menu_btn {
-    top: 5%;
-    right: 5%;
+  html body main.identity_bg .content_identity:not(:root) {
+    margin: 0% 10%;
+    padding-top: 50%;
   }
-
-  #container .mobile-header {
-    top: 5%;
+  html body main.identity_bg .content_identity:not(:root) .img_main .contentsText {
+    top: 76%;
   }
-  #container .mobile-header .mobile_logo {
-    margin-bottom: 32%;
+  html body main.identity_bg .content_identity:not(:root) .img_main {
+    padding-bottom: 90%;
+    margin-bottom: 10%;
   }
-  #container .mobile-header .mobile_logo a img {
-    width: 80%;
+  html body main.identity_bg .content_identity:not(:root) .img_main .contentsText h2 {
+    font-size: 3rem;
   }
-  #container .mobile-header .mobile-menu ul li.mobile_login_out {
-    margin: 25% 0 0% 15%;
+  html body main.identity_bg .content_identity:not(:root) .img_main .contentsText p {
+    font-size: 1.5rem;
+    white-space: pre-wrap;
   }
-  #container .mobile-header .mobile-menu ul li.mobile_author {
-    margin-top: 25%;
+  html body main.identity_bg .content_identity:not(:root) .img_sub {
+    padding-bottom: 80%;
+    padding-top: 20%;
   }
-  #container .mobile-header .mobile-side_copy {
-    right: -20%;
+  html body main.identity_bg .content_identity:not(:root) .img_sub .contentsText h2 {
+    font-size: 3rem;
   }
-  #container .mobile-side_copy {
-    right: -18%;
+  html body main.identity_bg .content_identity:not(:root) .img_sub .contentsText p {
+    font-size: 1.3rem;
+    white-space: pre-wrap;
   }
-  #container #footer-mobile #footer-mobile_links {
-    left: 42%;
+  html body main.identity_bg .content_identity:not(:root) .img_sub.end {
+    padding-bottom: 75%;
   }
 }
 @media (max-width: 1024px) {
@@ -1371,6 +1406,35 @@ main.identity_bg .content_identity:not(:root) .img_sub .contentsText p {
   .footer_ide {
     display: none;
   }
+
+  #container .mobile-header .mobile_logo {
+    margin-bottom: 70%;
+  }
+
+  body main.identity_bg .content_identity:not(:root) {
+    margin: 0% 15%;
+    padding-top: 35%;
+  }
+  body main.identity_bg .content_identity:not(:root) .img_main .contentsText h2 {
+    font-size: 4rem;
+  }
+  body main.identity_bg .content_identity:not(:root) .img_main .contentsText p {
+    font-size: 1.6rem;
+  }
+  body main.identity_bg .content_identity:not(:root) .img_sub .contentsText h2 {
+    font-size: 3.5rem;
+  }
+  body main.identity_bg .content_identity:not(:root) .img_sub .contentsText p {
+    font-size: 1.5rem;
+  }
+  body main.identity_bg .content_identity:not(:root) .img_sub.end {
+    margin-bottom: 15%;
+  }
+
+  .content_list {
+    margin: 0% 7%;
+    padding-top: 13%;
+  }
 }
 @media (min-width: 1025px) {
   /******************************************************************
@@ -1380,5 +1444,81 @@ main.identity_bg .content_identity:not(:root) .img_sub .contentsText p {
   ******************************************************************/
   #global-container {
     display: none;
+  }
+}
+@media (max-width: 1536px) {
+  /******************************************************************
+
+  Stylesheet: 1536px以下のモニタで適用
+
+  ******************************************************************/
+  header.header .header_logo:not(:root) {
+    margin-bottom: 50%;
+  }
+
+  main.index .main__images .top_title {
+    top: 53%;
+    left: 39%;
+  }
+
+  header.identity .ide_logo:not(:root) {
+    margin-bottom: 50%;
+  }
+
+  main.identity_bg .content_identity:not(:root) .img_main .contentsText {
+    top: 80%;
+  }
+
+  main.identity_bg .content_identity:not(:root) .img_main .contentsText h2 {
+    font-size: 5rem;
+  }
+
+  main.identity_bg .content_identity:not(:root) .img_main .contentsText p {
+    font-size: 2rem;
+  }
+
+  main.identity_bg .content_identity:not(:root) .img_main {
+    padding-bottom: 50%;
+  }
+
+  main.identity_bg .content_identity:not(:root) .img_sub .contentsText {
+    top: 80%;
+  }
+
+  main.identity_bg .content_identity:not(:root) .img_sub .contentsText h2 {
+    font-size: 4.5rem;
+  }
+
+  main.identity_bg .content_identity:not(:root) .img_sub .contentsText p {
+    font-size: 2rem;
+  }
+
+  main.identity_bg .content_identity:not(:root) .img_sub {
+    padding-bottom: 50%;
+    padding-top: 15%;
+  }
+
+  main.identity_bg .content_identity:not(:root) .img_sub.end {
+    padding-bottom: 50%;
+    margin-bottom: 5%;
+  }
+}
+@media (max-width: 1920px) {
+  /******************************************************************
+
+  Stylesheet: 1024px以下のモニタで適用
+
+  ******************************************************************/
+  header.header .header_logo {
+    margin-bottom: 126%;
+  }
+
+  main.index .main__images .top_title {
+    top: 53%;
+    left: 39%;
+  }
+
+  header.identity .ide_logo {
+    margin-bottom: 126%;
   }
 }/*# sourceMappingURL=style.css.map */

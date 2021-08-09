@@ -9,8 +9,8 @@
 
 
 
-@media (max-width: 601px) {
-    @import "breakpoints/601down";
+@media (max-width: 600px) {
+    @import "breakpoints/600down";
 }
 
 @media (max-width: 1024px) {
@@ -19,4 +19,12 @@
 
 @media (min-width: 1025px) {
     @import "breakpoints/1025up";
+}
+
+@media (max-width: 1536px) {
+    @import "breakpoints/1536down";
+}
+
+@media (max-width: 1920px) {
+    @import "breakpoints/1920down";
 }

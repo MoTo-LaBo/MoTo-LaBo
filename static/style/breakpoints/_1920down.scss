@@ -1,0 +1,22 @@
+/******************************************************************
+
+Stylesheet: 1024px以下のモニタで適用
+
+******************************************************************/
+
+// ------- base.html -------
+
+header.header .header_logo {
+    margin-bottom: 126%;
+}
+
+main.index .main__images .top_title {
+    top: 53%;
+    left: 39%;
+}
+
+// ------- base_identity.html -------
+
+header.identity .ide_logo {
+    margin-bottom: 126%;
+}

@@ -1,0 +1,60 @@
+/******************************************************************
+
+Stylesheet: 1536px以下のモニタで適用
+
+******************************************************************/
+
+// ------- base.html -------
+
+header.header .header_logo:not(:root) {
+    margin-bottom: 50%;
+}
+
+main.index .main__images .top_title {
+    top: 53%;
+    left: 39%;
+}
+
+// ------- base_identity.html -------
+
+header.identity .ide_logo:not(:root) {
+    margin-bottom: 50%;
+}
+
+main.identity_bg .content_identity:not(:root) .img_main .contentsText {
+    top: 80%;
+}
+
+main.identity_bg .content_identity:not(:root) .img_main .contentsText h2 {
+    font-size: 5rem;
+}
+
+main.identity_bg .content_identity:not(:root) .img_main .contentsText p {
+    font-size: 2rem;
+}
+
+main.identity_bg .content_identity:not(:root) .img_main {
+    padding-bottom: 50%;
+}
+
+main.identity_bg .content_identity:not(:root) .img_sub .contentsText {
+    top: 80%;
+}
+
+main.identity_bg .content_identity:not(:root) .img_sub .contentsText h2 {
+    font-size: 4.5rem;
+}
+
+main.identity_bg .content_identity:not(:root) .img_sub .contentsText p {
+    font-size: 2rem;
+}
+
+main.identity_bg .content_identity:not(:root) .img_sub {
+    padding-bottom: 50%;
+    padding-top: 15%;
+}
+
+main.identity_bg .content_identity:not(:root) .img_sub.end {
+    padding-bottom: 50%;
+    margin-bottom: 5%;
+}

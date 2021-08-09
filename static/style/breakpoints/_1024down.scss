@@ -47,3 +47,43 @@ Stylesheet: 1024px以下のモニタで適用
 .footer_ide {
     display: none;
 }
+
+#container .mobile-header .mobile_logo {
+    margin-bottom: 70%;
+}
+
+// ----------- identity.html ------------
+
+body {
+    main.identity_bg .content_identity:not(:root) {
+        margin: 0% 15%;
+        padding-top: 35%;
+    }
+
+    main.identity_bg .content_identity:not(:root) .img_main .contentsText h2 {
+        font-size: 4rem;
+    }
+
+    main.identity_bg .content_identity:not(:root) .img_main .contentsText p {
+        font-size: 1.6rem;
+    }
+
+    main.identity_bg .content_identity:not(:root) .img_sub .contentsText h2 {
+        font-size: 3.5rem;
+    }
+
+    main.identity_bg .content_identity:not(:root) .img_sub .contentsText p {
+        font-size: 1.5rem;
+    }
+
+    main.identity_bg .content_identity:not(:root) .img_sub.end {
+        margin-bottom: 15%;
+    }
+}
+
+
+// ------- article_list.html -------
+.content_list {
+    margin: 0% 7%;
+    padding-top: 13%;
+}

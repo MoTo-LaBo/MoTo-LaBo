@@ -179,7 +179,8 @@
 }
 
 .mobile-menu_btn {
-    background-color: unset;
+    background-color: rgba(0, 0, 0, 0.1);
+    padding: 4px 2px;
     border: none;
     outline: none !important;
     cursor: pointer;
@@ -248,8 +249,8 @@
     @include f_style;
 
     & #footer-mobile_links {
-        position: absolute;
-        bottom: 5%;
+        position: fixed;
+        bottom: 10%;
         left: 13%;
         display: flex;
         justify-content: center;
@@ -258,7 +259,7 @@
 
         & li {
             display: inline;
-            margin: 0 25% 0 0;
+            margin: 0 30% 0 0;
 
             & a.sns_link {
                 text-decoration: none;
