@@ -10,7 +10,7 @@
     &_list {
         @include content_w(0 25% 0 25%);
         @include f_style;
-        padding-top: 7%;
+        padding: 7% 0%;
 
         & .btn {
             @include btn;
@@ -32,9 +32,11 @@
 
     // ------- Article detail page(artcle_detail.html) -------
     &_detail {
-        position: absolute;
-        @include content_w($mg:6% 30% 0% 30%);
+        position: relative;
+        @include content_w($mg:0% 30% 0% 30%);
         @include f_style;
+        padding: 7% 0%;
+        z-index: 30;
 
         & .btn {
             @include btn;
@@ -221,6 +223,11 @@
     &_contact {
         @include content_w($mg:0% 25% 0% 25%);
         padding-top: 14%;
+
+        & .g-recaptcha {
+            display: flex;
+            justify-content: center;
+        }
 
         & .btn {
             @include btn;

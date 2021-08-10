@@ -82,8 +82,58 @@ body {
 }
 
 
-// ------- article_list.html -------
+// ----------- article_list.html -----------
+
 .content_list {
-    margin: 0% 7%;
-    padding-top: 13%;
+    position: relative;
+    margin: 0% 15%;
+    padding: 20% 0%;
+    z-index: 30;
+}
+
+
+// ----------- article_detaile.html -----------
+
+.content_detail {
+    margin: 0% 10%;
+    padding: 20% 0%;
+}
+
+// card zindex-30　と干渉してしまう為
+#global-container.menu-open {
+    z-index: 40;
+}
+
+
+// ----------- contact.html -----------
+.content {
+
+    &_contact {
+        padding-top: 30%;
+        margin: 0% 20%;
+    }
+}
+
+// ------- auth.html(login/signin -------
+
+
+.content_auth {
+    margin: 35% 6%;
+
+    .title_box {
+        margin: auto 12% 13% auto;
+    }
+
+    .login_box {
+        margin: 0 10% 0 0;
+
+        .mx-5 {
+            margin-right: 0 !important;
+            margin-left: 0 !important;
+
+            & h1.me-5 {
+                margin-right: 0 !important;
+            }
+        }
+    }
 }
