@@ -35,6 +35,25 @@ Stylesheet: 1024px以下のモニタで適用
     display: none;
 }
 
+
+// ------- About (about.html) -------
+
+body {
+    main.about .about_image {
+        margin: 0% 17%;
+        position: absolute;
+        display: flex;
+        justify-content: center;
+    }
+}
+
+main.about .about_image .content_description {
+    margin: 0;
+    padding-top: 30%;
+}
+
+
+
 // ------- base_identity.html -------
 #identity {
     display: none;

@@ -101,38 +101,35 @@ main {
 
     // ------- About (about.html) -------
     &.about {
-        & .about_image {
-            @include content_w(0% 10% 0% 21%);
-            height: 100vmin;
-            background-size: 81vw;
-            overflow: hidden;
+        .about_image {
+            margin: 0 26%;
+            height: 100vh;
             position: relative;
 
-            & .bgimg_about {
+            img {
                 height: 100%;
-                width: 100%;
-                background-position: center;
-                background-repeat: no-repeat;
-                background-size: contain;
-                position: absolute;
                 z-index: -1;
-                padding: 0 18%;
+                position: fixed;
+                object-fit: cover;
             }
 
-            & .drection {
+            .content_description {
                 @include f_style();
                 color: $mwhite;
                 text-align: left;
                 font-weight: 100;
-                margin-top: 10%;
-                padding: 5% 15% 5% 25%;
+                display: inline-flex;
+                margin: 20% 5%;
+                justify-content: center;
+                z-index: 10;
 
-                & p {
+                .description {
                     @include f_style($l_height:3.5rem, $le_sp:2px);
                     font-weight: 100;
                 }
             }
         }
+
     }
 
     // ----------- identity main  ----------

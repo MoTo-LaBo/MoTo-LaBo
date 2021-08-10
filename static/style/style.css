@@ -538,33 +538,30 @@ main.index .main__images-logo {
   z-index: 11;
 }
 main.about .about_image {
-  margin: 0% 10% 0% 21%;
-  height: 100vmin;
-  background-size: 81vw;
-  overflow: hidden;
+  margin: 0 26%;
+  height: 100vh;
   position: relative;
 }
-main.about .about_image .bgimg_about {
+main.about .about_image img {
   height: 100%;
-  width: 100%;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: contain;
-  position: absolute;
   z-index: -1;
-  padding: 0 18%;
+  position: fixed;
+  -o-object-fit: cover;
+     object-fit: cover;
 }
-main.about .about_image .drection {
+main.about .about_image .content_description {
   line-height: 2.4rem;
   font-size: 2rem;
   letter-spacing: 1px;
   color: #ffffff;
   text-align: left;
   font-weight: 100;
-  margin-top: 10%;
-  padding: 5% 15% 5% 25%;
+  display: inline-flex;
+  margin: 20% 5%;
+  justify-content: center;
+  z-index: 10;
 }
-main.about .about_image .drection p {
+main.about .about_image .content_description .description {
   line-height: 3.5rem;
   font-size: 2rem;
   letter-spacing: 2px;
@@ -1338,6 +1335,18 @@ main.identity_bg .content_identity:not(:root) .img_sub .contentsText p {
     top: 38%;
   }
 
+  body main.about .about_image {
+    margin: 0% 10% !important;
+  }
+
+  body main.about .about_image .content_description {
+    padding-top: 40%;
+  }
+
+  main.about .about_image .content_description .description {
+    font-size: 1.8rem;
+  }
+
   html body main.identity_bg .content_identity:not(:root) {
     margin: 0% 10%;
     padding-top: 50%;
@@ -1436,6 +1445,18 @@ main.identity_bg .content_identity:not(:root) .img_sub .contentsText p {
 
   .footer {
     display: none;
+  }
+
+  body main.about .about_image {
+    margin: 0% 17%;
+    position: absolute;
+    display: flex;
+    justify-content: center;
+  }
+
+  main.about .about_image .content_description {
+    margin: 0;
+    padding-top: 30%;
   }
 
   #identity {
@@ -1596,5 +1617,9 @@ main.identity_bg .content_identity:not(:root) .img_sub .contentsText p {
 
   header.identity .ide_logo {
     margin-bottom: 126%;
+  }
+
+  main.about .about_image {
+    margin: 0 30% 0 26%;
   }
 }/*# sourceMappingURL=style.css.map */

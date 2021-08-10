@@ -82,6 +82,21 @@ Stylesheet: 600px以下のタブレットやモニタで適用
 }
 
 
+// ------- About (about.html) -------
+
+body main.about .about_image {
+    margin: 0% 10% !important;
+}
+
+body main.about .about_image .content_description {
+    padding-top: 40%;
+}
+
+main.about .about_image .content_description .description {
+    font-size: 1.8rem;
+}
+
+
 // ----------- identity.html ------------
 
 html {
