@@ -9,7 +9,7 @@
         <div class="card-body p-4">
             <h4 class="card-title mb-0 ">{{ article.title }}</h4>
             <hr class="mb-0">
-            <p class="card-text collapse mt-3 mb-3" id="multiCollapseExample{{ article.id }}">
+            <p class="card-text collapse mt-5 mb-5 mx-3" id="multiCollapseExample{{ article.id }}">
                 {{ article.text | safe | linebreaksbr | urlize }}
             </p>
             <div class="d-flex justify-content-between m-3">

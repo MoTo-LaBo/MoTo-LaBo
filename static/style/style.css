@@ -871,9 +871,10 @@ main.identity_bg .content_identity:not(:root) .img_sub .contentsText p {
   letter-spacing: 1px;
 }
 .content_detail .card-text {
-  line-height: 2.4rem;
+  line-height: 3.5rem;
   font-size: 1.8rem;
   letter-spacing: 1px;
+  text-align: justify;
 }
 .content_detail .created_at {
   line-height: 2.4rem;
