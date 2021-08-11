@@ -1275,6 +1275,11 @@ main.identity_bg .content_identity:not(:root) .img_sub .contentsText p {
   color: #ffffff;
 }
 
+@media (max-width: 359px) {
+  body main.about .about_image .content_description .description {
+    margin-bottom: -130% !important;
+  }
+}
 @media (max-width: 600px) {
   /******************************************************************
 
@@ -1305,7 +1310,7 @@ main.identity_bg .content_identity:not(:root) .img_sub .contentsText p {
     right: -20%;
   }
   #container .mobile-side_copy {
-    right: -18%;
+    right: -13%;
   }
   #container #footer-mobile #footer-mobile_links {
     left: 67%;
@@ -1341,10 +1346,11 @@ main.identity_bg .content_identity:not(:root) .img_sub .contentsText p {
 
   body main.about .about_image .content_description {
     padding-top: 40%;
+    margin: 0 0 -150%;
   }
-
-  main.about .about_image .content_description .description {
+  body main.about .about_image .content_description .description {
     font-size: 1.8rem;
+    margin-bottom: -30%;
   }
 
   html body main.identity_bg .content_identity:not(:root) {
@@ -1378,6 +1384,9 @@ main.identity_bg .content_identity:not(:root) .img_sub .contentsText p {
   }
   html body main.identity_bg .content_identity:not(:root) .img_sub.end {
     padding-bottom: 75%;
+  }
+  html body main.identity_bg .content_identity:not(:root) .img_sub img.water_well {
+    max-width: 65%;
   }
 
   main.content_contact {
@@ -1415,6 +1424,15 @@ main.identity_bg .content_identity:not(:root) .img_sub .contentsText p {
   }
   div.content_detail .mb-0 {
     margin-bottom: 5% !important;
+  }
+
+  main.content_account {
+    margin: 0% 15% 15% 15%;
+    padding-top: 35%;
+  }
+
+  main.content_account .profile_image img {
+    width: 73vw;
   }
 }
 @media (max-width: 1024px) {
@@ -1479,11 +1497,17 @@ main.identity_bg .content_identity:not(:root) .img_sub .contentsText p {
     margin: 0% 15%;
     padding-top: 35%;
   }
+  body main.identity_bg .content_identity:not(:root) .img_main img.moto {
+    max-width: 60%;
+  }
   body main.identity_bg .content_identity:not(:root) .img_main .contentsText h2 {
     font-size: 4rem;
   }
   body main.identity_bg .content_identity:not(:root) .img_main .contentsText p {
     font-size: 1.6rem;
+  }
+  body main.identity_bg .content_identity:not(:root) .img_sub img.nature {
+    max-width: 80%;
   }
   body main.identity_bg .content_identity:not(:root) .img_sub .contentsText h2 {
     font-size: 3.5rem;
@@ -1514,6 +1538,20 @@ main.identity_bg .content_identity:not(:root) .img_sub .contentsText p {
   .content_contact {
     padding-top: 30%;
     margin: 0% 20%;
+  }
+  .content_contact .contact_area {
+    z-index: 30;
+  }
+
+  .content_account {
+    margin: 0% 20% 14% 20%;
+    padding-top: 20%;
+  }
+  .content_account .account_area {
+    z-index: 30;
+  }
+  .content_account .profile_image img {
+    width: 62vw;
   }
 
   .content_auth {

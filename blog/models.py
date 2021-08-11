@@ -1,5 +1,6 @@
 from django.db import models
 from django.contrib.auth import get_user_model
+import os
 
 
 class Tag(models.Model):
@@ -10,10 +11,16 @@ class Tag(models.Model):
         return self.slug
 
 
+def upload_thumbnail_to(instance, filename):  # image path の生成
+    user_id = str(instance.id)
+    return os.path.join('article_image', user_id, filename)
+
+
 class Article(models.Model):
     title = models.CharField(default="", max_length=30)
     text = models.TextField(default="",)
     author = models.CharField(default="", max_length=30)
+    thumbnail = models.ImageField(default="", blank=True, upload_to=upload_thumbnail_to)
     created_at = models.DateField(auto_now_add=True)
     updated_at = models.DateField(auto_now=True)
     count = models.IntegerField(default=0,)

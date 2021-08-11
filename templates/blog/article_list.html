@@ -6,7 +6,7 @@
         {% for obj in page_obj %}
         <div class="col p-0 mt-0 px-4 pb-5">
             <div class="bg-image hover-overlay ripple rounded-0" data-mdb-ripple-color="light">
-                <img class="img-fluid" src="https://mdbootstrap.com/img/Photos/Horizontal/Food/full page/2.jpg" alt="Card image cap" />
+                <img class="img-fluid" src="https://storage.googleapis.com/moto-labo/{{ obj.thumbnail }}" alt="Card image cap" />
                 <a href="/blog/{{ obj.id }}/">
                     <div class="mask" style="background-color: rgba(251, 251, 251, 0.15);"></div>
                 </a>

@@ -8,6 +8,11 @@
 @import 'modules/mobile';
 
 
+@media (max-width: 359px) {
+    body main.about .about_image .content_description .description {
+        margin-bottom: -130% !important;
+    }
+}
 
 @media (max-width: 600px) {
     @import "breakpoints/600down";

@@ -79,12 +79,21 @@ body {
         padding-top: 35%;
     }
 
+    main.identity_bg .content_identity:not(:root) .img_main img.moto {
+        max-width: 60%;
+    }
+
     main.identity_bg .content_identity:not(:root) .img_main .contentsText h2 {
         font-size: 4rem;
     }
 
     main.identity_bg .content_identity:not(:root) .img_main .contentsText p {
         font-size: 1.6rem;
+    }
+
+
+    main.identity_bg .content_identity:not(:root) .img_sub img.nature {
+        max-width: 80%;
     }
 
     main.identity_bg .content_identity:not(:root) .img_sub .contentsText h2 {
@@ -130,8 +139,32 @@ body {
     &_contact {
         padding-top: 30%;
         margin: 0% 20%;
+
+        .contact_area {
+            z-index: 30;
+        }
     }
 }
+
+
+// ------- Account page(account.html) -------
+
+.content {
+
+    &_account {
+        @include content_w($mg:0% 20% 14% 20%);
+        padding-top: 20%;
+
+        .account_area {
+            z-index: 30;
+        }
+
+        .profile_image img {
+            width: 62vw;
+        }
+    }
+}
+
 
 // ------- auth.html(login/signin -------
 
