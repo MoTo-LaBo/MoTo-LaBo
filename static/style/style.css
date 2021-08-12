@@ -839,6 +839,9 @@ main.identity_bg .content_identity:not(:root) .img_sub .contentsText p {
   padding: 0.8rem 1.5rem;
   font-size: 1.6rem;
   letter-spacing: 1px;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
 }
 .content_detail .like_btn .btn {
   padding: 0.8rem 1.5rem;
@@ -1048,8 +1051,10 @@ main.identity_bg .content_identity:not(:root) .img_sub .contentsText p {
 #global-container {
   position: fixed;
   width: 100%;
+  height: 4%;
+  top: 3%;
   background: none;
-  z-index: 20;
+  z-index: 35;
 }
 
 #container {
@@ -1059,6 +1064,7 @@ main.identity_bg .content_identity:not(:root) .img_sub .contentsText p {
   z-index: 2;
   transform: translateX(-100%);
   transition: all 2s;
+  margin: -4% 0 0 0;
 }
 #container .mobile-header {
   text-align: left;
@@ -1287,13 +1293,14 @@ main.identity_bg .content_identity:not(:root) .img_sub .contentsText p {
   Stylesheet: 600px以下のタブレットやモニタで適用
 
   ******************************************************************/
-  #global-container .mobile-menu_btn {
+  #global-container {
+    height: 5%;
     top: 5%;
-    right: 5%;
   }
 
-  #container .mobile-header {
-    top: 5%;
+  #container {
+    height: 105vh;
+    margin: -12% 0 0 0;
   }
   #container .mobile-header .mobile_logo {
     margin-bottom: 50%;
@@ -1404,7 +1411,7 @@ main.identity_bg .content_identity:not(:root) .img_sub .contentsText p {
   }
 
   div.content_detail {
-    margin: 0% 15%;
+    margin: 0% 10%;
     padding: 30% 0%;
   }
   div.content_detail .card-title {
@@ -1412,13 +1419,12 @@ main.identity_bg .content_identity:not(:root) .img_sub .contentsText p {
     letter-spacing: 3px;
   }
   div.content_detail .card-text {
-    line-height: 2rem;
+    line-height: 3rem;
     font-size: 1.6rem;
-    margin: 15% 0 !important;
+    margin: 15% 3% !important;
   }
   div.content_detail .btn {
-    margin-bottom: 10%;
-    margin-left: 3%;
+    margin: 0% 6% 10% 3%;
   }
   div.content_detail .m-3 {
     margin: 0 !important;
@@ -1491,7 +1497,7 @@ main.identity_bg .content_identity:not(:root) .img_sub .contentsText p {
   }
 
   #container .mobile-header .mobile_logo {
-    margin-bottom: 70%;
+    margin-bottom: 65%;
   }
 
   body main.identity_bg .content_identity:not(:root) {
@@ -1517,7 +1523,7 @@ main.identity_bg .content_identity:not(:root) .img_sub .contentsText p {
     font-size: 1.5rem;
   }
   body main.identity_bg .content_identity:not(:root) .img_sub.end {
-    margin-bottom: 15%;
+    margin-bottom: 25%;
   }
 
   .content_list {
@@ -1525,6 +1531,10 @@ main.identity_bg .content_identity:not(:root) .img_sub .contentsText p {
     margin: 0% 15%;
     padding: 20% 0%;
     z-index: 30;
+  }
+  .content_list .px-4,
+.content_list .pb-5 {
+    padding: 0 0 15% !important;
   }
 
   .content_detail {

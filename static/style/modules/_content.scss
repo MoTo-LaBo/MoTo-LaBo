@@ -40,6 +40,9 @@
 
         & .btn {
             @include btn;
+            display: inline-flex;
+            justify-content: center;
+            align-items: center;
         }
 
         // ------- like btn -------

@@ -68,7 +68,7 @@ main.about .about_image .content_description {
 }
 
 #container .mobile-header .mobile_logo {
-    margin-bottom: 70%;
+    margin-bottom: 65%;
 }
 
 // ----------- identity.html ------------
@@ -105,7 +105,7 @@ body {
     }
 
     main.identity_bg .content_identity:not(:root) .img_sub.end {
-        margin-bottom: 15%;
+        margin-bottom: 25%;
     }
 }
 
@@ -117,6 +117,11 @@ body {
     margin: 0% 15%;
     padding: 20% 0%;
     z-index: 30;
+
+    .px-4,
+    .pb-5 {
+        padding: 0 0 15% !important;
+    }
 }
 
 
@@ -125,6 +130,7 @@ body {
 .content_detail {
     margin: 0% 10%;
     padding: 20% 0%;
+
 }
 
 // card zindex-30　と干渉してしまう為

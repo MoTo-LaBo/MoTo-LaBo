@@ -8,17 +8,17 @@ Stylesheet: 600px以下のタブレットやモニタで適用
 
 // ------- mobile menu -------
 #global-container {
-
-    & .mobile-menu_btn {
-        top: 5%;
-        right: 5%;
-    }
+    height: 5%;
+    top: 5%;
 }
+
 
 #container {
 
+    height: 105vh;
+    margin: -12% 0 0 0;
+
     & .mobile-header {
-        top: 5%;
 
         & .mobile_logo {
             margin-bottom: 50%;
@@ -186,7 +186,7 @@ div.content_list {
 // ----------- article_detaile.html -----------
 
 div.content_detail {
-    margin: 0% 15%;
+    margin: 0% 10%;
     padding: 30% 0%;
 
     .card-title {
@@ -195,14 +195,13 @@ div.content_detail {
     }
 
     .card-text {
-        line-height: 2rem;
+        line-height: 3rem;
         font-size: 1.6rem;
-        margin: 15% 0 !important;
+        margin: 15% 3% !important;
     }
 
     .btn {
-        margin-bottom: 10%;
-        margin-left: 3%;
+        margin: 0% 6% 10% 3%;
     }
 
     .m-3 {
