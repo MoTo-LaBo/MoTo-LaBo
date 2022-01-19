@@ -1344,6 +1344,7 @@ main.identity_bg .content_identity:not(:root) .img_sub .contentsText p {
     letter-spacing: 1px;
   }
   #index .main__images-logo {
+    position: -webkit-sticky;
     position: sticky;
     top: 38%;
   }
